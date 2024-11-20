@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interface\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Topmass.Core.Model\Topmass.Core.Model.csproj" />
+    <ProjectReference Include="..\Topmass.Core.Repository\Topmass.Core.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

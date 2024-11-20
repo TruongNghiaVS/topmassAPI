@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.32" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Topmass.Business.History\Topmass.Business.History.csproj" />
+    <ProjectReference Include="..\..\Topmass.Business.Regional\Topmass.Business.Regional.csproj" />
+    <ProjectReference Include="..\..\Topmass.Bussiness.Mail\Topmass.Bussiness.Mail.csproj" />
+    <ProjectReference Include="..\..\Topmass.Campang.Business\Topmass.Campagn.Business.csproj" />
+    <ProjectReference Include="..\..\TopMass.Core.Result\TopMass.Core.Result.csproj" />
+    <ProjectReference Include="..\..\Topmass.CV.Business\Topmass.CV.Business.csproj" />
+    <ProjectReference Include="..\..\Topmass.Job.Business\Topmass.Job.Business.csproj" />
+    <ProjectReference Include="..\..\Topmass.Notification.Business\Topmass.Notification.Business.csproj" />
+    <ProjectReference Include="..\..\Topmass.Utility\Topmass.Utility.csproj" />
+    <ProjectReference Include="..\..\TopMass.Web.Business\TopMass.Web.Business.csproj" />
+    <ProjectReference Include="..\Topmass.Recruiter.Bussiness\Topmass.Recruiter.Bussiness.csproj" />
+  </ItemGroup>
+
+</Project>

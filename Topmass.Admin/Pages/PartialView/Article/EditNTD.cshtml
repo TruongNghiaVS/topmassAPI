@@ -1,0 +1,81 @@
+﻿<div class="modal-header">
+    @if (Model.Id < 1)
+    {
+        <h5 class="modal-title">Thêm mới ứng cử viên</h5>
+    }
+    else
+    {
+        <h5 class="modal-title">Cập nhật thông tin</h5>
+    }
+  
+    <button type="button" class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+    <form id="mainForm" class="needs-validation" novalidate>
+        <div class="row">
+            <input type="hidden" value="@Model.Id" id="cbcandidateId">
+            @{
+                var listcolumnLicence = new List<ControlItem>();
+
+                listcolumnLicence.Add(new ControlItem()
+            {
+                Lable = "Họ",
+                Name = "txtFirstName",
+                Value = ""
+            });
+                listcolumnLicence.Add(new ControlItem()
+            {
+                Lable = "Tên",
+                Name = "txtLastName",
+                Value = ""
+            });
+
+                listcolumnLicence.Add(new ControlItem()
+            {
+                Lable = "Số điện thoại",
+                Name = "txtPhone",
+                Value = ""
+            });
+                listcolumnLicence.Add(new ControlItem()
+            {
+                Lable = "Email",
+                Name = "txtEmail",
+                Value = ""
+            });
+
+                listcolumnLicence.Add(new ControlItem()
+            {
+                Lable = "Mật khẩu",
+                Name = "txtPassword",
+                Value = ""
+            });
+            }
+
+            @foreach (var control in listcolumnLicence)
+            {
+
+                Html.RenderPartial(control.PathControl, control);
+
+            }
+
+        </div>
+
+
+
+    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">
+            Đóng
+        </button>
+
+        <button type="button" onclick="" class="btn btn-primary">Lưu</button>
+
+
+    </div>
+    
+
+</div>

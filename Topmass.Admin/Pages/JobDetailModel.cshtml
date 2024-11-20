@@ -1,0 +1,668 @@
+﻿@page
+@using crmHuman.Pages
+@model JobDetailModel
+@{
+    ViewData["Title"] = Model.TitlePage;
+    var dataModel = Model.ResultData as dynamic;
+    var basicInfo = dataModel.DataBasic;
+    var infoBasic = dataModel.InfoBasic;
+    var dataAll = Model.DataLinhVuc as dynamic;
+    var dataAllLinhVuc = new List<Object>();
+    foreach (var item in dataAll)
+    {
+        var itemXacThuc = item as dynamic;
+
+        dataAllLinhVuc.Add(new
+        {
+            id =  item.Id,
+            text = item.Text
+        });
+    }
+    var dataAll2 = Model.DataTypeOfWork as dynamic;
+    var dataTypeOfWork = new List<Object>();
+    foreach (var item in dataAll2)
+    {
+        var itemXacThuc = item as dynamic;
+
+        dataTypeOfWork.Add(new
+        {
+            id = item.Id,
+            text = item.Text
+        });
+    }
+
+
+        var dataAll3 = Model.DataLevelMaster as dynamic;
+
+    var dataCapBac= new List<Object>();
+
+    foreach (var item in dataAll3)
+    {
+        var itemXacThuc = item as dynamic;
+
+        dataCapBac.Add(new
+        {
+            id = item.Id,
+            text = item.Text
+        });
+    }
+
+
+
+
+    var dataAll4 = Model.DataExperMaster as dynamic;
+
+    var DdataExperMaster= new List<Object>();
+
+    foreach (var item in dataAll4)
+    {
+        var itemXacThuc = item as dynamic;
+
+        DdataExperMaster.Add(new
+        {
+            id = item.Id,
+            text = item.Text
+        });
+    }
+}
+<div class="pagetitle">
+    <h1>@Model.TitlePage</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/ntd">Danh sách tin đăng</a></li>
+            <li class="breadcrumb-item active">Thông tin </li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+<div class="row">
+    
+ <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+
+              <!-- Default Tabs -->
+              <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
+             
+                <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link w-100" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-justified" type="button" role="tab" aria-controls="contact" aria-selected="false">Thông tin chi tiết</button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-justified" type="button" role="tab" aria-controls="profile" aria-selected="false">Duyệt tin </button>
+                </li>
+
+                  <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100"  data-bs-toggle="tab" data-bs-target="#history-tab" type="button" role="tab" aria-controls="profile" aria-selected="false">lịch sử tương tác</button>
+                </li>
+                
+
+
+              </ul>
+              <div class="tab-content pt-2" id="myTabjustifiedContent">
+               
+                    <input type="hidden" id="idinput" name="custId" value="@Model.IdRequest">
+                <div class="tab-pane fade" id="profile-justified" role="tabpanel" aria-labelledby="profile-tab">
+                        @{
+                            var listcolumnLicence = new List<ControlItem>();
+
+
+                            listcolumnLicence.Add(new TitleBoxControlItem()
+                            {
+                            Lable = "Duyệt tin",
+
+                            });
+                            listcolumnLicence.Add(new ControlItem()
+                            {
+                                    Lable = "Trạng thái hiện tại",
+                                    Name = "txtStatus",
+                                    ReadOnly =  true,
+                                   Value = basicInfo.RuleStatusText
+                            });
+
+                         
+                            listcolumnLicence.Add(new SelectControl()
+                            {
+                            Lable = "Trạng thái mới",
+                            Name = "cbStatusjob",
+                            DisplayAll = false,
+                            DataSource  = new List<dynamic>() {
+
+                        new
+                        {
+                        id = 0, text = "Đang xét duyệt",
+                        },
+                      
+                        new {
+                        id = 2, text = "Đã duyệt",
+                        },
+                        new {
+                        id = 3, text = "Bị từ chối",
+                        },
+                        new {
+                        id = 4, text = "Tin bị khóa",
+                        }
+                            }});
+                            listcolumnLicence.Add(new ControlItem()
+                            {
+                            Lable = "Lý do, ghi chú",
+                            Name = "txtStatusDocumnet",
+                            Value = ""
+                            });
+                        }
+
+                        @foreach (var control in listcolumnLicence)
+                        {
+
+                            Html.RenderPartial(control.PathControl, control);
+
+                        }
+
+                        <br>
+                        <div class="justify-content-center">
+                            <button type="button" onclick ="updateConfrimStatusJob()" class="btn btn-primary">Duyệt tin</button>
+                        </div>
+
+
+                        <br>
+                        @{
+                             listcolumnLicence.Clear();
+                            listcolumnLicence.Add(new TitleBoxControlItem()
+                                {
+                                    Lable = "Thay đổi hiển thị",
+
+                                });
+
+                            listcolumnLicence.Add(new ControlItem()
+            {
+                Lable = "Trạng thái hiển thị hiện tại",
+                Name = "txtStatusDisplay",
+                ReadOnly = true,
+                Value = basicInfo.DisplaySTatusText
+            });
+
+
+
+                            listcolumnLicence.Add(new SelectControl()
+            {
+                Lable = "Trạng thái hiển thị mới",
+                Name = "cbStatusDisplay",
+                DisplayAll = false,
+                DataSource = new List<dynamic>() {
+
+                        new
+                        {
+                        id = 0, text = "Đang tắt",
+                        },
+                        new {
+                        id = 1, text = "Bật",
+                        },
+                        new {
+                        id = 2, text = "Hết hạn",
+                        }
+                        
+                        }
+            });
+                            listcolumnLicence.Add(new ControlItem()
+            {
+                Lable = "Lý do, ghi chú(nếu có)",
+                Name = "txtNoteDocumnetDisplay",
+                Value = ""
+            });
+                        }
+
+                        @foreach (var control in listcolumnLicence)
+                        {
+
+                            Html.RenderPartial(control.PathControl, control);
+
+                        }
+                       
+
+                        <br>
+                        <div class="justify-content-center">
+                            <button type="button" onclick ="updateStatusDisplay()" class="btn btn-primary">Thay đổi hiển thị tin đăng</button>
+                        </div>
+
+
+                        <br>
+                </div>
+                <div class="tab-pane fade" id="contact-justified" role="tabpanel" aria-labelledby="contact-tab">
+                               <div class="row "> 
+                                 <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+
+                                            <div class="col-lg-6 col-md-6  ">
+                                                @{
+                                                    
+                                                    var listColumnLeft = new List<ControlItem>();
+
+                                               
+                                        listColumnLeft.Add(new ControlItem()
+                                        {
+                                            Lable = "Tên tiêu đề *",
+                                           
+                                            Name = "txtTitle", Value =  basicInfo.Title
+                                        });
+                                                        listColumnLeft.Add(new ControlItem()
+                                            {
+                                            Lable = "Tên công ty",
+                                           
+                                            Name = "txtCompanyName",
+                                            Value = basicInfo.CompanyName
+                                            });
+                                            listColumnLeft.Add(new ControlItem()
+                                            {
+                                            Lable = "Tên chiến dịch",
+                                        
+                                            Name = "txtCampagnName",
+                                            Value = basicInfo.CampagnName
+                                            });
+
+                                       
+
+                                           listColumnLeft.Add(new ControlItem()
+                                        {
+                                        Lable = "Khu vực",
+                                       
+                                        Name = "txtKhuvuc",
+                                        Value = dataModel.AddressDetail
+                                        
+                                        });
+
+                                         
+
+                                         listColumnLeft.Add(new ControlItem()
+                                        {
+                                        Lable = "Mức lương",
+                                       
+                                        Name = "txtLuong",
+                                        Value =  dataModel.SalaryText
+                                        
+                                        });
+
+                                          listColumnLeft.Add(new ControlItem()
+                                        {
+                                        Lable = "Đơn vị tiền tệ",
+                                       
+                                        Name = "txtUnit",
+                                        Value =  dataModel.UnitText
+                                        
+                                        });
+                                      
+                                       listColumnLeft.Add(new ControlItem()
+                                        {
+                                        Lable = "Thời giam làm việc",
+                                       
+                                            Name = "txtThoiGianLamViec",
+                                            Type = 14,
+                                            Value =  dataModel.TextTimeWorking
+                                            
+                                        });
+
+                                             listColumnLeft.Add(new SelectControl()
+                            {
+                            Lable = "Giới tính",
+                            Name = "cbGender",
+                            DisplayAll = false,
+                            DataSource  = new List<dynamic>() {
+
+                                             new
+                                        {
+                                        id = 0, text = "Tất cả",
+                                        },
+                                        new
+                                        {
+                                        id = 1, text = "Nam",
+                                        },
+                                        new {
+                                        id = 2, text = "Nữ",
+                                        }
+                                        
+                            }});
+                                      
+                                                   
+                                                }
+
+                                            
+                                                @foreach (var control in listColumnLeft)
+                                                {
+
+                                                Html.RenderPartial(control.PathControl, control);
+
+                                                }
+
+                                            </div>
+
+                                        
+                                            <div class="col-lg-6 col-md-6 ">
+
+                                                 @{
+                                                    
+                                                    var listcolumnRight = new List<ControlItem>();
+
+                                                          listcolumnRight.Add(new ControlItem()
+                                        {
+                                        Lable = "Vị trí tuyển dụng",
+                                       
+                                        Name = "txtPosition",
+                                        Value = basicInfo.Position
+                                        });
+
+                                         listcolumnRight.Add(new ControlItem()
+                                        {
+                                        Lable = "Hạn nhận hồ sơ",
+                                       
+                                        Name = "txtDateExpri",
+                                        Value = basicInfo.ExpiryDateText
+                                        });
+
+                                        listcolumnRight.Add(new SelectControl()
+                                        {
+                                        Lable = "Ngành nghề",
+                                        Name = "cbNganhNghe",
+                                        DataSource = dataAllLinhVuc,
+                                        Value = 0
+                                        });
+
+                                           listcolumnRight.Add(new ControlItem()
+                                        {
+                                        Lable = "Số lượng tuyển",
+                                       
+                                        Name = "txtSLT",
+                                        Value = infoBasic.Quantity
+                                     
+                                        
+                                        });
+
+                                         listcolumnRight.Add(new SelectControl()
+                                        {
+                                                Lable = "Loại công việc ",
+                                            
+                                                Name = "cbLoaiCongViec",
+                                                DataSource = dataTypeOfWork
+                                        }); 
+                                         listcolumnRight.Add(new SelectControl()
+                                        {
+                                        Lable = "Cấp bậc",
+                                       
+                                        Name = "cbCapBac",
+                                       
+                                        DataSource = dataCapBac
+                                        });
+
+                                          listcolumnRight.Add(new SelectControl()
+                                        {
+                                        Lable = "Kinh nghiệm",
+                                       
+                                        Name = "cbKinhnghiem",
+                                        
+                                         DataSource = DdataExperMaster,
+                                        Value = 0
+                                        });
+
+                                                    
+                                                }
+                                                @foreach (var control in listcolumnRight)
+                                                    {
+
+                                                        Html.RenderPartial(control.PathControl, control);
+
+                                                    }
+
+                                            </div>
+
+
+
+                                       </div>
+                                        <div class="row">
+
+                                            <div class="col-lg-12 col-md-12  ">
+
+                                                @{
+
+                                                    var listColumn3 = new List<ControlItem>();
+
+                                                    listColumn3.Add(new TitleBoxControlItem()
+                                                    {
+                                                     Lable = "Thông tin chi tiết ",
+                                                   
+                                                    });
+                                                    listColumn3.Add(new ControlItem()
+                                                     {
+                                                     Lable = "Mô tả công việc  ",
+                                                    Name = "Description",
+                                                    Type = 2,
+                                                    Value = infoBasic.Description
+                                                    });
+
+
+                                                    listColumn3.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Yêu cầu ứng viên  ",
+                                                    Name = "Requirement",
+                                                    Type = 2,
+                                                Value = infoBasic.Requirement
+                                                    });
+
+                                                    listColumn3.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Quyền lợi ứng viên  ",
+                                                    Name = "Benefit",
+                                                    Type = 2,
+                                                     Value = infoBasic.Benefit
+                                                    });
+
+                                                    
+                                                }
+
+                                                @foreach (var control in listColumn3)
+                                                {
+
+                                                    Html.RenderPartial(control.PathControl, control);
+
+                                                }
+                                            </div>
+
+
+                                            <br />
+
+                                          
+
+                                        </div>
+ <div class="row">
+
+                                            <div class="col-lg-12 col-md-12  ">
+
+                                                @{
+
+                                                    var listColumn4 = new List<ControlItem>();
+
+                                                     listColumn4.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Họ và tên người nhận  ",
+                                                    Name = "txtNguoiNhan",
+                                                    Value = infoBasic.fullName
+                                                
+                                                     
+                                                    });
+                                                     listColumn4.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Số điện thoạ nhận  ",
+                                                    Name = "txtSoDienThoai",
+                                                     Value = infoBasic.Phone
+                                                   
+                                                    
+                                                    });
+                                                     listColumn4.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Email nhận hồ sơ   ",
+                                                    Name = "txtEmailReceive"
+                                                    
+                                                    });
+
+
+                                                     listColumn4.Add(new TitleBoxControlItem()
+                                                    {
+                                                    Lable = "Thông tin thêm",
+                                                   
+                                                    });
+
+                                                    listColumn4.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Ngày tạo",
+                                                    Name = "txtdateCreate",
+                                                    ReadOnly = true,
+                                                    Value = basicInfo.DateTimeCreateText
+                                                    });
+
+
+                                                    listColumn4.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Cập nhật gần nhất",
+                                                    Name = "txtlastUpdate",
+                                                    ReadOnly = true,
+                                                    Value = basicInfo.UpdateAtText
+                                                    });
+
+
+                                                    
+                                                }
+
+                                                @foreach (var control in listColumn4)
+                                                {
+
+                                                    Html.RenderPartial(control.PathControl, control);
+
+                                                }
+                                            </div>
+
+
+                                            <br />
+
+                                            <div class="justify-content-center">
+                                                <button type="button" class="btn btn-primary">Cập nhật thông tin</button>
+                                            </div>
+
+                                        </div>
+
+
+                                        </div>
+                                        </div>
+                                      
+                                    </div>
+
+                                 </div>
+                                
+   
+                  </div>
+
+                    <div class="tab-pane fade" id="history-tab" role="tabpanel" aria-labelledby="history-tab">
+                               <div class="row "> 
+                                 <div class="col-lg-12">
+                                <table class="table  table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Ngày tác động
+                                            </th>
+                                            <th>
+                                                Hành động
+                                            </th>
+                                            <th>
+                                               Trạng thái thay đổi
+                                            </th>
+                                            <th>
+                                                Ghi chú(nếu có)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            @foreach (var item in Model.DataLog as dynamic)
+                                        { 
+                                            <tr>
+                                                    <td>@item.DateTimeCreateText</td>
+                                                    <td>@item.StatusText</td>
+                                                    <td>@item.DataTypeText</td>
+                                                    <td>@item.Noted</td>
+                                             </tr>
+                                        
+                                        }
+
+
+                                    </tbody>
+                                    </table>
+                                       
+                                      
+                                    </div>
+
+                                 </div>
+                                
+   
+                  </div>
+                  
+
+                </div>
+                </div>
+              </div><!-- End Default Tabs -->
+
+            </div>
+          </div>
+
+</div>
+
+</section>
+
+<div class="modal fade" id="formModal" tabindex="-1">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content" id="contentModal">
+        </div>
+    </div>
+</div><!-- End Large Modal-->
+
+
+<script>
+     let globledata = @Html.Raw(Json.Serialize( Model.ResultData))
+     console.log(globledata);
+     function runDataOnLoad() {
+        document.getElementById("cbGender").selectedIndex = -1;
+        document.getElementById("cbKinhnghiem").selectedIndex = -1;
+         document.getElementById("cbLoaiCongViec").selectedIndex = -1;
+         document.getElementById("cbNganhNghe").selectedIndex = -1;
+        document.getElementById("cbCapBac").selectedIndex = -1;
+        document.getElementById("cbGender").value = globledata.infoBasic.gender;
+        document.getElementById("cbKinhnghiem").value = globledata.infoBasic.experience;
+        document.getElementById("cbLoaiCongViec").value = globledata.infoBasic.type_of_work;
+        document.getElementById("cbNganhNghe").value = globledata.infoBasic.profession;
+        document.getElementById("cbCapBac").value = globledata.infoBasic.rank;
+
+        debugger;
+
+        if(globledata.infoBasic.emails.length  > 1)
+        {
+             var emailsList =JSON.parse(globledata.infoBasic.emails);
+             var emailData = "";
+            for (let index = 0; index < emailsList.length; ++index) {
+                var dataItem = emailsList[index];
+               
+                  if(index == emailsList.length -1)
+                  {
+                      emailData += dataItem.Email;
+                  }
+                  else {
+
+                    emailData += dataItem.Email +" ;";
+                  }
+            }
+
+            document.getElementById("txtEmailReceive").value = emailData;
+            $("#contact-tab").click();
+        }
+
+
+    }
+
+</script>

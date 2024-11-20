@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\vietbank\\crm\\topmass\\TopMass.Import\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{02DFA522-09B2-40A7-B7BD-90143D4377F2}|TopMass.Import.csproj|c:\\vietbank\\crm\\topmass\\topmass.import\\candidateimportfromsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02DFA522-09B2-40A7-B7BD-90143D4377F2}|TopMass.Import.csproj|solutionrelative:candidateimportfromsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02DFA522-09B2-40A7-B7BD-90143D4377F2}|TopMass.Import.csproj|c:\\vietbank\\crm\\topmass\\topmass.import\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02DFA522-09B2-40A7-B7BD-90143D4377F2}|TopMass.Import.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02DFA522-09B2-40A7-B7BD-90143D4377F2}|TopMass.Import.csproj|c:\\vietbank\\crm\\topmass\\topmass.import\\candidateinfoimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02DFA522-09B2-40A7-B7BD-90143D4377F2}|TopMass.Import.csproj|solutionrelative:candidateinfoimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CandidateInfoImport.cs",
+              "DocumentMoniker": "C:\\vietbank\\crm\\topmass\\TopMass.Import\\CandidateInfoImport.cs",
+              "RelativeDocumentMoniker": "CandidateInfoImport.cs",
+              "ToolTip": "C:\\vietbank\\crm\\topmass\\TopMass.Import\\CandidateInfoImport.cs",
+              "RelativeToolTip": "CandidateInfoImport.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T04:36:20.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CandidateImportFromSource.cs",
+              "DocumentMoniker": "C:\\vietbank\\crm\\topmass\\TopMass.Import\\CandidateImportFromSource.cs",
+              "RelativeDocumentMoniker": "CandidateImportFromSource.cs",
+              "ToolTip": "C:\\vietbank\\crm\\topmass\\TopMass.Import\\CandidateImportFromSource.cs",
+              "RelativeToolTip": "CandidateImportFromSource.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T03:29:51.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\vietbank\\crm\\topmass\\TopMass.Import\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\vietbank\\crm\\topmass\\TopMass.Import\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T06:11:38.121Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

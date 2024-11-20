@@ -1,0 +1,121 @@
+﻿<form class="row g-3" method="get" action="@Model.NameController">
+
+    <div class="col-md-6">
+    <label class="form-label">Từ Ngày</label>
+    <input value="@Model.RequestSearch.FromText" type="date" name="from" class="form-control">
+    </div>
+    <div class="col-md-6">
+     <label class="form-label">Đến ngày</label>
+    <input value="@Model.RequestSearch.ToText" type="date" name="to" class="form-control">
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Từ khoá</label>
+        <input type="text" value="@Model.RequestSearch.Token" name="token" placeholder="MST, SĐT, Email, Tên người đại diện, Tên công ty " class="form-control">
+    </div>
+
+    @{
+
+   
+        var authenLevel = new SelectControl()
+            {
+                Lable ="Cấp độ xác thực",
+                Value = Model.RequestSearch.AuthenLevel,
+                Name = "AuthenLevel",
+                DisplayAll = true, 
+                DataSource = new List<dynamic>()
+    {
+    new  {id = "0", text = "Chưa xác thực email"
+    },
+    new  {id = "1", text = "Cấp độ 1"
+    },
+    new  {id = "2", text = "Cấp độ 2"
+    },
+    new  {id = "3", text = "Cấp độ 3"
+    }
+    }
+
+        };
+       
+        var statusControl = new SelectControl()
+        {
+                Value = Model.RequestSearch.CbStatus,
+                Lable = "Trạng thái tài khoản",
+                DisplayAll =true,
+           
+                Name = "cbStatus",
+                DataSource = new List<dynamic>() { new
+                {
+                id =0, text ="Khoá tài khoản",
+                },
+                new  {
+                id =1, text ="Hoạt động",
+                }
+                },
+                };
+
+        var timeWayOrderBy = new SelectControl()
+        {
+            Value = Model.RequestSearch.Orderby,
+            Lable ="Sắp xếp theo",
+                
+            DataSource = new List<dynamic>()
+            {
+                new
+                {
+                    id = 0,
+                    text = "thời gian cập nhật gần nhất"
+                },
+                 new
+                {
+                    id = 1,
+                    text = "thời gian cập nhật xa nhất"
+                }
+            },
+                Name = "Orderby"
+        };
+
+        var statusChungTu = new SelectControl()
+            {
+                Value = Model.RequestSearch.CbDocumnetStatus,
+                Lable = "Trạng thái chứng từ",
+                Name = "cbDocumnetStatus",
+                DisplayAll =true,
+                DataSource = new List<dynamic>() { new
+                {
+                id =0, text ="Chưa ghi nhận thông tin",
+                },
+                new  {
+                id =1, text ="Chờ duyệt",
+                },
+                new  {
+                id =2, text ="Từ chối",
+                },
+                new  {
+                id =3, text ="Đã duyệt",
+                }
+                },
+               
+            };
+        
+    }
+
+    @{
+        Html.RenderPartial(authenLevel.PathControl, authenLevel);
+        Html.RenderPartial(statusControl.PathControl, statusControl);
+        Html.RenderPartial(statusChungTu.PathControl, statusChungTu);
+        Html.RenderPartial(timeWayOrderBy.PathControl, timeWayOrderBy);
+
+        
+     }
+
+
+    <div class="col-md-6" style="display:none">
+        <label class="form-label">Limit</label>
+        <input type="text" name="limit" value="@Model.RequestSearch.Limit" class="form-control">
+    </div>
+    <div class="text-end">
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        @* <button type="button" class="btn btn-primary" onclick="openFormCommon(-1,'@Model.NameController')">Thêm mới</button> *@
+    </div>
+</form>

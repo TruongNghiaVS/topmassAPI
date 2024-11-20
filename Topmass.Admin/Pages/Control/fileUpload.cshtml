@@ -1,0 +1,20 @@
+﻿<div class="col-12 form-group">
+    <label class="form-label">@Model.Lable</label>
+    <input type="file" onchange="UploadImage(this,'avatar')" name="@Model.Name" class="form-control" required placeholder="" />
+    <div class="invalid-feedback-cs">
+    </div>
+    <div class="fileResult">
+        @if( !string.IsNullOrEmpty(Model.Value))
+            {  
+                var linkfiledisplay = Model.Value;
+               
+                <a href="@linkfiledisplay" target="_blank"> Thông tin file đính kèm</a>
+           
+            }
+    </div>
+
+   
+    <div class="fileValue">
+        <input type="hidden" id="@Model.Name"  class="valuefile" value="@Model.Value" />
+    </div>
+</div>

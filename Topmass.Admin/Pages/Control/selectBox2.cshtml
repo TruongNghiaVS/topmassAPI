@@ -1,0 +1,26 @@
+﻿<div class="col-12 form-group">
+
+    <label class="form-label"> @Model.Lable </label>
+    <select name="@Model.Name"  id = "@Model.Name" class="form-select" aria-label="">
+        @if (Model.DisplayAll)
+        {
+            <option selected value="-1">Tất cả</option>
+        }
+        
+        @foreach (var itemData in Model.DataSource)
+        {
+            var itemcontrol = itemData as dynamic;
+          
+            if(Model.Value == itemcontrol.id)
+            {
+                <option selected value="@itemcontrol.id">@itemcontrol.text</option>
+            }
+            else
+            {
+                <option  value="@itemcontrol.id">@itemcontrol.text</option>
+            }
+
+
+        }
+    </select>
+</div>

@@ -1,0 +1,615 @@
+﻿@page
+@using crmHuman.Pages
+@model NTDDetailModel
+@{
+    ViewData["Title"] = Model.TitlePage;
+    var dataModel = Model.ResultData as dynamic;
+    var basicInfo = dataModel.DataBasic;
+    var documentInfo = dataModel.DocumentDetailInfo;
+    var companyInfo = dataModel.CompanyInfo as dynamic;
+    var dataAll = Model.DataLinhVuc as dynamic;
+
+
+    var masterdataall = new List<Object>();
+
+    foreach (var item in dataAll)
+    {
+        var itemXacThuc = item as dynamic;
+
+        masterdataall.Add(new
+        {
+            id =  item.Id,
+            text = item.Text
+
+        });
+    }
+}
+<div class="pagetitle">
+    <h1>@Model.TitlePage</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/ntd">Nhà tuyển dụng</a></li>
+            <li class="breadcrumb-item active">Danh sách</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+<div class="row">
+    
+ <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+
+              <!-- Default Tabs -->
+              <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
+               <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-justified" type="button" role="tab" aria-controls="home" aria-selected="true">Thông tin người đại diện</button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-justified" type="button" role="tab" aria-controls="profile" aria-selected="false">Giấy đăng ký</button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-justified" type="button" role="tab" aria-controls="contact" aria-selected="false">Thông tin công ty</button>
+                </li>
+
+                <li class="nav-item flex-fill" role="presentation">
+                        <button class="nav-link w-100" id="account-tab" data-bs-toggle="tab" data-bs-target="#account-justified" type="button" role="tab" aria-controls="contact" aria-selected="false">Thông tin tài khoản</button>
+                </li>
+
+              </ul>
+              <div class="tab-content pt-2" id="myTabjustifiedContent">
+                <div class="tab-pane fade show active" id="home-justified" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row justify-content-center"> 
+                    <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                                    @{
+                                        var listcolumnInfoWhosePerson = new List<ControlItem>();
+
+                                        listcolumnInfoWhosePerson.Add(new ControlItem()
+                                        {
+                                            Lable = "Họ Tên", Name = "txtName", Value =  basicInfo.Name
+                                        });
+
+
+                                    listcolumnInfoWhosePerson.Add(new GenderControl()
+                                        {
+                                            Lable = "Giới  tính",
+                                            Name = "cbGender",
+                                            Type = 10
+                                        });
+
+                                        listcolumnInfoWhosePerson.Add(new ControlItem()
+                                        {
+                                        Lable = "Số diện thoại",
+                                        Name = "txtphone",
+                                         Value = basicInfo.Phone
+                                        });
+                                    }
+
+                                @foreach (var control in listcolumnInfoWhosePerson)
+                                {
+
+                                    Html.RenderPartial(control.PathControl, control);
+
+                                }
+
+                                    <div class="justify-content-center">
+                                     <button type="button"  onclick="updateNTDInfo()" class="btn btn-primary">Cập nhật</button> 
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                    <input type="hidden" id="idinput" name="custId" value="@Model.IdRequest">
+                <div class="tab-pane fade" id="profile-justified" role="tabpanel" aria-labelledby="profile-tab">
+                        @{
+                            var listcolumnLicence = new List<ControlItem>();
+
+                            listcolumnLicence.Add(new FileControlItem()
+                             {
+                             Value = documentInfo.LinkFile,
+                            Lable = "Tài liệu, chứng từ",
+                            Name = "inputFileDocument",
+
+
+                            });
+                            listcolumnLicence.Add(new ControlItem()
+                            {
+                                    Lable = "Trạng thái hiện tại",
+                                    Name = "txtStatus",
+                                    ReadOnly =  true,
+                                    Value = documentInfo.CurrentStatus
+                            });
+
+                            listcolumnLicence.Add(new SelectControl()
+                            {
+                            Lable = "Trạng thái mới",
+                            Name = "cbStatusDucoment",
+                            DataSource = new List<dynamic>() { new
+                            {
+                                id =0, text ="Chưa ghi nhận thông tin",
+                            },
+                            new  {
+                                id =1, text ="Chờ duyệt",
+                            },
+                            new  {
+                            id =2, text ="Từ chối",
+                            },
+                              new  {
+                            id =3, text ="Đã duyệt",
+                            }
+                            },
+                            Value = 0
+                            });
+
+                            listcolumnLicence.Add(new SelectControl()
+              {
+                Lable = "Chọn Lý do từ chối",
+                Name = "cbStatusReasonStatus",
+                DataSource = new List<dynamic>() { new
+                        {
+                        id =0, text ="Chứng từ không rõ",
+                        },
+                        new  {
+                        id =1, text ="Thông tin không trùng khớp",
+                        },
+                        new  {
+                        id =2, text ="Chứng từ bản cũ ",
+                        },
+                        new  {
+                        id =3, text =" Chứng từ thiếu thông tin",
+                        }
+                        ,
+                        new  {
+                        id =4, text =" Chứng từ không hợp lệ",
+                        },
+                        new  {
+                        id =5, text ="Chứng từ không đúng",
+                        },
+                        new  {
+                        id =6, text ="Chứng từ quá hạn công chứng",
+                        },
+                        new  {
+                        id =7, text ="Khác",
+                        }
+                        },
+                        Value = 0
+                        });
+                            listcolumnLicence.Add(new ControlItem()
+            {
+                Lable = "Ghi chú thêm",
+                Name = "txtNoteDocumnet",
+                Value = ""
+            });
+                        }
+
+                        @foreach (var control in listcolumnLicence)
+                        {
+
+                            Html.RenderPartial(control.PathControl, control);
+
+                        }
+
+                        <br>
+                        <div class="justify-content-center">
+                            <button type="button" onclick ="UpdatedocumnetStatus()" class="btn btn-primary">Cập nhật</button>
+                        </div>
+
+
+
+                        <br />
+                        <h6>Lịch sử tương tác</h6>
+                        <div class="row ">
+                            <div class="col-lg-12">
+                                <table class="table  table-striped">
+                                    <thead>
+                                        <tr>
+
+                                            <th>
+                                                Ngày tác động
+                                            </th>
+                                            <th>
+                                                Hành động
+                                            </th>
+                                            <th>
+                                                Trạng thái thay đổi
+                                            </th>
+                                            <th>
+                                               Lý do từ chối (nếu có)
+                                            </th>
+                                            <th>
+                                                Ghi chú(nếu có)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.DataLog as dynamic)
+                                        {
+                                            <tr>
+                                                <td>@item.DateTimeCreateText</td>
+                                                <td>@item.StatusText</td>
+                                                <td><a href="@item.FullLink" target="_blank"> Thông tin file </a></td>
+                                                <td>@item.ReasonRejectText</td>
+                                                <td>@item.Noted</td>
+                                            </tr>
+
+                                        }
+
+
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+
+                        </div>
+
+                </div>
+                <div class="tab-pane fade" id="contact-justified" role="tabpanel" aria-labelledby="contact-tab">
+                               <div class="row "> 
+                                 <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+
+                                            <div class="col-lg-6 col-md-6  ">
+                                                @{
+                                                    
+                                                    var listColumnLeft = new List<ControlItem>();
+
+                                                    listColumnLeft.Add(new AvatarControlItem()
+                                                    {
+                                                    Value = companyInfo.FullLinkLogoLink,
+                                                    Lable = "Logo Công ty",
+                                                    Name = "logoCompany",
+
+
+                                                    });
+                                                    listColumnLeft.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Mã số thuế",
+                                                    Name = "txtcode",
+                                                    Value = companyInfo.TaxCode
+                                                    });
+
+                                                    listColumnLeft.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Website",
+                                                    Name = "txtWebsite",
+                                                    Value = companyInfo.Website
+                                                    });
+                                                    listColumnLeft.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Quy mô",
+                                                    Name = "txtCapacity",
+                                                    Value = companyInfo.Capacity
+                                                    });
+                                                    listColumnLeft.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Email",
+                                                    Name = "txtEmail",
+                                                    Value = companyInfo.EmailCompany
+                                                    });
+
+                                                  
+                                                }
+
+                                            
+                                                @foreach (var control in listColumnLeft)
+                                                    {
+
+                                                    Html.RenderPartial(control.PathControl, control);
+
+                                                    }
+
+                                            </div>
+
+                                        
+                                            <div class="col-lg-6 col-md-6 ">
+
+                                                 @{
+                                                    
+                                                    var listcolumnRight = new List<ControlItem>();
+                                                    
+ listcolumnRight.Add(new ImageControlItem()
+                            {
+                            Lable = "Ảnh bìa công ty",
+                            Name = "coverBackgroudCompany",
+                            Value = companyInfo.FullLinkCoverLink,
+                            });
+                                                    listcolumnRight.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Tên công ty",
+                                                    Name = "txtCompnayName",
+                                                    Value = companyInfo.FullName
+                                                    });
+
+                                                    listcolumnRight.Add(new SelectControl()
+                                                    {
+                                                    Lable = "Lĩnh vực hoạt động",
+                                                    Name = "txtLinhVuc",
+                DataSource = masterdataall,
+                                                    Value = 0
+                                                    });
+                                                    listcolumnRight.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Địa chỉ",
+                                                    Name = "txtAddress",
+                                                    Value = companyInfo.AddressInfo
+                                                    });
+                                                    listcolumnRight.Add(new ControlItem()
+                                                    {
+                                                    Lable = "Số điện thoại",
+                                                    Name = "txtPhoneNumber",
+                                                    Value = companyInfo.Phone
+                                                    });
+                                                }
+                                                @foreach (var control in listcolumnRight)
+                                                    {
+
+                                                    Html.RenderPartial(control.PathControl, control);
+
+                                                    }
+
+                                            </div>
+
+
+
+                                       </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12  ">
+
+                                                @{
+                                                    var shortContent = new ControlItem()
+                                                    {
+                                                        Lable = "Mô tả ",
+                                                        Name = "txtShortDescription",
+                                                        Type = 2,
+                                                        Value = companyInfo.ShortDes
+                                                    };
+                                                    Html.RenderPartial(shortContent.PathControl, shortContent);
+                                                }
+                                            </div>
+
+
+                                            <br />
+
+                                           @*  <div class="justify-content-center">
+                                                <button type="button" class="btn btn-primary">Cập nhật thông tin</button>
+                                            </div> *@
+
+                                        </div>
+
+
+                                        </div>
+                                        </div>
+                                      
+                                    </div>
+
+                                 </div>
+                                
+   
+                       </div>
+                    <div class="tab-pane fade " id="account-justified" role="tabpanel" aria-labelledby="account-tab">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                                @{
+                                    var listcolumnAccountInfo = new List<ControlItem>();
+
+                                    listcolumnAccountInfo.Add(new ControlItem()
+            {
+                                        Lable = "Tên đăng nhập",
+                                        Name = "txtUserName",
+                                        ReadOnly = true,
+                                        Value = basicInfo.UserName
+                                    });
+
+                                      listcolumnAccountInfo.Add(new ControlItem()
+                                     {
+                                        Lable = "Ngày đăng ký",
+                                        Name = "txtRegister",
+                                        ReadOnly = true,
+                                         Value = basicInfo.DateTimeCreateText
+                                    });
+                                    listcolumnAccountInfo.Add(new TitleBoxControlItem()
+                                    {
+                                     Lable = "Thông tin xác thực tài khoản",
+              
+                                    });
+
+                                    
+
+                            
+
+                                       listcolumnAccountInfo.Add(new SelectControl()
+                                     {
+                                        Lable = "Trạng thái xác thực",
+                                        Name = "cbStatusConfirmEmail",
+                                        ReadOnly = true,
+                                       
+                                       
+                                        DataSource = new List<dynamic>() { new
+                                            {
+                                            id =0, text ="Chưa xác thực email",
+                                            },
+                                            new  {
+                                            id =1, text ="Cấp độ 1",
+                                            },
+                                            new  {
+                                            id =2, text ="Cấp độ 2",
+                                            },
+                                            new  {
+                                            id =3, text ="Cấp độ 3",
+                                            }
+                                          },
+                                    });
+                                    listcolumnAccountInfo.Add(new TitleBoxControlItem()
+                                    {
+                                        Lable = "Trạng thái tài khoản",
+
+                                    });
+              
+                                      listcolumnAccountInfo.Add(new SelectControl()
+                                     {
+                                        Lable = "Khoá tài khoản",
+                                        Name = "cbLockAccout",
+                                        ReadOnly = true,
+                                       
+                                        DataSource = new List<dynamic>() { new
+                                            {
+                                            id =0, text ="Khoá tài khoản",
+                                            },
+                                            new  {
+                                            id =1, text ="Đang hoạt động",
+                                            }
+                                            
+
+                                            },
+                                            });
+
+                                             listcolumnAccountInfo.Add(new SelectControl()
+                                     {
+                                        Lable = "Lý do khóa tài khoản",
+                                        Name = "cbReasonLockAccount",
+                                        ReadOnly = true,
+                                       
+                                        DataSource = new List<dynamic>() { new
+                                            {
+                                            id =0, text ="TK không sử dụng",
+                                            },
+                                            new  {
+                                            id =1, text ="TK vi phạm quy định tin đăng",
+                                            },
+                                            new  {
+                                            id =2, text ="TK đối thủ",
+                                            },
+                                            new  {
+                                            id =3, text ="TK gian lận",
+                                            }
+                                            },
+                                            });
+
+                                             listcolumnAccountInfo.Add(new ControlItem()
+                                        {
+                                        Lable = "Lý do, ghi chú",
+                                        Name = "txtNoteAccountInfo1",
+                                        Value = ""
+                                        });
+
+                                     @foreach (var control in listcolumnAccountInfo)
+                                    {
+
+                                        Html.RenderPartial(control.PathControl, control);
+
+                                    }
+                                    }
+                                <br>
+
+
+                                <div class="justify-content-center">
+                                    <button type="button" onclick="updateInformationAccout()" class="btn btn-primary rightButton">Cập nhật</button>
+                                    @* <button type="button"  onclick="SendmailActiveAcount()"  class="btn btn-primary rightButton ">Gửi mail kích hoạt tài khoản</button> *@
+                                    <button type="button" onclick="ResetpasswordAcount()" class="btn btn-primary rightButton">Reset mật khẩu</button>
+                                </div>
+
+
+
+
+
+                                <br />
+                                <h6>Lịch sử tương tác</h6>
+                                <div class="row ">
+                                    <div class="col-lg-12">
+                                        <table class="table  table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Ngày tác động
+                                                    </th>
+                                                    <th>
+                                                        Trạng thái TK cũ
+                                                    </th>
+                                                    <th>
+                                                        Trạng thái TK mới
+                                                    </th>
+                                                    <th>
+                                                        Trạng thái xác thực cũ
+                                                    </th>
+                                                    <th>
+                                                        Trạng thái xác thực mới
+                                                    </th>
+                                                    <th>
+                                                        Lý dó khóa (nếu có)
+                                                    </th>
+                                                    <th>
+                                                        Ghi chú(nếu có)
+                                                    </th>
+                                                  
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.DataLogAccount as dynamic)
+                                                {
+                                                    <tr>
+                                                        <td>@item.DateTimeCreateText</td>
+                                                        <td>@item.OldStatusText</td>
+                                                        <td>@item.NewStatusText</td>
+                                                        <td>@item.OldConfirmStatusText</td>
+                                                        <td>@item.NewConfirmStatusText</td>
+                                                        <td>@item.NotedReason</td>
+                                                        <td>@item.Noted</td>
+                                                    </tr>
+
+                                                }
+
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                </div>
+              </div><!-- End Default Tabs -->
+
+            </div>
+          </div>
+
+</div>
+
+</section>
+
+<div class="modal fade" id="formModal" tabindex="-1">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content" id="contentModal">
+        </div>
+    </div>
+</div><!-- End Large Modal-->
+
+
+<script>
+     let globledata = @Html.Raw(Json.Serialize( Model.ResultData))
+     console.log(globledata);
+     function runDataOnLoad() {
+         
+         document.getElementById("cbStatusDucoment").selectedIndex =-1;
+         document.getElementById("cbStatusConfirmEmail").value = globledata.dataBasic.levelAuthen1;
+        document.getElementById("cbLockAccout").selectedIndex = -1;
+        document.getElementById("cbLockAccout").value = globledata.dataBasic.statusCompany;
+        document.getElementById("cbReasonLockAccount").selectedIndex =-1;
+        document.getElementById("cbGender").selectedIndex = -1;
+        document.getElementById("cbGender").value = globledata.dataBasic.gender;
+
+        document.getElementById("cbStatusReasonStatus").selectedIndex = -1;
+        
+    }
+
+</script>

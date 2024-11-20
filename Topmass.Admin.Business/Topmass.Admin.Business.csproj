@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Topmass.Admin.Repository\Topmass.Admin.Repository.csproj" />
+    <ProjectReference Include="..\Topmass.Business.Regional\Topmass.Business.Regional.csproj" />
+    <ProjectReference Include="..\Topmass.Bussiness.Mail\Topmass.Bussiness.Mail.csproj" />
+    <ProjectReference Include="..\Topmass.Utility\Topmass.Utility.csproj" />
+  </ItemGroup>
+
+</Project>

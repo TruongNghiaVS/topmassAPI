@@ -1,0 +1,122 @@
+﻿@page
+@using crmHuman.Pages
+@model ArticleDetaillModel
+@{
+    ViewData["Title"] = "Chi tiết bài viết";
+    var itemDisplay = @Model.ResultData as dynamic;
+
+
+     var linkImage = "https://www.cdn.topmass.vn/static/blog/" + itemDisplay.CoverImage;  
+}
+
+<div class="pagetitle">
+    <h1>@Model.TitlePage</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/ArticleList">Bài viết </a></li>
+            <li class="breadcrumb-item active">@itemDisplay.Title</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+<div class="row">
+    
+ <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+               <form id ="mainForm"> 
+                 <input type ="hidden" value ="@itemDisplay.Id"  id ="idinput" > 
+                 <div class="col-lg-12 col-md-12 d-flex flex-column align-items-center justify-content-center">
+                                    @{
+                                        var listcolumnInfoWhosePerson = new List<ControlItem>();
+
+                                        listcolumnInfoWhosePerson.Add(new ControlItem()
+                                        {
+                                            Lable = "Tiều đề bài viết", Name = "txtTitle", 
+                                          
+                                            Value =  itemDisplay.Title
+                                        });
+
+                                           listcolumnInfoWhosePerson.Add(new  CategoryMutipleControl  ()
+                                        {
+                                            Lable = "Danh mục bài viết", Name = "linked[]",
+                                            Type = 9,
+                                             Value = ""
+                                        });
+
+
+                                        listcolumnInfoWhosePerson.Add(new ControlItem()
+                                        {
+                                        Lable = "Mô tả ngắn",
+                                           Name = "ShortDes",
+                                           
+                                        Value = itemDisplay.ShortDes
+                                        });
+                                      
+                                       
+                                        listcolumnInfoWhosePerson.Add(new BlogAvatarControlItem()
+                                        {
+                                        Value = linkImage,
+                                        Lable = "Hình ảnh share",
+                                        Name = "CoverImage",
+
+
+                                        });
+
+                                      
+                                         listcolumnInfoWhosePerson.Add(new ControlItem()
+                                        {
+                                        Lable = "Từ khóa",
+                                       Name = "keyword",
+                                      
+                                       Value = itemDisplay.KeyWord
+                                        });
+
+                               
+
+                                          listcolumnInfoWhosePerson.Add(  new ControlItem()
+                                        {
+                                            Lable = "Nội dung ",
+                                            Name = "contentEditor",
+                                            Type = 2,
+                                            Value = ""
+                                        });
+                                    }
+
+                                    @foreach (var control in listcolumnInfoWhosePerson)
+                                    {
+
+                                        Html.RenderPartial(control.PathControl, control);
+
+                                    }
+
+                                    <br>
+                                    <div class="justify-content-center">
+                            <button type="button" onclick="updateArticle()" class="btn btn-primary">@Model.TextButton</button>
+                                    </div>
+                        </div>
+
+                           </form>
+                    </div>
+               
+          
+            </div>
+          </div>
+
+</div>
+
+</section>
+
+<script>
+     let globledata = @Html.Raw(Json.Serialize(Model.ResultData))
+     function runDataOnLoad() {
+
+        setContentEditor("contentEditor", globledata.content );
+        setValueMutipleSelect(globledata.linked,"categoryList" );
+
+         
+     }
+
+</script>

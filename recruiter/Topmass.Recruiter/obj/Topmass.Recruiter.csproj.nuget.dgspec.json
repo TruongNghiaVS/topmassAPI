@@ -1,0 +1,1630 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
+        "projectName": "Topmass.Recruiter.Bussiness",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
+        "projectName": "Topmass.Recruiter",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj",
+        "projectName": "Topmass.Business.History",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.History\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj",
+        "projectName": "Topmass.Business.Regional",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.Regional\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj",
+        "projectName": "Topmass.Bussiness.Mail",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campagn.Repository\\Topmass.Campagn.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campagn.Repository\\Topmass.Campagn.Repository.csproj",
+        "projectName": "Topmass.Campagn.Repository",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campagn.Repository\\Topmass.Campagn.Repository.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campagn.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj",
+        "projectName": "Topmass.Campagn.Business",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campang.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campagn.Repository\\Topmass.Campagn.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campagn.Repository\\Topmass.Campagn.Repository.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj",
+        "projectName": "Topmass.Core.Common",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj",
+        "projectName": "Topmass.Core.Model",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj",
+        "projectName": "Topmass.Core.Repository",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj",
+        "projectName": "TopMass.Core.Result",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj",
+        "projectName": "Topmass.CV.Business",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Repository\\Topmass.CV.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Repository\\Topmass.CV.Repository.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Repository\\Topmass.CV.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Repository\\Topmass.CV.Repository.csproj",
+        "projectName": "Topmass.CV.Repository",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Repository\\Topmass.CV.Repository.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj",
+        "projectName": "Topmass.Job.Business",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Job.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj",
+        "projectName": "Topmass.Mail.Repository",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj",
+        "projectName": "Topmass.Notification.Business",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj",
+        "projectName": "Topmass.Notification.Repository",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\Topmass.Notification.Repository.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj",
+        "projectName": "Topmass.Recruiter.Repository",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj",
+        "projectName": "Topmass.Utility",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj",
+        "projectName": "TopMass.Web.Business",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Web.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Common\\Topmass.Core.Common.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Web.Repository\\Topmass.Web.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Web.Repository\\Topmass.Web.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Web.Repository\\Topmass.Web.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Web.Repository\\Topmass.Web.Repository.csproj",
+        "projectName": "Topmass.Web.Repository",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Web.Repository\\Topmass.Web.Repository.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Web.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

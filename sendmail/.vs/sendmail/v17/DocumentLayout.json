@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\vietbank\\crm\\topmass\\sendmail\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4323BE68-E962-47A2-AFF4-48941D69A928}|sendmail.csproj|c:\\vietbank\\crm\\topmass\\sendmail\\template\\registersuccessucv.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4323BE68-E962-47A2-AFF4-48941D69A928}|sendmail.csproj|solutionrelative:template\\registersuccessucv.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegisterSuccessUCV.html",
+              "DocumentMoniker": "C:\\vietbank\\crm\\topmass\\sendmail\\Template\\RegisterSuccessUCV.html",
+              "RelativeDocumentMoniker": "Template\\RegisterSuccessUCV.html",
+              "ToolTip": "C:\\vietbank\\crm\\topmass\\sendmail\\Template\\RegisterSuccessUCV.html",
+              "RelativeToolTip": "Template\\RegisterSuccessUCV.html",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-09-05T07:50:40.299Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

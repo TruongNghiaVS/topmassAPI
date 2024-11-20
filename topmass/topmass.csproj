@@ -1,0 +1,32 @@
+﻿
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.32" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.0.0" />
+    <PackageReference Include="Quartz" Version="3.8.1" />
+    <PackageReference Include="Quartz.AspNetCore" Version="3.8.1" />
+    <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.8.1" />
+    <PackageReference Include="Quartz.Extensions.Hosting" Version="3.8.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Topmass.Business.History\Topmass.Business.History.csproj" />
+    <ProjectReference Include="..\Topmass.Business.Regional\Topmass.Business.Regional.csproj" />
+    <ProjectReference Include="..\Topmass.Bussiness.Company\Topmass.Bussiness.Company.csproj" />
+    <ProjectReference Include="..\Topmass.core.Business\Topmass.core.Business.csproj" />
+    <ProjectReference Include="..\Topmass.CV.Business\Topmass.CV.Business.csproj" />
+    <ProjectReference Include="..\Topmass.Job.Business\Topmass.Job.Business.csproj" />
+    <ProjectReference Include="..\Topmass.Sync.Business\Topmass.Sync.Business.csproj" />
+    <ProjectReference Include="..\TopMass.Web.Business\TopMass.Web.Business.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,5 @@
+﻿namespace Topmass.Core.Model
+{
+
+
+}
