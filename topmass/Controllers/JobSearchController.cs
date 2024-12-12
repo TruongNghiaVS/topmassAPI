@@ -148,6 +148,8 @@ namespace topmass.Model
                 SalaryTo = request.SalaryTo,
                 Gender = request.Gender,
                 SalaryFrom = request.SalaryFrom,
+                Limit = request.Limit,
+                Page = request.Page,
 
                 ModeOrderBy = request.ModeOrderBy.HasValue ? request.ModeOrderBy.Value : -1
             };

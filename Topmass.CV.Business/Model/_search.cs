@@ -63,7 +63,6 @@
         public int SalaryFrom { get; set; }
         public int SalaryTo { get; set; }
         public int TotalView { get; set; }
-
         public int TotalContact { get; set; }
         public string SearchId { get; set; }
         public string StatusProfile { get; set; }

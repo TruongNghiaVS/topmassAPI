@@ -15,6 +15,7 @@ namespace Topmass.Recruiter.Controllers
         private readonly ILogger<JobController> _logger;
         private readonly ICampagnBusiness _bussiness;
         private readonly IJobBusiness _jobBusiness;
+
         public JobController(ILogger<JobController> logger,
             ICampagnBusiness articleBusiness,
             IJobBusiness jobBusiness
@@ -29,14 +30,11 @@ namespace Topmass.Recruiter.Controllers
         public async Task<ActionResult> Add(JobItemRequestAdd request)
         {
             var resultUser = await GetCurrentUser();
-            var reponse = new BaseResult();
+            var reponse = new DataResult();
 
             if (string.IsNullOrEmpty(request.Name))
             {
-                reponse.AddError(nameof(request.Name), "Thiếu thông tên");
-            }
-            if (!reponse.Success)
-            {
+                reponse.Message = "Thiếu tông tin tiêu đề";
                 return StatusCode(reponse.StatusCode, reponse);
             }
             var requestAdd = new JobItemBusinessAdd()
@@ -77,8 +75,6 @@ namespace Topmass.Recruiter.Controllers
         {
             var resultUser = await GetCurrentUser();
             var reponse = new BaseResult();
-
-
             if (request.JobId < 1)
             {
                 reponse.AddError(nameof(request.JobId), "Thiếu thông tin định danh");
@@ -91,8 +87,6 @@ namespace Topmass.Recruiter.Controllers
             {
                 return StatusCode(reponse.StatusCode, reponse);
             }
-
-
             var requestAdd = new JobItemBusinessUpdate()
             {
                 JobId = request.JobId,
@@ -113,15 +107,12 @@ namespace Topmass.Recruiter.Controllers
                 Profession = request.Profession,
                 Type_money = request.Type_money,
                 Username = request.Username,
-
-
                 Skills = request.Skills,
                 Type_of_work = request.Type_of_work,
                 Expired_date = request.Expired_date,
                 Emails = request.Emails,
                 Locations = request.Locations,
                 Time_working = request.Time_working
-
             };
             var result = await _jobBusiness.UpdateJob(requestAdd);
             return StatusCode(result.StatusCode, result);
@@ -152,36 +143,7 @@ namespace Topmass.Recruiter.Controllers
             var result = await _jobBusiness.ChangeStatus(requestAdd);
             return StatusCode(result.StatusCode, result);
         }
-        //[HttpPost]
-        //public async Task<ActionResult> Update(JobItemRequestUpdate request)
-        //{
-        //    var resultUser = await GetCurrentUser();
-        //    var reponse = new BaseResult();
 
-        //    if (request.IdUpdate < 1)
-        //    {
-        //        reponse.AddError(nameof(request.IdUpdate), "Thiếu thông đối tượng ");
-        //    }
-        //    if (string.IsNullOrEmpty(request.Name))
-        //    {
-        //        reponse.AddError(nameof(request.Name), "Thiếu thông tên");
-        //    }
-        //    if (!reponse.Success)
-        //    {
-        //        return StatusCode(reponse.StatusCode, reponse);
-        //    }
-        //    var requestAdd = new JobItemUpdate()
-        //    {
-        //        From = DateTime.Now,
-        //        To = DateTime.Now,
-        //        JobId = request.IdUpdate.Value,
-        //        Name = request.Name,
-
-        //        HandleBy = int.Parse(resultUser.Id)
-        //    };
-        //    var result = await _jobBusiness.UpdateJob(requestAdd);
-        //    return StatusCode(result.StatusCode, result);
-        //}
 
         [HttpGet]
         public async Task<ActionResult> GetAll([FromQuery] JobSearchRequestFilter request)
@@ -281,7 +243,6 @@ namespace Topmass.Recruiter.Controllers
 
             };
             var result = await _jobBusiness.GetOverviewJob(requestAdd);
-
             var dataReponse = new
             {
                 result.JobId,
@@ -293,7 +254,6 @@ namespace Topmass.Recruiter.Controllers
                 result.TotalApply,
                 result.TotalViewer
             };
-
             return StatusCode(reponse.StatusCode, dataReponse);
         }
 
@@ -314,6 +274,15 @@ namespace Topmass.Recruiter.Controllers
                 To = request.To
 
             };
+            if (requestAdd.From.HasValue)
+            {
+                requestAdd.From = requestAdd.From.Value.Date;
+            }
+
+            if (requestAdd.To.HasValue)
+            {
+                requestAdd.To = requestAdd.To.Value.AddDays(1).Date.AddSeconds(-1);
+            }
             var result = await _jobBusiness.GetOverviewJob(requestAdd);
             var reponseData = new
             {

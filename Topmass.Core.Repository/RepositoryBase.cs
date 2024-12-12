@@ -13,8 +13,6 @@ namespace Topmass.Core.Repository
         {
 
         }
-
-
         public async Task<bool> ExceueProdure(string sqlPro, dynamic param)
         {
             if (string.IsNullOrEmpty(sqlPro))
@@ -23,17 +21,6 @@ namespace Topmass.Core.Repository
             }
             return await this.ExecuteSQL(sqlPro, param);
         }
-
-
-        //public async Task<List<TModel>> ExceueProdure(string sqlPro, dynamic param)
-        //{
-        //    if (string.IsNullOrEmpty(sqlPro))
-        //    {
-        //        return false;
-        //    }
-        //    return this.ExecuteSQL(sqlPro, param);
-        //}
-
 
         public async Task<bool> AddOrUPdate(TModel itemModel)
         {
@@ -206,8 +193,6 @@ namespace Topmass.Core.Repository
             var columnInserttext = string.Join(",", columnInsert.ToArray());
             var valuesInsertText = string.Join(",", valuesInser.ToArray());
             var sqlInsertStatement = "insert into " + tableName + " (" + columnInserttext + " )" + "values  (" + valuesInsertText + ")";
-
-
             try
             {
                 using (var _con = GetConnection())
@@ -224,11 +209,6 @@ namespace Topmass.Core.Repository
 
             }
         }
-
-
-
-
-
         private async Task<bool> Add2(TModel itemModel)
         {
             string[] ignore = { nameof(itemModel.UpdatedBy), nameof(itemModel.Id), nameof(itemModel.UpdateAt), nameof(itemModel.CreateAt),

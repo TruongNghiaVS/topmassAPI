@@ -28,6 +28,7 @@
         public string CategryIdLinkArticle { get; set; }
 
         public string ContentArticle { get; set; }
+        public string SlugArticle { get; set; }
     }
 
 }

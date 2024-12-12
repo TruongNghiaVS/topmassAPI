@@ -112,7 +112,8 @@ namespace Topmass.Recruiter.Controllers
                 ShortDes = request.ShortDes,
 
                 TaxCode = request.TaxCode,
-                Website = request.Website
+                Website = request.Website,
+                IframeEmbeddedMap = request.IframeEmbeddedMap
             };
             var result = await _humanBussiness.UpdateCompanyInfo(requestUpdate);
 
@@ -138,6 +139,12 @@ namespace Topmass.Recruiter.Controllers
             {
                 reponse.AddError(nameof(request.DocumentLink), "Thiếu thông tin file");
             }
+
+
+            if (string.IsNullOrEmpty(request.DocumentType))
+            {
+                reponse.AddError(nameof(request.DocumentType), "Thiếu thông tin loại chứng từ");
+            }
             if (!reponse.Success)
             {
                 return StatusCode(reponse.StatusCode, reponse);
@@ -145,6 +152,7 @@ namespace Topmass.Recruiter.Controllers
             var requestUpdate = new BusinessLicenseRequestUpdate()
             {
                 LinkFile = request.DocumentLink,
+                DocumnetType = request.DocumentType,
                 Email = resultUser.UserName,
                 HandleBy = int.Parse(resultUser.Id)
             };
@@ -155,6 +163,7 @@ namespace Topmass.Recruiter.Controllers
                 BusinessTime = DateTime.Now,
                 Content = "Cập nhật giấy đăng ký doanh nghiệp",
                 TypeData = 2,
+                DocumentType = request.DocumentType,
                 Source = 2,
                 UserId = resultUser.UserId
             });

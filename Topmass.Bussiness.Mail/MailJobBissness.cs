@@ -44,10 +44,25 @@ namespace Topmass.Bussiness.Mail
             {
                 mails = JsonSerializer.Deserialize<List<EmailProper>>(jobInfo.Emails);
             }
+            var recurInfo = await _jobInfoRepository
+            .FindOneByStatementSql<RecruiterModel>
+            ("select * from Recruiter where id = @id",
+            new
+            {
+                id = jobInfo.CreatedBy
+            });
+
             var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\\notifyHasApply.html";
             var contents = File.ReadAllText(pathTemplate);
-            contents = contents.Replace("{useName}", (candatidateInfo.FirstName + " " + candatidateInfo.FullName));
+            var fullNameEmail = request.NameInput;
+            if (string.IsNullOrEmpty(fullNameEmail))
+            {
+                fullNameEmail = candatidateInfo.FirstName + " " + candatidateInfo.FullName;
+            }
+            contents = contents.Replace("{useName}", fullNameEmail);
             contents = contents.Replace("{jobName}", (jobInfo.Name));
+            contents = contents.Replace("{companyName}", (recurInfo.Name));
+            contents = contents.Replace("{Introduction}", (request.Introduction));
             foreach (var item in mails)
             {
                 var mailData = new MailItem()
@@ -55,7 +70,7 @@ namespace Topmass.Bussiness.Mail
                     Data = new DataMailInfo()
                     {
                         Content = contents,
-                        Subject = "Thông báo có lượt apply mới cho vị trí " + jobInfo.Name
+                        Subject = "Thông báo lượt ứng tuyển mới – Topmass.vn"
                     },
                     MailTo = item.Email
                 };

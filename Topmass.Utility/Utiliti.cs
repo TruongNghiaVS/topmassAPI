@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Topmass.Utility
@@ -37,29 +38,40 @@ namespace Topmass.Utility
         }
 
 
-        public static string SlugifySlug(string value)
+        public static string SlugifySlug(string input)
         {
-            value = RemoveSign4VietnameseString(value);
-            //First to lower case
-            value = value.ToLowerInvariant();
 
-            //Remove all accents
-            var bytes = Encoding.GetEncoding("Cyrillic").GetBytes(value);
-            value = Encoding.ASCII.GetString(bytes);
+            if (string.IsNullOrEmpty(input))
+                return string.Empty;
+            // Normalize the input string to decompose accented characters
+            var normalizedString = input.Normalize(NormalizationForm.FormD);
+            // Remove diacritic marks (accents) and convert to ASCII
+            var stringBuilder = new StringBuilder();
+            foreach (var c in normalizedString)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                    stringBuilder.Append(c);
+            }
 
-            //Replace spaces
-            value = Regex.Replace(value, @"\s", "-", RegexOptions.Compiled);
+            // Convert to a string without diacritics
+            string asciiString = stringBuilder.ToString().Normalize(NormalizationForm.FormC);
 
-            //Remove invalid chars
-            value = Regex.Replace(value, @"[^a-z0-9\s-_]", "", RegexOptions.Compiled);
+            // Convert to lowercase
+            asciiString = asciiString.ToLowerInvariant();
 
-            //Trim dashes from end
-            value = value.Trim('-', '_');
+            // Remove invalid characters
+            asciiString = Regex.Replace(asciiString, @"[^a-z0-9\s-]", "");
 
-            //Replace double occurences of - or _
-            value = Regex.Replace(value, @"([-_]){2,}", "$1", RegexOptions.Compiled);
+            // Replace spaces and repeated dashes with a single dash
+            asciiString = Regex.Replace(asciiString, @"[\s-]+", " ").Trim();
+            asciiString = Regex.Replace(asciiString, @"\s", "-");
 
-            return value;
+            return asciiString;
+        }
+
+        public static string SlugifySlug2(string value)
+        {
+            return SlugifySlug(value);
         }
     }
 }

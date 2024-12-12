@@ -29,7 +29,6 @@ namespace Topmass.Recruiter.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> RequestChangePassword(RequestChangePasswordRequest request)
         {
-
             var dataError = new ErrorData() { };
             if (string.IsNullOrEmpty(request.Email))
             {
@@ -42,7 +41,6 @@ namespace Topmass.Recruiter.Controllers
             var result = await _authenBuisiness.HandleRequestPassword(request.Email);
             return StatusCode(result.StatusCode, result);
         }
-
 
         [HttpPost]
         [AllowAnonymous]
@@ -78,6 +76,17 @@ namespace Topmass.Recruiter.Controllers
             {
                 return StatusCode(303, dataError);
             }
+            var result = await _authenBuisiness.ChangePassword(request.Password, int.Parse(resultUserChange.Id));
+            return StatusCode(result.StatusCode, result);
+        }
+
+
+        [HttpPost]
+
+        public async Task<ActionResult> testmail()
+        {
+            var resultUserChange = await GetCurrentUser();
+            var request = new PasswordChanged();
             var result = await _authenBuisiness.ChangePassword(request.Password, int.Parse(resultUserChange.Id));
             return StatusCode(result.StatusCode, result);
         }

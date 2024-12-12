@@ -2547,7 +2547,8 @@ function updateArticle() {
      var keywordArticle = getValueControl("keyword");
      var linkImageArticle = getValueControl("CoverImage");
      var categryIdLinkArticle = getValueMutitpleSelect();
-     var contentArticle = getContentEditor("contentEditor");
+    var contentArticle = getContentEditor("contentEditor");
+    var slugArticle = getValueControl("txtSlug");
      if (titleArticle == "") {
         addError("txtTitle", "yêu cầu nhập ");
         return;
@@ -2557,6 +2558,7 @@ function updateArticle() {
     }
 
    
+
     if (shortDesArticle == "") {
         addError("ShortDes", "yêu cầu nhập");
         return;
@@ -2583,7 +2585,8 @@ function updateArticle() {
     }
      var bodyRequest =  {
         id : getValueControl("idinput"), 
-        titleArticle :  titleArticle,
+        titleArticle: titleArticle,
+        slugArticle: slugArticle,
         shortDesArticle: shortDesArticle, 
         keywordArticle : keywordArticle, 
         linkImageArticle : linkImageArticle.split('/').pop(),
@@ -2602,7 +2605,7 @@ function updateArticle() {
         url: '/ArticleDetail?handler=Update',
         data: bodyRequest,
         success: function (data) {
-            debugger;
+           
             successAdd(getValueControl("idinput"));
         },
         error: function (jqXHR, exception) {

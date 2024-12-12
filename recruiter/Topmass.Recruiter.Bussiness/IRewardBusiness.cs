@@ -7,6 +7,8 @@ namespace Topmass.Recruiter.Bussiness
     {
         public Task<BaseResult> ExchangePointToOpenCV(int
             searchId, int point, int userId, int? campaignId = -1);
+        public Task<BaseResult> ExchangePointToOpenCVNoSearchCV(int
+        searchId, int point, int userId, int identify, string fileName);
 
 
     }

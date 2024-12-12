@@ -9,6 +9,8 @@ namespace Topmass.Web.Repository
     {
         public Task<GetAllByCategoryReponse> GetAllCategory();
         public Task<GetAllArticleReponse> GetAll(ArticleFilter request);
+
+        public Task<GetAllArticleReponse> GetAllForToolsGetAllForTools();
         public Task<GetAllArticleReponse> GetAllShort(ArticleFilter request);
 
         public Task<GetAllByCategoryReponse> GetAllBlogsCategory();

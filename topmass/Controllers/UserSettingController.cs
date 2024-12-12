@@ -23,8 +23,6 @@ namespace topmass.Model
 
             _profileBusiness = profileBusiness;
         }
-
-
         [HttpPost]
         public async Task<ActionResult> SaveJobSetting(InputJobSettingRequest request)
         {
@@ -46,6 +44,8 @@ namespace topmass.Model
             baseReult.Data = data;
             return StatusCode(baseReult.StatusCode, baseReult);
         }
+
+
         [HttpGet]
         public async Task<ActionResult> GetJobSetting()
         {

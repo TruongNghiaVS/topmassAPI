@@ -34,7 +34,7 @@ namespace Topmass.Campagn.Repository
                new { id = id }, System.Data.CommandType.StoredProcedure);
             return result.ToList();
         }
-      
+
         public async Task<List<NTDShortInfo>> GetAllShortNTD()
         {
             var result = await ExecuteSqlProcerduceToList<NTDShortInfo>("sp_ntd_getShortinfo",
@@ -74,7 +74,6 @@ namespace Topmass.Campagn.Repository
                 reasonReject
 
             });
-
             return result;
 
         }
@@ -96,7 +95,6 @@ namespace Topmass.Campagn.Repository
             });
             return result;
         }
-
         public async Task<bool> UpdateInfoHuman(int statusAccout, int statusConfirm, int id, int reasonCode = -1, string noted = "")
         {
             var result = await ExecuteSqlProcedure("sp_adminUpdateInfoHuman",
@@ -119,15 +117,15 @@ namespace Topmass.Campagn.Repository
             {
                 FullName = FullName,
                 Gender = Gender,
-                phoneNumber  = phoneNumber,
+                phoneNumber = phoneNumber,
                 id = id
-                
+
 
             });
             return result;
         }
 
-        
+
 
         public async Task<bool> UpdateConfirmStatus(int id, int statusChange, string noted, string content)
         {

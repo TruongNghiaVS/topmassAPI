@@ -41,7 +41,6 @@ namespace topmass.Model
 
             var request = new CertifyUserInfoRequest()
             {
-
                 Introduction = requestAdd.Introduction,
                 LinkFile = requestAdd.LinkFile,
                 FullName = requestAdd.FullName,
@@ -49,8 +48,6 @@ namespace topmass.Model
                 MonthGet = requestAdd.MonthGet,
                 UserId = int.Parse(resultUser.Id),
                 YearGet = requestAdd.YearGet
-
-
             };
             var data = await _profileBusiness.AddCertify(request);
             baseReult.Data = data;
@@ -228,6 +225,7 @@ namespace topmass.Model
                 });
             }
             baseReult.Data = true;
+            await _profileBusiness.ReloadGenFileCV(resultUser.UserId);
             return StatusCode(baseReult.StatusCode, baseReult);
 
         }

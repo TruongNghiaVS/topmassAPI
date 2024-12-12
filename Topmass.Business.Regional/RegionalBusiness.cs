@@ -72,7 +72,7 @@ namespace Topmass.Business.Regional
             {
                 dataRegionals = await _repository.GetData();
             }
-            var itemInfo = dataRegionals.Where(x => int.Parse(x.Code) == code).FirstOrDefault();
+            var itemInfo = dataRegionals.Where(x => x.Code == code.ToString()).FirstOrDefault();
             return itemInfo;
 
 

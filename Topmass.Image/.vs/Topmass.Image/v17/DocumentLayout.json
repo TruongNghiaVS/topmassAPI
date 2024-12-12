@@ -1,21 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\",
+  "WorkspaceRootPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\vietbank\\crm\\topmass\\topmass.image\\filemedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\filemedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:filemedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\vietbank\\crm\\topmass\\topmass.image\\controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\fileresultinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:fileresultinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\vietbank\\crm\\topmass\\topmass.image\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\ifilemedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:ifilemedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\vietbank\\crm\\topmass\\topmass.image\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\controllers\\filemediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:controllers\\filemediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\model\\filerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:model\\filerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\ioc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:ioc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|c:\\tomass2\\topmass\\topmass\\topmass.image\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C9FBD92F-6DC6-4E9C-971E-0FF2505D7097}|Topmass.Image.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
@@ -26,40 +50,123 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAgwCIAAAAfAAAA",
+              "DocumentIndex": 6,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "WeatherForecast.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\WeatherForecast.cs",
+              "RelativeToolTip": "WeatherForecast.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T02:45:44.969Z"
+              "WhenOpened": "2024-11-25T09:06:03.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ioc.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\ioc.cs",
+              "RelativeDocumentMoniker": "ioc.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\ioc.cs",
+              "RelativeToolTip": "ioc.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T09:06:03.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FileRequest.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\Model\\FileRequest.cs",
+              "RelativeDocumentMoniker": "Model\\FileRequest.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\Model\\FileRequest.cs",
+              "RelativeToolTip": "Model\\FileRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T04:33:39.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FileResultInfo.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\FileResultInfo.cs",
+              "RelativeDocumentMoniker": "FileResultInfo.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\FileResultInfo.cs",
+              "RelativeToolTip": "FileResultInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T03:33:55.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IFileMedia.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\IFileMedia.cs",
+              "RelativeDocumentMoniker": "IFileMedia.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\IFileMedia.cs",
+              "RelativeToolTip": "IFileMedia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T03:33:39.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FileMediaController.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\Controllers\\FileMediaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FileMediaController.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\Controllers\\FileMediaController.cs",
+              "RelativeToolTip": "Controllers\\FileMediaController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAA1wCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T03:32:19.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwCkAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T02:45:44.969Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "FileMedia.cs",
-              "DocumentMoniker": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\FileMedia.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\FileMedia.cs",
               "RelativeDocumentMoniker": "FileMedia.cs",
-              "ToolTip": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\FileMedia.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\FileMedia.cs",
               "RelativeToolTip": "FileMedia.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBMAAAANAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAkwB8AAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-09T09:51:47.622Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\appsettings.Development.json",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\appsettings.Development.json",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\appsettings.Development.json",
               "RelativeToolTip": "appsettings.Development.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -67,19 +174,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "MediaController.cs",
-              "DocumentMoniker": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\Controllers\\MediaController.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\Controllers\\MediaController.cs",
               "RelativeDocumentMoniker": "Controllers\\MediaController.cs",
-              "ToolTip": "C:\\vietbank\\crm\\topmass\\Topmass.Image\\Controllers\\MediaController.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Image\\Controllers\\MediaController.cs",
               "RelativeToolTip": "Controllers\\MediaController.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAA2wCsAAAAxAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAADwvycAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T04:43:50.848Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "WhenOpened": "2024-09-09T04:43:50.848Z",
+              "EditorCaption": ""
             }
           ]
         }

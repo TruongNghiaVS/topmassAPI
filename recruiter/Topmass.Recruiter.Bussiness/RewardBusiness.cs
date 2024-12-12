@@ -12,10 +12,12 @@ namespace Topmass.Recruiter.Bussiness
         private readonly IRecruiterInfoRepository _infoRepository;
         private readonly IRewardTransactionRepository _rewardTransactionRepository;
         private readonly ISearchCVResultRepository _searchCVResultRepository;
+        private readonly IOpenCVResultRepository _openCVResultRepository;
         public RewardBusiness(IRecruiterRepository userRepository,
              IRecruiterInfoRepository infoRepository,
              IRewardTransactionRepository rewardTransactionRepository,
-             ISearchCVResultRepository searchCVResultRepository
+             ISearchCVResultRepository searchCVResultRepository,
+             IOpenCVResultRepository openCVResultRepository
 
             )
         {
@@ -23,13 +25,43 @@ namespace Topmass.Recruiter.Bussiness
             _infoRepository = infoRepository;
             _rewardTransactionRepository = rewardTransactionRepository;
             _searchCVResultRepository = searchCVResultRepository;
+            _openCVResultRepository = openCVResultRepository;
+        }
+
+        public async Task<BaseResult> ExchangePointToOpenCVNoSearchCV(int
+        searchId, int point, int userId, int identify, string fileName)
+        {
+
+            var reponse = new BaseResult();
+            var recruiterItem = await _repository.GetById(userId);
+            if (recruiterItem == null)
+            {
+                return reponse;
+            }
+            if (recruiterItem.NumberLightning < 1)
+            {
+                reponse.AddError("reward", "Không đủ tia sét để mở CV, vui lòng thu thập tia sét thử sa");
+            }
+            if (recruiterItem.NumberLightning <= point)
+            {
+                reponse.AddError("reward", "Không đủ tia sét để mở CV, vui lòng thu thập thêm tia sét để mở");
+            }
+            recruiterItem.NumberLightning += -point;
+            await _openCVResultRepository.ExecuteSqlProcedure("sp_ExchangePointToOpenCVNoSearchCV", new
+            {
+                searchId = searchId,
+                point = point,
+                userId = userId,
+                identify = identify,
+                linkfile = fileName
+            });
+            return new BaseResult();
         }
         public async Task<BaseResult> ExchangePointToOpenCV(int searchId,
             int point,
             int userId,
             int? campaignId = -1)
         {
-
             if (!campaignId.HasValue)
             {
                 campaignId = -1;
@@ -65,8 +97,8 @@ namespace Topmass.Recruiter.Bussiness
             };
             await _rewardTransactionRepository.AddOrUPdate(historyItem);
 
-            var resultCheck = await _searchCVResultRepository.FindOneByStatementSql<SearchCVResultModel>(
-               "select * from SearchResult where relId=  @searchId  and  CreatedBy = @userid",
+            var resultCheck = await _searchCVResultRepository.FindOneByStatementSql<OpenCVResult>(
+               "select * from OpenCVResult where relId=  @searchId  and  CreatedBy = @userid",
                 new
                 {
                     searchId = searchId,
@@ -80,9 +112,9 @@ namespace Topmass.Recruiter.Bussiness
             }
 
             else
-                resultCheck = new SearchCVResultModel()
+                resultCheck = new OpenCVResult()
                 {
-                    CampaignId = campaignId.Value,
+
                     CreateAt = DateTime.Now,
                     CreatedBy = userId,
                     RelId = searchId,
@@ -92,7 +124,7 @@ namespace Topmass.Recruiter.Bussiness
                     UpdatedBy = userId,
                     Deleted = false
                 };
-            await _searchCVResultRepository.AddOrUPdate(resultCheck);
+            await _openCVResultRepository.AddOrUPdate(resultCheck);
             return reponse;
         }
 

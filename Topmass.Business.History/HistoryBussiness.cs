@@ -28,7 +28,8 @@ namespace Topmass.Business.History
                 Status = 0,
                 UpdateAt = DateTime.Now,
                 Source = request.Source,
-                UpdatedBy = request.UserId
+                UpdatedBy = request.UserId,
+                DocumentType = request.DocumentType
             };
             await _logActionModelRepository.AddOrUPdate(itemAdd);
             return true;

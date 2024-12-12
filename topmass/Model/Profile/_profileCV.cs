@@ -17,13 +17,9 @@
         public string? PhoneNumber { get; set; }
 
         public string? Introduction { get; set; }
-
-
         public string? AvatarLink { get; set; }
-
-
         public string? AddressInfo { get; set; }
-
+        public string ProvinceCode { get; set; }
         public DateTime? DateOfBirth { get; set; }
 
 

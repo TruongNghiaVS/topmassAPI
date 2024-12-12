@@ -10,7 +10,7 @@ namespace Topmass.Job.Business
         public Task<JobItemReponse> AddJob(JobItemBusinessAdd request);
 
         public Task<JobItemReponse> UpdateJob(JobItemBusinessUpdate request);
-        public Task<BaseResult> UpdateJob(JobItemUpdate request);
+        public Task<DataResult> UpdateJob(JobItemUpdate request);
 
         public Task<BaseResult> GetInfo(JobInfoRequest request);
 

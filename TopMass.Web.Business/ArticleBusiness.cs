@@ -82,6 +82,11 @@ namespace Topmass.Web.Business
             return _repository.GetAll(request);
         }
 
+        public Task<GetAllArticleReponse> GetAllForTool()
+        {
+            return _repository.GetAllForToolsGetAllForTools();
+        }
+
         public Task<GetAllArticleReponse> GetAllShort(ArticleReqest request)
         {
             return _repository.GetAllShort(request);

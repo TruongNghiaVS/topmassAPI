@@ -10,6 +10,7 @@
         public int RelId { get; set; }
         public int Jobid { get; set; }
         public string LinkFile { get; set; }
+        public bool LockInfo { get; set; }
 
 
 

@@ -44,6 +44,8 @@ namespace Topmass.Campagn.Business
                 Email = request.Email,
                 To = request.To
             });
+
+
             reponse.Data = result;
 
 
@@ -95,6 +97,12 @@ namespace Topmass.Campagn.Business
             var campagnInsert = await _repository.GetById(itemAdd.IdUpdate.Value);
             campagnInsert.Status = itemAdd.Status.Value;
             await _repository.AddOrUPdate(campagnInsert);
+            await _repository.ExecuteSqlProcedure("updateChangeStatusDetail", new
+            {
+                campaignId = itemAdd.IdUpdate,
+
+                status = itemAdd.Status.Value
+            });
             return result;
         }
 

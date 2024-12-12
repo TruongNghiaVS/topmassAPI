@@ -6,11 +6,15 @@ namespace Topmass.CV.Repository
     {
         public Task<CVapplyJobReponse> ApplyJob(CVapplyJobRequest request);
         public Task<CVResumeResponse> CreateCV(CVResumeRequest request);
+
         public Task<GetAllCVReponse> GetAllCVOfCan(CVResumeRequest request);
         public Task<GetAllCVByJobReponse> GetAllCVByJob(GetAllCVByJobRequest request);
         public Task<GetAllCVByCampaignReponse> GetAllCVApply(GetAllCVByCampaignRequest request);
 
         public Task<ApplyJobWithCreateCVReponse> ApplyJobWithCreateCV(ApplyJobWithCreateCV request);
+
+        public Task<CVResumeResponse> AddOrUpdateCVDigital(CVResumeRequest request);
+        public Task<GetAllCVByJobReponse> GetAllCVApplyNew(InputGetAllCVApplyFilter request);
 
 
     }

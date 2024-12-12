@@ -1,5 +1,7 @@
 ﻿namespace Topmass.Core.Model.Campagn
 {
+
+
     public class JobInfoModel : BaseModel
     {
         public string? Name { get; set; }
@@ -40,6 +42,12 @@
         public string? Emails { get; set; }
         public string? Locations { get; set; }
         public string? Time_workings { get; set; }
+
+        public int? RuleStatus { get; set; }
+        public JobInfoModel()
+        {
+            RuleStatus = -1;
+        }
 
 
     }

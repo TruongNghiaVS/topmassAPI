@@ -20,7 +20,6 @@
         private readonly ICategoryArticleBusiness _categoryArticleBusiness;
 
         private readonly IPageBusiness _pageBusiness;
-
         public WebController(ILogger<WebController> logger,
     IArticleBusiness articleBusiness,
     ICategoryArticleBusiness categoryArticleBusiness,
@@ -67,6 +66,16 @@
             ArticleReqest requestGet = reqest;
             var dataAll = await _articleBusiness.GetAll(requestGet);
             result.Data = dataAll;
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult> GetArticleForTool()
+        {
+            var result = new BaseResult();
+            var dataAll = await _articleBusiness.GetAllForTool();
+            result.Data = dataAll.Data;
             return StatusCode(result.StatusCode, result);
         }
 

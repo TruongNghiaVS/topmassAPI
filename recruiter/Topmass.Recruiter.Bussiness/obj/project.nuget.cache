@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dF0guD96NTo=",
+  "dgSpecHash": "om21Bp4ce7Dw/KqOKcGYNp+2ZWCNexfl0XpN93ACnQuuRqB9EQhqB8H8Z/nHmYKG+qTWZjS4LKgjFw2pb7qKLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
+  "projectFilePath": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\log4net\\2.0.17\\log4net.2.0.17.nupkg.sha512",

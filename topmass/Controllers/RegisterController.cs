@@ -58,5 +58,14 @@ namespace topmass.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> TestEmail()
+        {
+            var request = new CandidateRegisterRequest();
+
+            var result = await _candidateBusiness.RegisterUser(request);
+            return StatusCode(result.StatusCode, result);
+        }
+
     }
 }

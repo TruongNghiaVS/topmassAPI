@@ -34,8 +34,8 @@
     public class BusinessLicenseRequest
 
     {
-
         public string DocumentLink { get; set; }
+        public string DocumentType { get; set; }
         public BusinessLicenseRequest()
         {
 
@@ -66,6 +66,8 @@
 
         public string? MapInfo { get; set; }
         public int? RelId { get; set; }
+
+        public string? IframeEmbeddedMap { get; set; }
         public CompanyInfoRequest()
         {
             RelId = -1;

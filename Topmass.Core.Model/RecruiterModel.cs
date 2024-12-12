@@ -88,6 +88,8 @@
 
         public int? Field { get; set; }
 
+        public string? IframeEmbeddedMap { get; set; }
+
         public CompanyInfoModel()
         {
             MapInfo = "";
@@ -117,9 +119,11 @@
 
         public string? Email { get; set; }
         public string? LinkFile { get; set; }
-
         public string? Note { get; set; }
+        public string DocumnetType { get; set; }
         public int? RelId { get; set; }
+
+        public int ReasonReject { get; set; }
 
     }
 

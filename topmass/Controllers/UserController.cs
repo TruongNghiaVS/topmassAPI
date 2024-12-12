@@ -98,6 +98,7 @@ namespace topmass.Model
                 await _profileBusiness.DeleteOtherProfileUser(item);
             }
             baseReult.Data = data;
+            await _profileBusiness.ReloadGenFileCV(resultUser.UserId);
             return StatusCode(baseReult.StatusCode, baseReult);
         }
 
@@ -200,6 +201,7 @@ namespace topmass.Model
                 await _profileBusiness.DeleteOtherProfileUser(item);
             }
             baseReult.Data = data;
+            await _profileBusiness.ReloadGenFileCV(resultUser.UserId);
             return StatusCode(baseReult.StatusCode, baseReult);
 
         }
@@ -215,9 +217,6 @@ namespace topmass.Model
             return StatusCode(baseReult.StatusCode, baseReult);
 
         }
-
-
-
 
         [HttpPost]
         public async Task<ActionResult> SaveProfileCv(InputProfileUserRequestAdd requestAdd)
@@ -236,6 +235,7 @@ namespace topmass.Model
                 AddressInfo = requestAdd.AddressInfo,
                 DateOfBirth = requestAdd.DateOfBirth,
                 FullName = requestAdd.FullName,
+                ProvinceCode = requestAdd.ProvinceCode,
                 Gender = requestAdd.Gender,
                 Introduction = requestAdd.Introduction,
                 PhoneNumber = requestAdd.PhoneNumber,
@@ -245,7 +245,6 @@ namespace topmass.Model
             var data = await _profileBusiness.AddOrUpdateProfileCV(requestInsert);
             baseReult.Data = data;
             return StatusCode(baseReult.StatusCode, baseReult);
-
         }
 
         [HttpGet]

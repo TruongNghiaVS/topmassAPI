@@ -8,7 +8,7 @@ namespace Topmass.Core.Repository
         public Task<SearchRepJobReponse> SearchAll(SearchRepJobRequest request);
         public Task<JobItemModel> GetBySlug(string slug);
 
-
+        public Task<string> CreateSlugJob(int humanId, string titile);
 
     }
 }

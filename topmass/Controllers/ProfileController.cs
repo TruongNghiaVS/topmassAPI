@@ -40,7 +40,6 @@ namespace topmass.Controllers
                 FirstName = request.FirstName,
                 AvatarLink = request.AvatarLink,
                 FullName = request.FullName,
-
                 HandleBy = int.Parse(resultUser.Id),
                 LastName = request.LastName,
                 Phone = request.Phone,
@@ -50,11 +49,10 @@ namespace topmass.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
-
-
         [HttpPost]
         public async Task<ActionResult> UpdateMode(EnableDisableModeRequest request)
         {
+
             var resultUser = await GetCurrentUser();
             var dataError = new ErrorData() { };
             if (dataError.HasErorr())
@@ -67,7 +65,9 @@ namespace topmass.Controllers
 
                 PrivateMode = request.WorkMode,
                 PublicMode = request.SearchMode,
-                UserId = int.Parse(resultUser.Id)
+                UserId = int.Parse(resultUser.Id),
+                IsSwichSearchMode = request.IsSwichSearchMode
+
             };
             var result = await _candidateBusiness.UpdateInfoCandidate(requestUpdate);
             return StatusCode(result.StatusCode, result);

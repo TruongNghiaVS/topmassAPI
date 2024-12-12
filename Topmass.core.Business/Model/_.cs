@@ -1,4 +1,6 @@
-﻿namespace Topmass.core.Business.Model
+﻿using Topmass.Core.Model.Profile;
+
+namespace Topmass.core.Business.Model
 {
     public class CandidateInfoRequest
     {
@@ -28,6 +30,10 @@
         public bool? PublicMode { get; set; }
 
         public string AvatarLink { get; set; }
+
+        public bool? IsSwichSearchMode { get; set; }
+
+
 
     }
 
@@ -67,7 +73,7 @@
 
     public class NTDViewer
     {
-        public  string Name { get; set; }
+        public string Name { get; set; }
         protected string AvatarLink { get; set; }
         public string CompanyName { get; set; }
         public string Slug { get; set; }
@@ -75,26 +81,50 @@
         {
             get
             {
-                if( string.IsNullOrEmpty(AvatarLink))
+                if (string.IsNullOrEmpty(AvatarLink))
                 {
                     return "";
                 }
                 return "https://www.cdn.topmass.vn/static/" + AvatarLink;
             }
         }
-        public string Url  {
-            get { 
-                if(string.IsNullOrEmpty(Slug))
+        public string Url
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Slug))
                 {
                     return "";
                 }
                 return "https://topmass.vn/cong-ty/" + Slug;
             }
-       }
-        
+        }
+
         public DateTime CreateAt { get; set; }
 
- 
 
+
+    }
+
+    public class ProfileCVUserDisplay : ProfileCVUser
+    {
+        public string ProvinceName { get; set; }
+
+        public ProfileCVUserDisplay()
+        {
+            ProvinceName = "Tỉnh thành";
+        }
+    }
+
+    public class AllowSearchIndex
+    {
+        public int Allow { get; set; }
+    }
+
+    public class RegionalSearchItem
+    {
+        public string Code { get; set; }
+        public string Slug { get; set; }
+        public string Name { get; set; }
     }
 }

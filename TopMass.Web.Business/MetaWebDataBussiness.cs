@@ -1,6 +1,5 @@
 ﻿using Topmass.Core.Model.Profile;
 using Topmass.Core.Repository;
-using TopMass.Core.Result;
 using TopMass.Web.Business;
 using TopMass.Web.Business.Model;
 
@@ -23,11 +22,11 @@ namespace Topmass.Web.Business
             {
                 result = new MetaDataPage()
                 {
-                    Title = "Topmass_hởi đầu sự bứt phá",
+                    Title = "Topmass-tuyển dụng việc làm",
                     ImageLink = "https://topmass.vn/imgs/logo-footer.png",
                     KeyWord = "Topmass",
                     Author = "Topmass",
-                    ShortDes = "Khởi đầu sự bứt phá",
+                    ShortDes = "Topmass-tuyển dụng việc làm",
                 };
             }
             response.MetaTitle = result.Title;

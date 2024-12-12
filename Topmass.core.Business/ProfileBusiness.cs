@@ -67,6 +67,7 @@ namespace Topmass.core.Business
 
             };
             await _repository.AddOrUPdate(itemInsert);
+            await ReloadGenFileCV(request.UserId);
             return response;
         }
 
@@ -92,6 +93,8 @@ namespace Topmass.core.Business
             itemupdate.Rank = request.Rank;
 
             await _repository.AddOrUPdate(itemupdate);
+            //await _repository.ExecuteSqlProcedure("sp_setReloadCV", new { userid = request.UserId });
+            await ReloadGenFileCV(request.UserId);
             return response;
         }
 
@@ -99,6 +102,7 @@ namespace Topmass.core.Business
             (EducationUserInfoDeleteRequest request)
         {
             var itemDelete = await _repository.GetById(request.Id);
+
             return await _repository.Delete(itemDelete);
 
         }
@@ -125,7 +129,6 @@ namespace Topmass.core.Business
         public async Task<ExperienceUserInfoReponse> AddExperience(ExperienceUserInfoRequest request)
         {
             var response = new ExperienceUserInfoReponse();
-
             var itemInsert = new ExperienceUser()
             {
                 CreateAt = DateTime.Now,
@@ -146,9 +149,9 @@ namespace Topmass.core.Business
                 UpdatedBy = request.UserId,
 
             };
-
-
             await _experienceUserRepository.AddOrUPdate(itemInsert);
+            await ReloadGenFileCV(request.UserId);
+
             return response;
         }
 
@@ -174,6 +177,7 @@ namespace Topmass.core.Business
             itemupdate.UpdatedBy = request.UserId;
 
             await _experienceUserRepository.AddOrUPdate(itemupdate);
+            await ReloadGenFileCV(request.UserId);
             return response;
         }
 
@@ -617,13 +621,15 @@ namespace Topmass.core.Business
             profileUser.AddressInfo = request.AddressInfo;
             profileUser.Introduction = request.Introduction;
             profileUser.DateOfBirth = request.DateOfBirth;
+            profileUser.ProvinceCode = request.ProvinceCode;
+            await ReloadGenFileCV(request.UserId);
             return await _profileCVUserRepository.AddOrUPdate(profileUser);
         }
 
 
-        public async Task<ProfileCVUser> GetProfileUserCV(int userId)
+        public async Task<ProfileCVUserDisplay> GetProfileUserCV(int userId)
         {
-            var profileUser = await _profileCVUserRepository.FindOneByStatementSql<ProfileCVUser>("select * from ProfileCV where RelId = @userId",
+            var profileUser = await _profileCVUserRepository.FindOneByStatementSql<ProfileCVUserDisplay>("select *, dbo.getprovinceName( ProvinceCode ) as ProvinceName  from ProfileCV where RelId = @userId",
                     new
                     {
                         userId = userId
@@ -635,7 +641,7 @@ namespace Topmass.core.Business
                 return profileUser;
             }
 
-            profileUser = new ProfileCVUser();
+            profileUser = new ProfileCVUserDisplay();
             return profileUser;
         }
 
@@ -653,6 +659,26 @@ namespace Topmass.core.Business
                 return new List<NTDViewer>();
             }
             return profileUser;
+        }
+        public async Task<bool> ReloadGenFileCV(int userId)
+        {
+            await _profileCVUserRepository.ExecuteSqlProcedure("sp_setLoadNewFile", new
+            {
+                userid = userId
+            });
+            return true;
+
+        }
+
+
+        public async Task<List<RegionalSearchItem>> GetRegionSearchSetting(int userId)
+        {
+            var dataResult = await _profileCVUserRepository.ExecuteSqlProcerduceToList<RegionalSearchItem>("getRegionSearchSetting", new
+            {
+                userid = userId
+            });
+            return dataResult;
+
         }
 
     }

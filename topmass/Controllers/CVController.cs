@@ -28,7 +28,6 @@ namespace topmass.Model
             _cVBusiness = cVBusiness;
             _userBusiness = userBusiness;
         }
-
         [HttpPost]
         public async Task<ActionResult> CreateCV(CreateCVAddRequest request)
         {
@@ -53,7 +52,6 @@ namespace topmass.Model
                 TypeData = request.TypeData,
                 LinkFile = request.LinkFile,
                 UserId = int.Parse(resultUser.Id),
-
                 TemplateID = 1,
                 HandleBy = int.Parse(resultUser.Id)
             };
@@ -62,32 +60,13 @@ namespace topmass.Model
             return StatusCode(reponse.StatusCode, reponse);
         }
 
-
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult> GetAllCV()
         {
 
-
-            var userId = -1;
-            if (User.Identity.IsAuthenticated)
-            {
-                var resultUser = await GetCurrentUser();
-                userId = resultUser.UserId;
-            }
-            else
-            {
-                var reponse2 = new BaseResult();
-                reponse2.Data = new List<dynamic>();
-                return StatusCode(reponse2.StatusCode, new
-                {
-                    Data = new List<Object>()
-                });
-
-            }
-
-
-            var result = await _userBusiness.GetAllCV(userId);
+            var resultUser = await GetCurrentUser();
+            var result = await _userBusiness.GetAllCV(resultUser.UserId);
             var itemList = new List<dynamic>();
             foreach (var item in result.Data)
             {
@@ -104,8 +83,6 @@ namespace topmass.Model
             reponse.Data = itemList;
             return StatusCode(reponse.StatusCode, result);
         }
-
-
         [HttpGet]
         public async Task<ActionResult> GetInfo([FromQuery] InputGetInfoCV request)
         {
@@ -116,7 +93,6 @@ namespace topmass.Model
                 reponse.AddError(nameof(request.CVId), "Thiếu thông tin CV ");
                 return StatusCode(reponse.StatusCode, reponse);
             }
-
             var result = await _cVBusiness.GetInfo(new GetInfoCVRequest()
             {
                 CVId = request.CVId
@@ -124,6 +100,7 @@ namespace topmass.Model
             reponse.Data = result;
             return StatusCode(reponse.StatusCode, reponse);
         }
+
 
     }
 }

@@ -20,9 +20,13 @@ namespace Topmass.Web.Repository
             reponse.Data = allData;
             return reponse;
         }
-
-
-
+        public async Task<GetAllArticleReponse> GetAllForToolsGetAllForTools()
+        {
+            var reponse = new GetAllArticleReponse();
+            var allData = await this.ExecutePro<ArticleIndexModel>("ArticleGetAllForTools");
+            reponse.Data = allData;
+            return reponse;
+        }
         public async Task<GetAllArticleReponse> GetAllShort(ArticleFilter request)
         {
             var reponse = new GetAllArticleReponse();

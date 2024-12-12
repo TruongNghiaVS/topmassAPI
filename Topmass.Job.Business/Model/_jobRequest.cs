@@ -9,6 +9,8 @@ namespace Topmass.Job.Business.Model
     {
 
         public int JobId { get; set; }
+
+
     }
 
     public class JobItemBusinessAdd
@@ -333,7 +335,7 @@ namespace Topmass.Job.Business.Model
         public DateTime? Expired_date { get; set; }
         public JobCommonData CommonData { get; set; }
 
-
+        public bool? Aggrement { get; set; }
         public string CurrencyCode { get; set; }
 
 
@@ -542,6 +544,7 @@ namespace Topmass.Job.Business.Model
 
         public string? Phone { get; set; }
 
+        public int? RuleStatus { get; set; }
         public List<LocationsJob> Locations { get; set; }
         public List<EmailProper> Emails { get; set; }
         public List<TimeWorking> TimeWorks { get; set; }

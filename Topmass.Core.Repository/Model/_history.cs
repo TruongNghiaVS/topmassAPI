@@ -1,4 +1,6 @@
-﻿namespace Topmass.Core.Repository.Model
+﻿using Topmass.Core.Model.location;
+
+namespace Topmass.Core.Repository.Model
 {
     public class GetAllHistoryRequest
 
@@ -16,5 +18,9 @@
         {
             UserId = -1; Source = 2; Typedata = 1;
         }
+    }
+    public class DigitalFileCVModelReponse : DigitalFileCVModel
+    {
+
     }
 }

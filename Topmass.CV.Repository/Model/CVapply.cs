@@ -6,6 +6,8 @@
         public int CVId { get; set; }
         public int HandleBy { get; set; }
 
+        public string Introduction { get; set; }
+
         public string FullName { get; set; }
 
         public string Phone { get; set; }
@@ -78,6 +80,12 @@
 
         public int? UserId { get; set; }
 
+        public string KeyWord { get; set; }
+
+        public int Status { get; set; }
+
+        public int ViewMode { get; set; }
+
         public GetAllCVByJobRequest()
         {
 
@@ -90,10 +98,10 @@
     {
         public int UserId { get; set; }
 
-        public List<JobApplyDisplayItem> Data { get; set; }
+        public dynamic Data { get; set; }
         public GetAllCVByJobReponse()
         {
-            Data = new List<JobApplyDisplayItem>();
+
         }
 
 
@@ -172,6 +180,23 @@
         public string UserName { get; set; }
     }
 
+
+    public class InputGetAllCVApplyFilter
+    {
+        public int? StatusCode { get; set; }
+        public int? Source { get; set; }  // -1 all ;  0; tự ứng tuyển ; 1 tìm cv
+        public int? CampaignId { get; set; }
+        public string KeyWord { get; set; }
+        public int Page { get; set; }
+        public int Limit { get; set; }
+        public int UserId { get; set; }
+        public InputGetAllCVApplyFilter()
+        {
+            CampaignId = -1;
+            Source = -1;
+
+        }
+    }
 
 
 }

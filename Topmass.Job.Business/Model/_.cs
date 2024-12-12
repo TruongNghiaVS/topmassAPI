@@ -24,6 +24,11 @@ namespace Topmass.Job.Business.Model
     public class JobIdCount
     {
         public int Id { get; set; }
+
+        public JobIdCount()
+        {
+            Id = -1;
+        }
     }
     public class JobCountGroupById
     {

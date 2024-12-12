@@ -13,19 +13,19 @@ namespace Topmass.core.Business
         {
             _repository = repository;
         }
-        public async  Task<MetaDataReponse> GetInfo(MetaDataRequest request)
+        public async Task<MetaDataReponse> GetInfo(MetaDataRequest request)
         {
             var response = new MetaDataReponse();
             var result = await _repository.GetInfo(request.KeyScreen);
-            if(result ==null || result.Id  < 1)
+            if (result == null || result.Id < 1)
             {
                 result = new MetaDataPage()
                 {
-                    Title = "Topmass_hởi đầu sự bứt phá",
+                    Title = "Topmass-tuyển dụng việc làm",
                     ImageLink = "https://topmass.vn/imgs/logo-footer.png",
-                    KeyWord ="Topmass",
+                    KeyWord = "Topmass",
                     Author = "Topmass",
-                    ShortDes ="Khởi đầu sự bứt phá",
+                    ShortDes = "Topmass-tuyển dụng việc làm",
                 };
             }
 
@@ -33,9 +33,9 @@ namespace Topmass.core.Business
             response.MetaDes = result.ShortDes;
             response.MetaKeyWord = result.KeyWord;
             response.MetaImage = result.ImageLink;
-            response.MetaAuthor = result.Author ;
+            response.MetaAuthor = result.Author;
 
-           
+
             return response;
         }
     }

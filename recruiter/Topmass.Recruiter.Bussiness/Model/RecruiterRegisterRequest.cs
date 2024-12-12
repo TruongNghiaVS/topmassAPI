@@ -55,6 +55,8 @@
         public string? MapInfo { get; set; }
         public int? Field { get; set; }
 
+        public string? IframeEmbeddedMap { get; set; }
+
 
         public CompanyInfoRequestUpdate()
         {
@@ -71,6 +73,7 @@
         public int HandleBy { get; set; }
         public string Email { get; set; }
         public string? LinkFile { get; set; }
+        public string? DocumnetType { get; set; }
         public BusinessLicenseRequestUpdate()
         {
             HandleBy = -1;

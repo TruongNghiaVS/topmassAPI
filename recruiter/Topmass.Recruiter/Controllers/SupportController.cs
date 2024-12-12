@@ -41,7 +41,7 @@ namespace Topmass.Recruiter.Controllers
             }
             if (string.IsNullOrEmpty(request.LinkFile))
             {
-                reponse.AddError(nameof(request.LinkFile), "Đưa cho chúng tôi, hình ảnh minh hoạ...");
+                request.LinkFile = "";
             }
             if (!reponse.Success)
             {

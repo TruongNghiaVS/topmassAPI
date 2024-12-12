@@ -86,7 +86,7 @@ namespace Topmass.Recruiter.Bussiness
                 result.AddError("Email", "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin");
                 return result;
             }
-            result.Message = resourceMessage.SuccessfullAuthenMsg;
+            //result.Message = resourceMessage.SuccessfullAuthenMsg;
 
             var itemInsert = new LogActionModel
             {
@@ -101,7 +101,7 @@ namespace Topmass.Recruiter.Bussiness
             await _logActionModelRepository.AddOrUPdate(itemInsert);
             var tokenUser = this.GenerateToken(userInfo);
             result.Token = tokenUser;
-            result.Message = resourceMessage.SuccessAuthenCreateToken;
+            //result.Message = resourceMessage.SuccessAuthenCreateToken;
             return result;
         }
         protected string GenerateToken(RecruiterModel request)
@@ -191,7 +191,6 @@ namespace Topmass.Recruiter.Bussiness
                 return reponse;
             }
             // push event send email password
-
             var forgetPasswordRequest = new ForgetPasswordModel()
             {
                 CreateAt = DateTime.Now,
@@ -209,9 +208,8 @@ namespace Topmass.Recruiter.Bussiness
             };
             var randomCode = "" + new Random().Next(1000, 10000) + DateTime.Now.Ticks + "";
             forgetPasswordRequest.Code = randomCode;
-
             await _forgetPasswordRepository.AddOrUPdate(forgetPasswordRequest);
-            reponse.Message = resourceMessage.Message_CheckMail;
+            //reponse.Message = resourceMessage.Message_CheckMail;
             await _mailBussiness.RecruitmentCheckMailPassword(itemInfo.Email, randomCode);
             return reponse;
         }
@@ -286,7 +284,6 @@ namespace Topmass.Recruiter.Bussiness
                 itemRecuInfo.LevelAuthen = 1;
                 itemRecuInfo.DateActive = DateTime.Now;
                 itemRecuInfo.Status = 1;
-
                 await _recruiterInfoRepository.AddOrUPdate(itemRecuInfo);
             }
             await activeCodeRecruiterRepository.AddOrUPdate(codeForgetLink);
@@ -300,8 +297,6 @@ namespace Topmass.Recruiter.Bussiness
             infoItem.Password = password;
             infoItem.UpdateAt = DateTime.Now;
             await _repository.AddOrUPdate(infoItem);
-            reponse.Message = resourceMessage.ChangePasswordSuccess;
-
             await _mailBussiness.RecruitmentSucessChangePassNoti(infoItem.Email);
             return reponse;
         }
@@ -314,7 +309,7 @@ namespace Topmass.Recruiter.Bussiness
             infoItem.Password = password;
             infoItem.UpdateAt = DateTime.Now;
             await _repository.AddOrUPdate(infoItem);
-            reponse.Message = resourceMessage.ChangePasswordSuccess;
+
             return reponse;
         }
     }

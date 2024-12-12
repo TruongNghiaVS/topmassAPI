@@ -40,9 +40,17 @@ namespace Topmass.Bussiness.Mail
             var bodyContent = contents;
             MailMessage message = new MailMessage();
             SmtpClient smtp = new SmtpClient();
-            message.From = new MailAddress(mailFrom);
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(contents, null, "text/html");
+
+            LinkedResource imageResource = new LinkedResource("C:\\vietbank\\crm\\topmass\\Topmass.Bussiness.Mail\\Template\\mailLogo.png");
+            imageResource.ContentId = "imageLogo";
+            htmlView.LinkedResources.Add(imageResource);
+            message.AlternateViews.Add(htmlView);
+
+            message.From = new MailAddress(mailFrom, "topmass.vn");
             message.To.Add(new MailAddress(mailTo));
             message.Subject = subjectInfo;
+
             message.IsBodyHtml = true;
             message.Body = bodyContent;
             smtp.Port = mailconfig.Port;
@@ -52,9 +60,7 @@ namespace Topmass.Bussiness.Mail
             smtp.Credentials = new NetworkCredential(mailconfig.userName, mailconfig.password);
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             await smtp.SendMailAsync(message);
-
             return true;
-
         }
         public async Task<MailReponse> PushMail(MailItem mailItem)
         {
@@ -85,16 +91,20 @@ namespace Topmass.Bussiness.Mail
                 return reponse;
             }
             var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\\resetPassword.html";
+
+
             var contents = File.ReadAllText(pathTemplate);
             contents = contents.Replace("{fullName}", (candidateInfo.FirstName + " " + candidateInfo.FullName));
             contents = contents.Replace("{baseLink}", "https://topmass.vn/khoi-tao-mat-khau");
             contents = contents.Replace("{code}", code);
+
+
             var mailData = new MailItem()
             {
                 Data = new DataMailInfo()
                 {
                     Content = contents,
-                    Subject = "Cấp lại mật khẩu"
+                    Subject = "Cấp lại mật khẩu – Topmass.vn"
                 },
                 MailTo = email
 
@@ -128,7 +138,7 @@ namespace Topmass.Bussiness.Mail
                 Data = new DataMailInfo()
                 {
                     Content = contents,
-                    Subject = "Thông báo tạo tài khoản thành công"
+                    Subject = "Thông báo tạo tài khoản - topmass.vn"
                 },
                 MailTo = email
 

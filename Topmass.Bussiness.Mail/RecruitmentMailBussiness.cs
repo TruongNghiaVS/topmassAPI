@@ -44,11 +44,18 @@ namespace Topmass.Bussiness.Mail
             var bodyContent = contents;
             MailMessage message = new MailMessage();
             SmtpClient smtp = new SmtpClient();
-            message.From = new MailAddress(mailFrom);
+            message.From = new MailAddress(mailFrom, "topmass.vn");
             message.To.Add(new MailAddress(mailTo));
             message.Subject = subjectInfo;
             message.IsBodyHtml = true;
             message.Body = bodyContent;
+
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(contents, null, "text/html");
+            LinkedResource imageResource = new LinkedResource("C:\\vietbank\\crm\\topmass\\Topmass.Bussiness.Mail\\Template\\mailLogo.png");
+            imageResource.ContentId = "imageLogo";
+            htmlView.LinkedResources.Add(imageResource);
+            message.AlternateViews.Add(htmlView);
+
             smtp.Port = mailconfig.Port;
             smtp.Host = mailconfig.Host;
             smtp.EnableSsl = true;
@@ -105,7 +112,7 @@ namespace Topmass.Bussiness.Mail
                 Data = new DataMailInfo()
                 {
                     Content = contents,
-                    Subject = "Yêu cầu Cấp lại mật khẩu"
+                    Subject = "Cấp lại mật khẩu – Topmass.vn"
                 },
                 MailTo = email
 
@@ -118,7 +125,7 @@ namespace Topmass.Bussiness.Mail
         {
             var reponse = new ResultRequestSendMail();
             var itemInfo = await _candidateRepository
-            .FindOneByStatementSql<CandidateModel>
+            .FindOneByStatementSql<RecruiterModel>
             ("select top 1 * from  Recruiter where email = @Email",
             new
             {
@@ -142,19 +149,20 @@ namespace Topmass.Bussiness.Mail
                 reponse.IsSucess = false;
                 return reponse;
             }
+
             var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\\NTD\\RegisterActiveNTD.html";
             var contents = File.ReadAllText(pathTemplate);
             contents = contents.Replace("{code}", codeGen.Code);
+            contents = contents.Replace("{fullName}", itemInfo.Name);
             contents = contents.Replace("{email}", itemInfo.Email);
             var mailData = new MailItem()
             {
                 Data = new DataMailInfo()
                 {
                     Content = contents,
-                    Subject = "Kích hoạt tài khoản"
+                    Subject = "Kích hoạt tài khoản Nhà tuyển dụng – Topmass.vn"
                 },
                 MailTo = email
-
             };
             await PushMail(mailData);
             return reponse;

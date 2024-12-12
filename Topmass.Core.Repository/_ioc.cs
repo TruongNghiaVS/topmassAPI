@@ -40,7 +40,7 @@
             services.AddSingleton<ISearchCVRepository, SearchCVRepository>();
             services.AddSingleton<ISearchCVResultRepository, SearchCVResultRepository>();
             services.AddSingleton<IMetaDataRepository, MetaDataRepository>();
-
+            services.AddSingleton<IOpenCVResultRepository, OpenCVResultRepository>();
 
         }
     }

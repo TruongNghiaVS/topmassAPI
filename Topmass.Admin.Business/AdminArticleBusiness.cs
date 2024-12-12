@@ -51,14 +51,18 @@ namespace Topmass.Admin.Business
         {
 
             var reponseData = new BaseResult();
+
+            var slugInput = request.Slug;
+            if (string.IsNullOrEmpty(slugInput))
+            {
+                slugInput = Utilities.SlugifySlug(request.Title);
+            }
             var articleReqest = new ArticleModel()
             {
                 Content = request.Content,
                 CreateAt = DateTime.Now,
                 CreatedBy = -1,
-
                 Deleted = false,
-
             };
             if (request.Id > 0)
             {
@@ -68,13 +72,22 @@ namespace Topmass.Admin.Business
                 articleReqest.CreateAt = DateTime.Now;
 
             }
+            var reponseCheck = await _articleAdminRepository.CheckSlug(slugInput);
             if (articleReqest.Id < 1)
             {
-                articleReqest.Slug = Utilities.SlugifySlug(request.Title);
+                //articleReqest.Slug = Utilities.SlugifySlug(request.Title);
                 articleReqest.CreateAt = DateTime.Now;
                 articleReqest.UpdateAt = DateTime.Now;
             }
-
+            if (reponseCheck != null)
+            {
+                if (reponseCheck.Id != articleReqest.Id)
+                {
+                    reponseData.AddError("slug", "Đã tồn tại slug trong hệ thống, vui lòng chọn slug khác");
+                    return reponseData;
+                }
+            }
+            articleReqest.Slug = slugInput;
             articleReqest.linked = request.CategryIdLink;
             articleReqest.ShortDes = request.ShortDes;
             articleReqest.Content = request.Content;
@@ -83,11 +96,7 @@ namespace Topmass.Admin.Business
             articleReqest.CoverImage = request.LinkImage;
             reponseData.Data = await _articleAdminRepository.AddorUpdateArticle(articleReqest);
             return reponseData;
-
-
-
         }
-
 
     }
 }

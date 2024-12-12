@@ -63,7 +63,6 @@ namespace Topmass.Recruiter.Bussiness
         {
             var reponse = new BaseResult();
             var result = new RecruiterInfoResult();
-
             var recruiterItem = await _repository.GetById(request.RecuruiterId);
             if (recruiterItem == null)
             {
@@ -74,9 +73,9 @@ namespace Topmass.Recruiter.Bussiness
             result.RecruiterCode = recruiterItem.Code;
             result.Email = GetValueString(recruiterItem.Email);
             result.IsBlock = (recruiterItem.Status == 2 || recruiterItem.Status == 0) ? true : false;
-
-            var recruiterInfo = await _infoRepository.FindOneByStatementSql<RecruiterInfoModel>("select top 1 * from RecruiterInfo where email = @email",
-                new { email = request.Email }
+            var recruiterInfo = await _infoRepository.FindOneByStatementSql<RecruiterInfoModel>
+                ("select top 1 * from RecruiterInfo where RelId = @RelId",
+                new { RelId = request.RecuruiterId }
               );
             if (recruiterInfo == null)
             {
@@ -92,12 +91,9 @@ namespace Topmass.Recruiter.Bussiness
                     CreateAt = DateTime.Now,
                     UpdateAt = DateTime.Now,
                     DateActive = null,
-
-
                 };
                 await _infoRepository.AddOrUPdate(recruiterInfo);
             }
-
             result.Level = recruiterInfo.LevelAuthen;
             result.Phone = GetValueString(recruiterItem.Phone);
             result.AvatarLink = GetFullLink(recruiterInfo.AvatarLink);
@@ -115,18 +111,20 @@ namespace Topmass.Recruiter.Bussiness
             result.Gender = tempGenger;
 
             //get companyInfo
-
             var companyItemInfo = await _companyInfoRepository.GetByUserName(recruiterItem.Email);
             if (companyItemInfo == null || companyItemInfo.Id < 1)
             {
                 companyItemInfo.RelId = recruiterItem.Id;
                 companyItemInfo.Email = recruiterItem.Email;
+                companyItemInfo.TaxCode = recruiterItem.TaxCode;
+                companyItemInfo.FullName = recruiterItem.Name;
                 await _companyInfoRepository.AddOrUPdate(companyItemInfo);
 
             }
+
+
             var itemCompanyReponse = new CompanyInfoItem()
             {
-
                 AddressInfo = GetValueString(companyItemInfo.AddressInfo),
                 Capacity = GetValueString(companyItemInfo.Capacity),
                 Email = GetValueString(companyItemInfo.EmailCompany),
@@ -137,17 +135,18 @@ namespace Topmass.Recruiter.Bussiness
                 ShortDes = GetValueString(companyItemInfo.shortDes),
                 TaxCode = GetValueString(companyItemInfo.TaxCode),
                 Website = GetValueString(companyItemInfo.Website),
+                IframeEmbeddedMap = companyItemInfo.IframeEmbeddedMap,
                 RelId = companyItemInfo.Field
 
             };
             result.CompanyInfo = itemCompanyReponse;
-
             var _businessLicense = await _businessLicenseRepository.GetByUserName(recruiterItem.Email);
             if (_businessLicense == null || _businessLicense.Id < 1)
             {
                 _businessLicense.RelId = _businessLicense.Id;
                 _businessLicense.Email = _businessLicense.Email;
                 _businessLicense.LinkFile = "";
+
                 _businessLicense.Status = 0;
                 await _businessLicenseRepository
                     .AddOrUPdate(_businessLicense);
@@ -155,11 +154,11 @@ namespace Topmass.Recruiter.Bussiness
             var itemReponse = new BusinessLicenseItem();
             itemReponse.LinkFile = GetFullLink(_businessLicense.LinkFile);
             itemReponse.StatusText = getStatusBusiness(_businessLicense.Status);
+            itemReponse.ReasonReject = _businessLicense.ReasonReject;
+            itemReponse.DocumnetType = _businessLicense.DocumnetType;
             itemReponse.StatusCode = _businessLicense.Status;
-
             itemReponse.Note = GetValueString(_businessLicense.Note);
             result.BusinessLicenseInfo = itemReponse;
-
             reponse.Data = result;
             return reponse;
         }
@@ -259,6 +258,7 @@ namespace Topmass.Recruiter.Bussiness
             itemInfo.MapInfo = request.MapInfo;
             itemInfo.UpdateAt = DateTime.Now;
             itemInfo.Field = request.Field;
+            itemInfo.IframeEmbeddedMap = request.IframeEmbeddedMap;
             itemInfo.Slug = Utilities.SlugifySlug(request.FullName);
             await _companyInfoRepository.AddOrUPdate(itemInfo);
             return reponse;
@@ -287,6 +287,7 @@ namespace Topmass.Recruiter.Bussiness
                 }
 
             }
+            itemInfo.DocumnetType = request.DocumnetType;
             await _businessLicenseRepository.AddOrUPdate(itemInfo);
 
             return reponse;
@@ -325,7 +326,6 @@ namespace Topmass.Recruiter.Bussiness
             )
             {
                 reponse.AddError("Phone", "Thiếu thông tin số điện thoại");
-
             }
             var itemInsert = new RecruiterRepAdd()
             {
@@ -337,13 +337,11 @@ namespace Topmass.Recruiter.Bussiness
                 CreatedBy = 1,
                 Pass = request.Password
             };
-
             var itemDup = await _repository
             .FindOneByStatementSql<RecruiterModel>("select top 1 * from  Recruiter where email = @Email", new
             {
                 itemInsert.Email
             });
-
             if (itemDup != null)
             {
                 reponse.AddError(nameof(itemInsert.Email), "Trùng lặp thông tin Email ");
@@ -361,15 +359,15 @@ namespace Topmass.Recruiter.Bussiness
             item.Status = 1;
             item.CreateAt = DateTime.Now;
             await _activeCodeRecruiterRepository.AddOrUPdate(item);
-
-
-
-
-
             await _mailBussiness.RecruitmentSuccessRegister(item.Email);
+            return reponse;
 
+        }
 
-
+        public async Task<UserResgisterResult> Checkmail(RecruiterRegisterRequest request)
+        {
+            var reponse = new UserResgisterResult();
+            await _mailBussiness.RecruitmentSuccessRegister("nghia.nguyen@vietstargroup.vn");
             return reponse;
 
         }
@@ -437,7 +435,7 @@ namespace Topmass.Recruiter.Bussiness
             itemChange.Password = password;
             itemChange.UpdateAt = DateTime.Now;
             await _repository.AddOrUPdate(itemChange);
-            reponse.Message = "Cập nhật mật khẩu thành công";
+
 
             return reponse;
         }

@@ -43,6 +43,9 @@
 
     public class SearchJobRequest
     {
+
+        public int? Limit { get; set; }
+        public int? Page { get; set; }
         public string? KeyWord { get; set; }
 
         public int? TypeOfWork { get; set; }

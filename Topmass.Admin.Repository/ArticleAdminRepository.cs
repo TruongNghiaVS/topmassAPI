@@ -50,6 +50,25 @@ namespace Topmass.Campagn.Repository
 
         }
 
+        public async Task<ArticleModel> CheckSlug(string slug)
+
+        {
+
+            var dataResult = await FindOneByStatementSql<ArticleModel>("select top 1 * from Articles where slug = @slug",
+                new
+                {
+                    slug = slug
+                });
+            if (dataResult == null)
+            {
+                return null;
+            }
+            else
+            {
+                return dataResult;
+            }
+
+        }
         public async Task<bool> DeleteArticle(int id)
         {
 

@@ -80,8 +80,47 @@ namespace Topmass.Recruiter.Controllers
             var resultUser = await GetCurrentUser();
             var reponse = new BaseResult();
             await _searchCVBusiness.SaveResultSearch(request.SearchId,
-                request.LinkFile, resultUser.UserId, request.Campaign, request.JobId);
+                request.LinkFile, resultUser.UserId, request.Campaign, request.JobId, request.LockInfo == 1);
             return StatusCode(reponse.StatusCode, reponse);
         }
+
+
+        [HttpPost]
+        public async Task<ActionResult> CheckFileGenCV(CheckFileGenCVDegital request)
+        {
+            var reponse = new BaseResult();
+            var result = await _searchCVBusiness.CheckFileDigitalCV(request.SearchId, request.Lockfile.Value);
+            reponse.Data = result;
+            return StatusCode(reponse.StatusCode, reponse);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddCVToStore([FromForm] AddToStoreRequest request)
+        {
+            var resultUser = await GetCurrentUser();
+            var fullName = resultUser.FullName;
+            var reponse = new BaseResult();
+            if (request.FileCV == null)
+            {
+                reponse.AddError(nameof(request.FileCV), "Thiếu thông tin file");
+            }
+            if (!reponse.Success)
+            {
+                return StatusCode(reponse.StatusCode, reponse);
+            }
+            var requestAdd = new CVRequestDigitalAdd()
+            {
+                TypeData = 4,
+                UserId = resultUser.UserId,
+                TemplateID = 1,
+                FileCV = request.FileCV,
+                FullName = fullName,
+                HandleBy = resultUser.UserId
+            };
+            var result = await _cVBusiness.AddOrUpdateCVDigital(requestAdd);
+            reponse.Data = result;
+            return StatusCode(reponse.StatusCode, reponse);
+        }
+
     }
 }

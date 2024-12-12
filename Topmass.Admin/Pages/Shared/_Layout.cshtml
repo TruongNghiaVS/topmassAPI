@@ -54,8 +54,6 @@
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
-
-
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
 
@@ -64,9 +62,6 @@
                         <i class="bi bi-search"></i>
                     </a>
                 </li><!-- End Search Icon-->
-
-
-
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -111,142 +106,35 @@
     <aside id="sidebar" class="sidebar">
 
         <ul class="sidebar-nav" id="sidebar-nav">
-
             <li class="nav-heading">Nhà tuyển dụng</li>
             <li class="nav-link">
                 <a href="/ntd">
                         <i class="bi bi-circle"></i><span>Danh sách NTD</span>
                     </a>
             </li>
-
             <li class="nav-heading">Quản lý tin đăng</li>
                 <li class="nav-link">
                     <a href="/Job">
                          <i class="bi bi-circle"></i><span>Danh sách tin đăng</span>
                      </a>
-
-                  
             </li>
-
-
             <li class="nav-heading">Quản lý bài viết</li>
             <li class="nav-link">
-                <a href="/articleList">
+                     <a href="/articleList">
                         <i class="bi bi-circle"></i><span>Danh sách bài viết</span>
                     </a>
             </li>
 
-        
 
-           
 
-            @* <li class="nav-heading">Việc làm</li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#forms-job" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Quản lý việc làm</span><i class="bi bi-chevron-down ms-auto"></i>
+
+            <li class="nav-heading">Quản lý MetaData</li>
+            <li class="nav-link">
+                <a href="/metaDataList">
+                    <i class="bi bi-circle"></i><span>Danh sách màn hình</span>
                 </a>
-                <ul id="forms-job" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="/job">
-                            <i class="bi bi-circle"></i><span>Danh sách Việc làm</span>
-
-                        </a>
-                    </li>
-                    <li>
-
-                        <a href="/linhvuc">
-                            <i class="bi bi-circle"></i><span>Lĩnh vực việc làm</span>
-
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/job?action=add">
-                            <i class="bi bi-circle"></i><span>Tạo mới việc làm</span>
-                        </a>
-                    </li>
-
-                </ul>
             </li>
 
-
-            <li class="nav-heading">Đối tác và việc làm </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tabPartner" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-layout-text-window-reverse"></i><span>Quản lý đối tác</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="tabPartner" class="nav-content collapse " data-bs-parent="#sidebar-nav2">
-                    <li>
-                        <a href="/Partner">
-                            <i class="bi bi-circle"></i><span>Danh sách đối tác</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/Partner?action=add">
-                            <i class="bi bi-circle"></i><span>Thêm mới</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
-
-
-
-            <!-- End Tables Nav -->
-
-
-            <li class="nav-heading">Nhân sự</li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-layout-text-window-reverse"></i><span>Quản lý nhân viên</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="/Employee">
-                            <i class="bi bi-circle"></i><span>Danh sách nhân viên</span>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="/groupPage">
-                            <i class="bi bi-circle"></i><span>Danh sách nhóm</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </li><!-- End Tables Nav -->
-
-
-            <li class="nav-heading">Thông tin chung</li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/Infomation">
-                    <i class="bi bi-person"></i>
-                    <span>Thông tin tài khoản</span>
-                </a>
-            </li><!-- End Profile Page Nav -->
-
-
-            <li class="nav-heading">Hệ thống</li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/setting">
-                    <i class="bi bi-bar-chart"></i><span>Cài đặt</span>
-
-                </a>
-
-            </li><!-- End Charts Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/StatusPage">
-                    <i class="bi bi-bar-chart"></i><span>Danh sách trạng thái</span>
-
-                </a>
-
-            </li><!-- End Charts Nav -->
-
- *@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" onclick="logout()" data-bs-toggle="collapse" href="#">
@@ -254,25 +142,17 @@
 
                 </a>
 
-            </li><!-- End Charts Nav -->
-
-
+            </li>
         </ul>
 
     </aside>
-    
-
-
-
     <main id="main" class="main">
         @RenderBody()
         <form style="display:none" method="post" asp-page="index" asp-page-handler="LogOut">
             <input type="submit" id="logoutSubmit">
         </form>
     </main><!-- End #main -->
-
     <footer id="footer" class="footer">
-
         <div class="credits">
             Designed by <a href="javascript:void(0)">Vietstar</a>
         </div>

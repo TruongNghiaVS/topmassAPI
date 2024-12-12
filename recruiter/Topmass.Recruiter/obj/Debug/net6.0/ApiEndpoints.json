@@ -279,12 +279,27 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "StatusCode",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "KeyWord",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "JobId",
         "Type": "System.Int32",
         "IsRequired": false
       },
       {
         "Name": "TypeData",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ViewMode",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
@@ -302,6 +317,112 @@
       {
         "Name": "JobId",
         "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "KeyWord",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ViewMode",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "StatusCode",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.CVController",
+    "Method": "ManagenmentGetAllCV",
+    "RelativePath": "api/recruiter/CV/ManagenmentGetAllCV",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StatusCode",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Source",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "CampaignId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "KeyWord",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Token",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsDeleted",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "OrderBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "FromText",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ToText",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "From",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "To",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -436,6 +557,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Topmass.Recruiter.Controllers.ForgetController",
+    "Method": "testmail",
+    "RelativePath": "api/recruiter/Forget/testmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Topmass.Recruiter.Controllers.HistoryController",
     "Method": "GetHistoryLogin",
     "RelativePath": "api/recruiter/History/GetHistoryLogin",
@@ -559,12 +690,27 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "StatusCode",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "KeyWord",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "JobId",
         "Type": "System.Int32",
         "IsRequired": false
       },
       {
         "Name": "TypeData",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ViewMode",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
@@ -886,6 +1032,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Topmass.Recruiter.Controllers.RegisterController",
+    "Method": "SendmailXacThuc",
+    "RelativePath": "api/recruiter/Register/SendmailXacThuc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Topmass.Recruiter.Controllers.RewardController",
     "Method": "OpenCV",
     "RelativePath": "api/recruiter/Reward/OpenCV",
@@ -896,6 +1052,59 @@
       {
         "Name": "request",
         "Type": "Topmass.Recruiter.Model.OpenSearchCVRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.RewardController",
+    "Method": "OpenCVNoSearchCV",
+    "RelativePath": "api/recruiter/Reward/OpenCVNoSearchCV",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.OpenSearchCVRequestNoSearch",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.SearchCVController",
+    "Method": "AddCVToStore",
+    "RelativePath": "api/recruiter/SearchCV/AddCVToStore",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TemplateID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileCV",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.SearchCVController",
+    "Method": "CheckFileGenCV",
+    "RelativePath": "api/recruiter/SearchCV/CheckFileGenCV",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.CheckFileGenCVDegital",
         "IsRequired": true
       }
     ],

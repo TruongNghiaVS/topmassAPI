@@ -24,6 +24,10 @@
         public string? ShortDes { get; set; }
         public string? LogoLink { get; set; }
         public string? CoverLink { get; set; }
+        public string? IframeEmbeddedMap
+        {
+            get; set;
+        }
         public CompanyInfoItem()
         {
             TaxCode = "";
@@ -52,7 +56,53 @@
         public int StatusCode { get; set; }
 
         public string StatusText { get; set; }
+        public int ReasonReject { get; set; }
 
+        public string DocumnetType { get; set; }
+
+        public string ReasonRejectText
+        {
+            get
+            {
+                if (StatusCode != 2)
+                {
+                    return "";
+                }
+                if (ReasonReject == 0)
+                {
+                    return "Chứng từ không rõ";
+                }
+                if (ReasonReject == 1)
+                {
+                    return "Thông tin không trùng khớ";
+                }
+                if (ReasonReject == 2)
+                {
+                    return "Chứng từ bản cũ";
+                }
+                if (ReasonReject == 3)
+                {
+                    return "Chứng từ thiếu thông tin";
+                }
+                if (ReasonReject == 4)
+                {
+                    return "Chứng từ không hợp lệ";
+                }
+                if (ReasonReject == 5)
+                {
+                    return "Chứng từ không đúng";
+                }
+                if (ReasonReject == 6)
+                {
+                    return "Chứng từ quá hạn công chứng";
+                }
+                if (ReasonReject == 7)
+                {
+                    return "Khác";
+                }
+                return "";
+            }
+        }
         public string Note { get; set; }
 
     }

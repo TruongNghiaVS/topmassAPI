@@ -50,9 +50,13 @@ namespace Topmass.Recruiter.Controllers
         }
 
 
-
-
-
+        [HttpPost]
+        public async Task<ActionResult> SendmailXacThuc()
+        {
+            var request = new RecruiterRegisterRequest();
+            var result = await bussiness.Checkmail(request);
+            return StatusCode(result.StatusCode, result);
+        }
 
     }
 }

@@ -33,6 +33,8 @@
         public int TypeData { get; set; }
 
         public int Source { get; set; }
+
+        public string DocumentType { get; set; }
         public HIstoryDataRequestAdd()
         {
             Actor = 1; TypeData = 1;

@@ -13,7 +13,9 @@ namespace Topmass.Sync.Busines
 
             services.ConfigBusiness();
             services.ConfigSyncRepository();
+            services.ConfigLocationBusiness();
             services.AddSingleton<ISyncBusiness, SyncBusiness>();
+
         }
     }
 }

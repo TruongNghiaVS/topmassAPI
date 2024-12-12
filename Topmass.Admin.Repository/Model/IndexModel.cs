@@ -333,10 +333,10 @@ namespace Topmass.Admin.Repository
         {
             get
             {
-                if(Status !=2)
+                if (Status != 2)
                 {
                     return "";
-                }    
+                }
 
                 if (ReasonReject == 0)
                 {
@@ -413,7 +413,7 @@ namespace Topmass.Admin.Repository
     {
         public int Id { get; set; }
 
-        public string  NotedReason { get; set; }
+        public string NotedReason { get; set; }
 
         public string Noted { get; set; }
 
@@ -421,13 +421,15 @@ namespace Topmass.Admin.Repository
 
         public int OldStatus { get; set; }
 
-        
+
 
         public int NewStatus { get; set; }
 
-        public string OldStatusText { get
+        public string OldStatusText
+        {
+            get
             {
-                if(OldStatus ==0)
+                if (OldStatus == 0)
                 {
                     return "Khóa tài khoản";
                 }
@@ -450,13 +452,13 @@ namespace Topmass.Admin.Repository
 
         public string NewStatusText
         {
-            
+
             get
             {
                 if (NewStatus == OldStatus)
                 {
                     return "-";
-                }    
+                }
                 if (NewStatus == 0)
                 {
                     return "Khóa tài khoản";
@@ -509,10 +511,10 @@ namespace Topmass.Admin.Repository
         {
             get
             {
-                if(NewConfirmStatus == OldConfirmStatus)
+                if (NewConfirmStatus == OldConfirmStatus)
                 {
                     return "-";
-                }    
+                }
                 if (NewConfirmStatus == 0)
                 {
                     return "Chưa xác thực email";
@@ -659,6 +661,83 @@ namespace Topmass.Admin.Repository
         public string LinkFile { get; set; }
         public int Status { get; set; }
         public string Email { get; set; }
+
+        public string DocumentType { get; set; }
+
+        public string DocumentTypeText
+        {
+            get
+            {
+                if (DocumentType == "0")
+                {
+                    return "Giấy đăng ký kinh doanh";
+                }
+                if (DocumentType == "1")
+                {
+                    return "Giấy uỷ quyền";
+                }
+                if (DocumentType == "2")
+                {
+                    return "Thẻ nhân viên";
+                }
+                if (DocumentType == "3")
+                {
+                    return "Giấy xác nhận  mẫu dấu";
+                }
+                if (DocumentType == "4")
+                {
+                    return "Giấy xác nhận mã số thuế";
+                }
+                return "";
+            }
+
+        }
+
+
+        public string ReasonRejectText
+        {
+            get
+            {
+                if (Status != 2)
+                {
+                    return "";
+                }
+                if (ReasonReject == 0)
+                {
+                    return "Chứng từ không rõ";
+                }
+                if (ReasonReject == 1)
+                {
+                    return "Thông tin không trùng khớ";
+                }
+                if (ReasonReject == 2)
+                {
+                    return "Chứng từ bản cũ";
+                }
+                if (ReasonReject == 3)
+                {
+                    return "Chứng từ thiếu thông tin";
+                }
+                if (ReasonReject == 4)
+                {
+                    return "Chứng từ không hợp lệ";
+                }
+                if (ReasonReject == 5)
+                {
+                    return "Chứng từ không đúng";
+                }
+                if (ReasonReject == 6)
+                {
+                    return "Chứng từ quá hạn công chứng";
+                }
+                if (ReasonReject == 7)
+                {
+                    return "Khác";
+                }
+                return "";
+            }
+        }
+        public int ReasonReject { get; set; }
 
 
 

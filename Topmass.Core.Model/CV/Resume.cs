@@ -11,6 +11,13 @@
         public string? DataInput { get; set; }
 
         public string? LinkFile { get; set; }
+
+        public int? IsReload { get; set; }
+
+        public Resume()
+        {
+            IsReload = 1;
+        }
     }
 
     public class ResumeUI : BaseModel

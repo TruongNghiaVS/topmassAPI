@@ -4,7 +4,7 @@ using TopMass.Core.Result;
 
 namespace Topmass.Job.Business.Model
 {
-    public class JobItemReponse : BaseResult
+    public class JobItemReponse : DataResult
     {
 
 

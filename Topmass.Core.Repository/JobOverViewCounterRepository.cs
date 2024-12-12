@@ -16,18 +16,15 @@ namespace Topmass.Core.Repository
 
         public async Task<JobOverViewCounterReponse> GetAll(JobOverViewCounterRequest request)
         {
-            var jobItem = await _jobRepository.GetById(request.JobId);
+            var jobItem = await _jobRepository.ExecuteSqlProcedure<JobOverviewDisplay>("sp_getInfoDetailOverview", new
+            {
+                JobId = request.JobId
+            });
             var dataReports = await this.ExecuteSqlProcerduceToList<JobOverViewCounterDisplay>("sp_getInfoOverview", request);
             var listData = new List<JobOverViewCounterDisplay>();
-            var statusText = "Đang chạy";
-            if (jobItem.Status == 2)
-            {
-                statusText = "Chờ Duyệt";
-            }
-            if (jobItem.Status == 3)
-            {
-                statusText = "Hết hạn";
-            }
+
+
+
             var dateRequest = request.From;
             while (dateRequest <= request.To)
             {
@@ -56,11 +53,12 @@ namespace Topmass.Core.Repository
             var itemReponse = new JobOverViewCounterReponse();
             itemReponse.From = request.From;
             itemReponse.To = request.To;
-            itemReponse.JobName = jobItem.Name;
+            itemReponse.JobName = jobItem.JobName;
             itemReponse.TotalViewer = listData.Sum(x => x.TotalViewer);
             itemReponse.TotalApply = listData.Sum(x => x.TotalApply);
-            itemReponse.StatusText = statusText;
-            itemReponse.Status = jobItem.Status;
+            itemReponse.StatusText = jobItem.StatusText;
+            itemReponse.Status = jobItem.StatusCode;
+
             itemReponse.Data = listData;
             return itemReponse;
         }

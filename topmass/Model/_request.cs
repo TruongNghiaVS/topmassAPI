@@ -58,6 +58,8 @@
         public bool? WorkMode { get; set; }
         public bool? SearchMode { get; set; }
 
+        public bool? IsSwichSearchMode { get; set; }
+
 
 
     }

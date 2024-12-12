@@ -35,13 +35,25 @@ namespace Topmass.core.Business
             candidateInfo.Password = password;
             candidateInfo.UpdateAt = DateTime.Now;
             await _repository.AddOrUPdate(candidateInfo);
-            reponse.Message = "Cập nhật mật khẩu thành công";
+            //reponse.Message = "Cập nhật mật khẩu thành công";
 
             return reponse;
         }
         public async Task<BaseResult> UpdateInfoCandidate(CandidateInfoUpdate request)
         {
             var reponse = new UserResgisterResult();
+            if (request.IsSwichSearchMode == true)
+            {
+                var resulCheck = await _repository.ExecuteSqlProcedure<AllowSearchIndex>("sp_digital_checkAllowSearch", new
+                {
+                    userid = request.UserId
+                });
+                if (resulCheck.Allow < 1)
+                {
+                    reponse.Message = "Vui lòng cập nhật đầy đủ thông tin tại Digital CV để sử dụng tính năng này ";
+                    return reponse;
+                }
+            }
             var candidateUpdate = await _repository.GetById(request.UserId.Value);
 
             if (candidateUpdate == null)
@@ -57,22 +69,17 @@ namespace Topmass.core.Business
             {
                 candidateUpdate.FullName = request.LastName;
             }
-
             if (!string.IsNullOrEmpty(request.Phone))
             {
                 candidateUpdate.Phone = request.Phone;
             }
             candidateUpdate.UpdatedBy = request.HandleBy.Value;
-
             await _repository.AddOrUPdate(candidateUpdate);
-
             var candidateInfo = await _candidateInfoRepository.FindOneByStatementSql<CandidateInfoModel>("select top 1 * from CandidateInfo where email = @email", new { email = candidateUpdate.Email });
-
             if (candidateInfo == null)
             {
                 return reponse;
             }
-
             if (!string.IsNullOrEmpty(request.AvatarLink))
             {
                 candidateInfo.AvatarLink = request.AvatarLink;
@@ -85,15 +92,14 @@ namespace Topmass.core.Business
             if (request.PublicMode.HasValue)
             {
                 candidateInfo.PublicMode = request.PublicMode.Value;
-
             }
             await _candidateInfoRepository.AddOrUPdate(candidateInfo);
-
             return reponse;
         }
 
         public async Task<UserResgisterResult> RegisterUser(CandidateRegisterRequest request)
         {
+
             var reponse = new UserResgisterResult();
             if (string.IsNullOrWhiteSpace(request.Email) ||
                 string.IsNullOrWhiteSpace(request.Password)

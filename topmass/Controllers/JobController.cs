@@ -33,6 +33,7 @@ namespace topmass.Model
         public async Task<ActionResult> AddViewForJob(AddViewForJobRequest request)
         {
             var reponse = new BaseResult();
+
             var userId = -1;
             if (User.Identity.IsAuthenticated)
             {
@@ -69,6 +70,10 @@ namespace topmass.Model
             {
                 reponse.AddError(nameof(request.JobId), "Thiếu thông tin việc làm");
             }
+            if (string.IsNullOrEmpty(request.Introduction))
+            {
+                reponse.AddError(nameof(request.Introduction), "Thiếu thông tin mô tả");
+            }
             if (!reponse.Success)
             {
                 return StatusCode(reponse.StatusCode, reponse);
@@ -80,6 +85,7 @@ namespace topmass.Model
                 FullName = request.FullName,
                 Phone = request.Phone,
                 Email = request.Email,
+                Introduction = request.Introduction,
                 HandleBy = int.Parse(resultUser.Id)
             };
             var result = await _cVBusiness.ApplyJob(requestAdd);

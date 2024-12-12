@@ -405,6 +405,7 @@
           "System.Data.SqlClient": "4.8.6",
           "TopMass.Core.Result": "1.0.0",
           "Topmass.Core.Model": "1.0.0",
+          "Topmass.Utility": "1.0.0",
           "log4net": "2.0.17"
         },
         "compile": {
@@ -1187,24 +1188,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
+      "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
       "projectName": "Topmass.Recruiter.Bussiness",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
+      "projectPath": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\obj\\",
+      "outputPath": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1212,27 +1208,26 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+            "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
             }
           }
         }
@@ -1281,7 +1276,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

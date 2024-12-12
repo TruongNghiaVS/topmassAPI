@@ -89,11 +89,10 @@
             {
                 if (RuleStatusJob != 2)
                 {
-                    return "Không hiển thị";
+                    return "Đang tắt";
                 }
                 if (ExpiryDate.HasValue)
                 {
-
                     if (ExpiryDate.Value.AddDays(1).Date <= DateTime.Now)
                     {
                         return "Hết hạn hiển thị";
@@ -102,6 +101,10 @@
                 if (Status == 0)
                 {
                     return "Đang tắt";
+                }
+                if (Status == 2)
+                {
+                    return "Hết hạn hiển thị";
                 }
                 return "Đang hiển thị";
             }

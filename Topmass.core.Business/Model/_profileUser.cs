@@ -27,6 +27,8 @@
 
         public DateTime? DateOfBirth { get; set; }
 
+        public string ProvinceCode { get; set; }
+
 
 
 

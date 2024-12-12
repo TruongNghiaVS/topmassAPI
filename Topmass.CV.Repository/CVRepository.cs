@@ -58,14 +58,23 @@ namespace Topmass.CV.Repository
             respone.Success = true;
             return respone;
         }
-
-
-
+        public async Task<CVResumeResponse> AddOrUpdateCVDigital(CVResumeRequest request)
+        {
+            var respone = new CVResumeResponse() { };
+            await _resumeRepository.ExecuteStatementSql("sp_createOrUpdateDigitalCV", new
+            {
+                request.UserId,
+                request.LinkFile,
+                TemplateId = request.TemplateID
+            });
+            respone.Success = true;
+            return respone;
+        }
         public async Task<ApplyJobWithCreateCVReponse> ApplyJobWithCreateCV(ApplyJobWithCreateCV request)
         {
             var reponse = new ApplyJobWithCreateCVReponse();
             var result = await _jobApplyRepository.ExecuteStatementSql("sp_applyJobWithCreateCV", request);
-
+            await _jobApplyRepository.AddCounterApply(request.JobId, request.UserId);
             reponse.Success = true;
 
             return reponse;
@@ -101,27 +110,41 @@ namespace Topmass.CV.Repository
             {
                 return respone;
             }
-
             var sql = "sp_getAllCVByJob";
-
             if (request.TypeData != 3)
             {
                 sql = "sp_getAllCVByJob";
-            }
-            else
-            {
-                sql = "sp_getAllSearchCVByJob";
-            }
 
-            var dataResult = await _resumeRepository
+                var dataResult = await _resumeRepository
                 .ExecuteSqlProcerduceToList<JobApplyDisplayItem>(sql,
                   new
                   {
                       request.JobId,
-                      request.UserId
+                      request.UserId,
+                      request.KeyWord,
+                      request.ViewMode,
+                      request.Status
+
                   });
-            respone.Data = dataResult;
-            return respone;
+                respone.Data = dataResult.ToList();
+                return respone;
+            }
+            else
+            {
+                sql = "sp_getAllSearchCVByJob";
+                var dataResult = await _resumeRepository
+                .ExecuteSqlProcerduceToList<JobApplyDisplayItemSearchCV>(sql,
+                  new
+                  {
+                      request.JobId,
+                      request.UserId,
+                      request.ViewMode,
+                      request.Status,
+                      request.KeyWord
+                  });
+                respone.Data = dataResult.ToList();
+                return respone;
+            }
         }
 
         public async Task<CVapplyJobReponse> ApplyJob(CVapplyJobRequest request)
@@ -133,6 +156,7 @@ namespace Topmass.CV.Repository
                 Status = 21,
                 FullName = request.FullName,
                 Email = request.Email,
+                Introduction = request.Introduction,
                 Phone = request.Phone,
                 CreateAt = DateTime.Now,
                 CreatedBy = request.HandleBy,
@@ -141,6 +165,8 @@ namespace Topmass.CV.Repository
                 Deleted = false
             };
             var applyId = await _jobApplyRepository.AddAndGetId(resumeInsert);
+
+            await _jobApplyRepository.AddCounterApply(request.JobId, request.HandleBy);
 
             var jobInfo = await _jobInfoRepository.FindOneByStatementSql<JobInfoModel>("select * from jobInfo where JobId = @jobId",
             new
@@ -187,11 +213,6 @@ namespace Topmass.CV.Repository
             {
                 return respone;
             }
-            var sqlText = "sp_getAllCVByCampangn";
-            if (request.Source > 1)
-            {
-                sqlText = "sp_getAllCVBySearchCV";
-            }
             var requestfilter = new
             {
                 request.JobId,
@@ -200,12 +221,89 @@ namespace Topmass.CV.Repository
                 request.CampagnId,
                 request.UserId
             };
+            var sqlText = "sp_getAllCVByCampangn";
+            if (request.Source > 1)
+            {
+                sqlText = "sp_getAllCVBySearchCV";
+                var dataResult = await _resumeRepository
+                  .ExecuteSqlProcerduceToList<JobApplyDisplayItem>(sqlText,
+                 requestfilter);
+                respone.Data = dataResult;
+            }
+            else
+            {
+                var dataResult = await _resumeRepository
+                  .ExecuteSqlProcerduceToList<JobApplyDisplayItem>(sqlText,
+                 requestfilter);
+                respone.Data = dataResult;
+            }
 
-            var dataResult = await _resumeRepository
-                   .ExecuteSqlProcerduceToList<JobApplyDisplayItem>(sqlText,
-                  requestfilter);
-            respone.Data = dataResult;
+
+
+
             return respone;
+        }
+
+        public async Task<GetAllCVByJobReponse> GetAllCVApplyNew(InputGetAllCVApplyFilter request)
+        {
+            var respone = new GetAllCVByJobReponse()
+            {
+            };
+            var sql = "sp_getAllCVByJobWithCampaign";
+            if (request.Source == 0)
+            {
+
+                var dataResult = await _jobApplyRepository
+                .ExecuteSqlProcerduceToList<ShortCVManagentInfoDisplayItem>(sql,
+                  new
+                  {
+                      request.UserId,
+                      request.Page,
+                      request.Limit,
+                      request.KeyWord,
+                      campaign = request.CampaignId,
+                      Status = request.StatusCode
+                  });
+                respone.Data = dataResult.ToList();
+                return respone;
+            }
+            else if (request.Source == 1)
+            {
+                sql = "sp_getAllSearchCVByJobWithCampaign";
+                var dataResult = await _jobApplyRepository
+                .ExecuteSqlProcerduceToList<ShortCVManagentInfoDisplayItem>(sql,
+                  new
+                  {
+                      request.UserId,
+                      request.Page,
+                      request.Limit,
+                      request.KeyWord,
+                      campaign = request.CampaignId,
+                      Status = request.StatusCode
+                  });
+                respone.Data = dataResult.ToList();
+                return respone;
+            }
+            else if (request.Source == -1)
+            {
+                sql = "sp_getAllCVAllCampaign";
+                var dataResult = await _jobApplyRepository
+                .ExecuteSqlProcerduceToList<ShortCVManagentInfoDisplayItem>(sql,
+                  new
+                  {
+                      request.UserId,
+                      request.Page,
+                      request.Limit,
+                      request.KeyWord,
+                      campaign = request.CampaignId,
+                      Status = request.StatusCode
+                  });
+                respone.Data = dataResult.ToList();
+                return respone;
+            }
+            return respone;
+
+
         }
 
 

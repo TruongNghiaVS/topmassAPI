@@ -35,8 +35,13 @@ namespace Topmass.Recruiter.Controllers
                 2, resultUser.UserId, request.Campaign);
             return StatusCode(reponse.StatusCode, reponse);
         }
-
-
-
+        [HttpPost]
+        public async Task<ActionResult> OpenCVNoSearchCV(OpenSearchCVRequestNoSearch request)
+        {
+            var resultUser = await GetCurrentUser();
+            var reponse = new BaseResult();
+            await _rewardBusiness.ExchangePointToOpenCVNoSearchCV(request.SearchId, 2, resultUser.UserId, request.Identify, request.LinkFile);
+            return StatusCode(reponse.StatusCode, reponse);
+        }
     }
 }

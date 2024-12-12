@@ -50,6 +50,23 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.1",
+          "System.IO.Pipelines": "5.0.2"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -430,6 +447,19 @@
           }
         }
       },
+      "System.IO.Pipelines/5.0.2": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
@@ -629,6 +659,7 @@
           "System.Data.SqlClient": "4.8.6",
           "TopMass.Core.Result": "1.0.0",
           "Topmass.Core.Model": "1.0.0",
+          "Topmass.Utility": "1.0.0",
           "log4net": "2.0.17"
         },
         "compile": {
@@ -652,11 +683,14 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
+          "Newtonsoft.Json": "13.0.3",
           "Topmass.Bussiness.Mail": "1.0.0",
           "Topmass.CV.Repository": "1.0.0",
           "Topmass.Core.Model": "1.0.0",
-          "Topmass.Notification.Repository": "1.0.0"
+          "Topmass.Notification.Repository": "1.0.0",
+          "Topmass.Utility": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Topmass.CV.Business.dll": {}
@@ -874,6 +908,25 @@
         "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
         "microsoft.aspnetcore.authentication.jwtbearer.6.0.32.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "sha512": "3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/net461/Microsoft.AspNetCore.Http.Features.xml",
+        "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Http.Features.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
+        "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
@@ -1731,6 +1784,32 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
+    "System.IO.Pipelines/5.0.2": {
+      "sha512": "Iew+dfa6FFiyvWBdRmXApixRY1db+beyutpIck4SOSe0NLM8FD/7AD54MscqVLhvfSMLHO7KadjTRT7fqxOGTA==",
+      "type": "package",
+      "path": "system.io.pipelines/5.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.IO.Pipelines.dll",
+        "lib/net461/System.IO.Pipelines.xml",
+        "lib/netcoreapp3.0/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.0/System.IO.Pipelines.xml",
+        "lib/netstandard1.3/System.IO.Pipelines.dll",
+        "lib/netstandard1.3/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "ref/netcoreapp2.0/System.IO.Pipelines.dll",
+        "ref/netcoreapp2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.5.0.2.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "type": "package",
@@ -2037,24 +2116,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
+      "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
       "projectName": "Topmass.Recruiter",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
+      "projectPath": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\obj\\",
+      "outputPath": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2062,45 +2136,44 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj"
+            "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Business.History\\Topmass.Business.History.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Business.Regional\\Topmass.Business.Regional.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Campang.Business\\Topmass.Campagn.Business.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+            "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.CV.Business\\Topmass.CV.Business.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Job.Business\\Topmass.Job.Business.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Notification.Business\\Topmass.Notification.Business.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
+            "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj"
+            "C:\\tomass2\\topmass\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj": {
+              "projectPath": "C:\\tomass2\\topmass\\topmass\\TopMass.Web.Business\\TopMass.Web.Business.csproj"
             }
           }
         }
@@ -2148,7 +2221,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

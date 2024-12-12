@@ -32,11 +32,16 @@ namespace Topmass.Bussiness.Mail
             var bodyContent = contents;
             MailMessage message = new MailMessage();
             SmtpClient smtp = new SmtpClient();
-            message.From = new MailAddress(mailFrom);
+            message.From = new MailAddress(mailFrom, "topmass.vn");
             message.To.Add(new MailAddress(mailTo));
             message.Subject = subjectInfo;
             message.IsBodyHtml = true;
             message.Body = bodyContent;
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(contents, null, "text/html");
+            LinkedResource imageResource = new LinkedResource("C:\\vietbank\\crm\\topmass\\Topmass.Bussiness.Mail\\Template\\mailLogo.png");
+            imageResource.ContentId = "imageLogo";
+            htmlView.LinkedResources.Add(imageResource);
+            message.AlternateViews.Add(htmlView);
             smtp.Port = mailconfig.Port;
             smtp.Host = mailconfig.Host;
             smtp.EnableSsl = true;

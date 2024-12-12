@@ -105,10 +105,11 @@ namespace Topmass.Recruiter.Controllers
             {
                 KeyScreen = keyScreen
             });
-            return StatusCode(result.StatusCode, result1);
+            result.Data = result1;
+            return StatusCode(result.StatusCode, result);
         }
 
-        
+
     }
 
 }

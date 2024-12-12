@@ -9,6 +9,8 @@
         public int Actor { get; set; }
         public int Source { get; set; }
 
+        public string DocumentType { get; set; }
+
 
 
         public LogActionModel()

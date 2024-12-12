@@ -30,10 +30,7 @@ namespace Topmass.CV.Business
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(request.Noted))
-            {
-                return false;
-            }
+
             if (request.NoteCode < 1)
             {
                 return false;
@@ -67,15 +64,14 @@ namespace Topmass.CV.Business
 
         public async Task<bool> AddViewerByHumnan(int humanId, int cvAply)
         {
+
             var addViewerJob = await _jobApplyRepository.ExecuteSqlProcedure("sp_addHumanViewerJob",
                 new
                 {
                     cvId = cvAply,
                     UserId = humanId
                 });
-
             return addViewerJob;
-
         }
         public async Task<bool> UpdateViewModel(CVChangeViewModeRequest request)
         {

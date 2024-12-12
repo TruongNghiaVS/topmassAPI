@@ -15,17 +15,27 @@
 
     }
 
+    public class CreateCVAddRequestWithTemplate
+    {
+        public int? TemplateID { get; set; }
+
+        public IFormFile? FileCV { get; set; }
+        public CreateCVAddRequestWithTemplate()
+        {
+            TemplateID = 0;
+
+        }
+
+    }
+
     public class InputApplyJobAddRequest
     {
         public string? JobId { get; set; }
         public int CVId { get; set; }
-
-
-        public string FullName { get; set; }
-
-        public string Phone { get; set; }
-
-        public string Email { get; set; }
+        public string? FullName { get; set; }
+        public string? Phone { get; set; }
+        public string? Email { get; set; }
+        public string? Introduction { get; set; }
 
     }
 
@@ -85,6 +95,8 @@
 
         public string? JobId { get; set; }
 
+        public string? Introduction { get; set; }
+
     }
 
 
@@ -115,6 +127,7 @@
         public string? JobId { get; set; }
         //public int? JobId { get; set; }
     }
+
 
 
 

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj": {}
+    "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj": {
+    "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
+        "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
         "projectName": "Topmass.Recruiter.Bussiness",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
+        "projectPath": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\Topmass.Recruiter.Bussiness.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\obj\\",
+        "outputPath": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter.Bussiness\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,27 +22,26 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+              "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
               }
             }
           }
@@ -95,25 +90,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
+    "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj",
+        "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj",
         "projectName": "Topmass.Bussiness.Mail",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj",
+        "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\Topmass.Bussiness.Mail.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Bussiness.Mail\\obj\\",
+        "outputPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Bussiness.Mail\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -121,21 +112,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj"
               }
             }
           }
@@ -170,25 +160,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+    "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj",
+        "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj",
         "projectName": "Topmass.Core.Model",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj",
+        "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\obj\\",
+        "outputPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -196,7 +182,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -235,25 +220,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+    "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj",
+        "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj",
         "projectName": "Topmass.Core.Repository",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj",
+        "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\obj\\",
+        "outputPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -261,18 +242,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Topmass.Core.Model.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+              "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj"
+              },
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj"
               }
             }
           }
@@ -329,25 +312,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
+    "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj",
+        "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj",
         "projectName": "TopMass.Core.Result",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj",
+        "projectPath": "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\TopMass.Core.Result.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\TopMass.Core.Result\\obj\\",
+        "outputPath": "C:\\tomass2\\topmass\\topmass\\TopMass.Core.Result\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -355,7 +334,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -394,25 +372,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj": {
+    "C:\\tomass2\\topmass\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj",
+        "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj",
         "projectName": "Topmass.Mail.Repository",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj",
+        "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Mail.Repository\\Topmass.Mail.Repository.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Mail.Repository\\obj\\",
+        "outputPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Mail.Repository\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -420,15 +394,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
               }
             }
           }
@@ -463,25 +436,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
+    "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj",
+        "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj",
         "projectName": "Topmass.Recruiter.Repository",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj",
+        "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\Topmass.Recruiter.Repository.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Recruiter.Repository\\obj\\",
+        "outputPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Recruiter.Repository\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -489,15 +458,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
+              "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj": {
+                "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Repository\\Topmass.Core.Repository.csproj"
               }
             }
           }
@@ -532,25 +500,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
+    "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj",
+        "projectUniqueName": "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj",
         "projectName": "Topmass.Utility",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\Topmass.Utility.csproj",
+        "projectPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\Topmass.Utility.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Utility\\obj\\",
+        "outputPath": "C:\\tomass2\\topmass\\topmass\\Topmass.Utility\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -558,7 +522,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -597,7 +560,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

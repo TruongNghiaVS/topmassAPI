@@ -2,10 +2,7 @@
 {
     public class CampagnItemDisplay
     {
-        public CampagnItemDisplay()
-        {
-            TotalRecord = 0;
-        }
+
         public string Name { get; set; }
         public int TotalRecord { get; set; }
         public DateTime CreateAt { get; set; }
@@ -14,20 +11,6 @@
         public DateTime To { get; set; }
         public int Status { get; set; }
         public int Id { get; set; }
-        public string StatusText
-        {
-            get
-            {
-                if (Status > 0)
-                {
-                    return "Chiến dịch đang chạy";
-                }
-                return "Chiến dịch đang tắt";
-
-            }
-        }
-
-
         public string LableText
         {
             get
@@ -40,5 +23,30 @@
 
             }
         }
+        public string StatusText
+        {
+            get
+            {
+                if (Status > 0)
+                {
+                    return "Chiến dịch đang chạy";
+                }
+                return "Chiến dịch đang tắt";
+
+            }
+        }
+        public NewsItem ChildItems { get; set; }
+        public CampagnItemDisplay()
+        {
+            ChildItems = new NewsItem();
+            TotalRecord = 0;
+        }
+
+    }
+
+    public class NewsItem
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

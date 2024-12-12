@@ -16,5 +16,15 @@ namespace Topmass.CV.Business
         public Task<SearchCVReponse> SearchCV(SearchCVRequestInfo request);
         public Task<SearchCVReponse> GetDetailSearch(string searchId);
 
+
+
+        public Task<CVReponseDigitalAdd> AddOrUpdateCVDigital(CVRequestDigitalAdd request);
+
+
+        public Task<CheckGenFileDigitalReponse> CheckGenFileDigital(int userId);
+        public Task<GetAllCVOfJobReponse> GetAllCVApplyNew(FilterGetAllCVApply request);
+
+        public Task<CVReponseDigitalAdd> AddCVToStore(CVRequesAddToStore request);
+
     }
 }

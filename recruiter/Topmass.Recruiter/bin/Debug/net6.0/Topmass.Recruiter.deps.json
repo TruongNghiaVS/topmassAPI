@@ -56,6 +56,12 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0",
+          "System.IO.Pipelines": "5.0.2"
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {},
       "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
         "dependencies": {
@@ -298,6 +304,7 @@
           }
         }
       },
+      "System.IO.Pipelines/5.0.2": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Security.AccessControl/4.7.0": {
         "dependencies": {
@@ -340,10 +347,7 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Business.History.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Business.History.dll": {}
         }
       },
       "Topmass.Business.Regional/1.0.0": {
@@ -351,10 +355,7 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Business.Regional.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Business.Regional.dll": {}
         }
       },
       "Topmass.Bussiness.Mail/1.0.0": {
@@ -364,10 +365,7 @@
           "Topmass.Recruiter.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Bussiness.Mail.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Bussiness.Mail.dll": {}
         }
       },
       "Topmass.Campagn.Business/1.0.0": {
@@ -376,10 +374,7 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Campagn.Business.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Campagn.Business.dll": {}
         }
       },
       "Topmass.Campagn.Repository/1.0.0": {
@@ -390,10 +385,7 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Campagn.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Campagn.Repository.dll": {}
         }
       },
       "Topmass.Core.Common/1.0.0": {
@@ -401,18 +393,12 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Core.Common.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Core.Common.dll": {}
         }
       },
       "Topmass.Core.Model/1.0.0": {
         "runtime": {
-          "Topmass.Core.Model.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Core.Model.dll": {}
         }
       },
       "Topmass.Core.Repository/1.0.0": {
@@ -423,36 +409,31 @@
           "System.Data.SqlClient": "4.8.6",
           "TopMass.Core.Result": "1.0.0",
           "Topmass.Core.Model": "1.0.0",
+          "Topmass.Utility": "1.0.0",
           "log4net": "2.0.17"
         },
         "runtime": {
-          "Topmass.Core.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Core.Repository.dll": {}
         }
       },
       "TopMass.Core.Result/1.0.0": {
         "runtime": {
-          "TopMass.Core.Result.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "TopMass.Core.Result.dll": {}
         }
       },
       "Topmass.CV.Business/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
+          "Newtonsoft.Json": "13.0.3",
           "Topmass.Bussiness.Mail": "1.0.0",
           "Topmass.CV.Repository": "1.0.0",
           "Topmass.Core.Model": "1.0.0",
-          "Topmass.Notification.Repository": "1.0.0"
+          "Topmass.Notification.Repository": "1.0.0",
+          "Topmass.Utility": "1.0.0"
         },
         "runtime": {
-          "Topmass.CV.Business.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.CV.Business.dll": {}
         }
       },
       "Topmass.CV.Repository/1.0.0": {
@@ -463,10 +444,7 @@
           "Topmass.Notification.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.CV.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.CV.Repository.dll": {}
         }
       },
       "Topmass.Job.Business/1.0.0": {
@@ -479,10 +457,7 @@
           "Topmass.Utility": "1.0.0"
         },
         "runtime": {
-          "Topmass.Job.Business.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Job.Business.dll": {}
         }
       },
       "Topmass.Mail.Repository/1.0.0": {
@@ -490,10 +465,7 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Mail.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Mail.Repository.dll": {}
         }
       },
       "Topmass.Notification.Business/1.0.0": {
@@ -501,10 +473,7 @@
           "Topmass.Notification.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Notification.Business.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Notification.Business.dll": {}
         }
       },
       "Topmass.Notification.Repository/1.0.0": {
@@ -513,10 +482,7 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Notification.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Notification.Repository.dll": {}
         }
       },
       "Topmass.Recruiter.Bussiness/1.0.0": {
@@ -531,10 +497,7 @@
           "Topmass.Utility": "1.0.0"
         },
         "runtime": {
-          "Topmass.Recruiter.Bussiness.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Recruiter.Bussiness.dll": {}
         }
       },
       "Topmass.Recruiter.Repository/1.0.0": {
@@ -542,18 +505,12 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Recruiter.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Recruiter.Repository.dll": {}
         }
       },
       "Topmass.Utility/1.0.0": {
         "runtime": {
-          "Topmass.Utility.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Utility.dll": {}
         }
       },
       "TopMass.Web.Business/1.0.0": {
@@ -563,10 +520,7 @@
           "Topmass.Web.Repository": "1.0.0"
         },
         "runtime": {
-          "TopMass.Web.Business.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "TopMass.Web.Business.dll": {}
         }
       },
       "Topmass.Web.Repository/1.0.0": {
@@ -575,10 +529,7 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Web.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Web.Repository.dll": {}
         }
       }
     }
@@ -609,6 +560,13 @@
       "sha512": "sha512-jKOKSNc2F/ZFE5UQcDUzGkmwyn9BOMvKsbg+bkFiJRKJTyF06ItAx/My08Ff420U4NGOncRE/n6J0yVjUjjrQw==",
       "path": "microsoft.aspnetcore.authentication.jwtbearer/6.0.32",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.6.0.32.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "hashPath": "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",
@@ -784,6 +742,13 @@
       "sha512": "sha512-K0dNZoXiedkpkz8v8xj3jH5IeSa3iAPNu2OegePynCeG6wiLx7CvBfDa90hYOBJ58Y21tZFd9RLpzfS7rEaHlQ==",
       "path": "system.identitymodel.tokens.jwt/8.0.0",
       "hashPath": "system.identitymodel.tokens.jwt.8.0.0.nupkg.sha512"
+    },
+    "System.IO.Pipelines/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Iew+dfa6FFiyvWBdRmXApixRY1db+beyutpIck4SOSe0NLM8FD/7AD54MscqVLhvfSMLHO7KadjTRT7fqxOGTA==",
+      "path": "system.io.pipelines/5.0.2",
+      "hashPath": "system.io.pipelines.5.0.2.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",

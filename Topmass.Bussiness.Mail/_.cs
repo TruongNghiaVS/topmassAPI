@@ -15,6 +15,9 @@
         public int JobId { get; set; }
         public int UserId { get; set; }
 
+        public string NameInput { get; set; }
+        public string Introduction { get; set; }
+
     }
 
     public class ResultNotficationRecruiterWhenHasApplyRequest

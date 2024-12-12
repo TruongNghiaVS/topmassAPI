@@ -20,22 +20,24 @@
         }
     }
 
-    public class  ArticleRequestAdd
+    public class ArticleRequestAdd
     {
 
-            public int? Id { get; set; }
+        public int? Id { get; set; }
 
-            public string Title{ get; set; }
+        public string Title { get; set; }
 
-            public string ShortDes { get; set; }
+        public string ShortDes { get; set; }
 
-            public string Keyword { get; set; }
+        public string Keyword { get; set; }
 
-            public string LinkImage { get; set; }
+        public string LinkImage { get; set; }
 
-            public string CategryIdLink { get; set; }
+        public string CategryIdLink { get; set; }
 
-            public string Content{ get; set; }
-      
+        public string Content { get; set; }
+
+        public string Slug { get; set; }
+
     }
 }

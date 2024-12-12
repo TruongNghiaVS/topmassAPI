@@ -11,6 +11,7 @@ namespace Topmass.core.Business
         public Task<BaseResult> UpdateInfoCandidate(CandidateInfoUpdate requestInfo);
 
 
+
         public Task<BaseResult> ChangePassword(string password, int userId);
     }
 }

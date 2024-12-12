@@ -39,7 +39,16 @@
                                             Value =  itemDisplay.Title
                                         });
 
-                                           listcolumnInfoWhosePerson.Add(new  CategoryMutipleControl  ()
+                                        listcolumnInfoWhosePerson.Add(new ControlItem()
+                                        {
+                                        Lable = "Slug bài viết",
+                                        Name = "txtSlug",
+                                        Type = 15,
+
+                                        Value = itemDisplay.Slug
+                                        });
+
+                                         listcolumnInfoWhosePerson.Add(new  CategoryMutipleControl  ()
                                         {
                                             Lable = "Danh mục bài viết", Name = "linked[]",
                                             Type = 9,

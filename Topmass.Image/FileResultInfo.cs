@@ -20,4 +20,13 @@
         public string? Folder { get; set; }
 
     }
+
+    public class FileUploadResultRequest
+    {
+        public IFormFile FileContent { get; set; }
+        public string? Folder { get; set; }
+
+        public string? FileName { get; set; }
+
+    }
 }

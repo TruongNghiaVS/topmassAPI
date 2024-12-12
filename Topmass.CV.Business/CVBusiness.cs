@@ -1,8 +1,11 @@
-﻿using Topmass.Bussiness.Mail;
+﻿using Newtonsoft.Json;
+using Topmass.Bussiness.Mail;
+using Topmass.Core.Model.CV;
 using Topmass.Core.Repository;
 using Topmass.CV.Business.Model;
 using Topmass.CV.Repository;
 using Topmass.CV.Repository.Model;
+using Topmass.Utility;
 
 namespace Topmass.CV.Business
 {
@@ -29,6 +32,7 @@ namespace Topmass.CV.Business
             _mailJobBissness = mailJobBissness;
 
 
+
         }
         public async Task<ApplyJobResponeAdd> ApplyJob(ApplyJobRequestAdd request)
         {
@@ -42,7 +46,6 @@ namespace Topmass.CV.Business
             {
                 return result;
             }
-
             var itemJob = await _jobRepository.GetBySlug(request.JobSlug);
             var resumeInsert = new CVapplyJobRequest()
             {
@@ -51,16 +54,17 @@ namespace Topmass.CV.Business
                 JobId = itemJob.Id,
                 Email = request.Email,
                 Phone = request.Phone,
-                FullName = request.FullName
+                FullName = request.FullName,
+                Introduction = request.Introduction,
             };
             result.Data = await _cVRepository.ApplyJob(resumeInsert);
-
             await _mailJobBissness.NotficationRecruiterWhenHasApply(new NotficationRecruiterWhenHasApplyRequest()
             {
                 JobId = itemJob.Id,
+                NameInput = request.FullName,
+                Introduction = request.Introduction,
                 UserId = request.HandleBy
             });
-
             return result;
         }
         public async Task<ApplyJobWithCreateResponeAdd> ApplyJobWithCV(ApplyJobWithCreateCVAdd request)
@@ -93,10 +97,15 @@ namespace Topmass.CV.Business
                 TemplateID = request.TemplateID,
                 TypeData = request.TypeData,
                 UserId = request.UserId,
-
-
             };
             result.Data = await _cVRepository.ApplyJobWithCreateCV(resumeInsert);
+            await _mailJobBissness.NotficationRecruiterWhenHasApply(new NotficationRecruiterWhenHasApplyRequest()
+            {
+                JobId = jobinfo.Id,
+                Introduction = request.Introduction,
+                NameInput = request.FullName,
+                UserId = request.UserId
+            });
             return result;
         }
         public async Task<SearchCVReponse> SearchCV(SearchCVRequestInfo request)
@@ -155,7 +164,6 @@ namespace Topmass.CV.Business
             {
                 return respone;
             }
-
             var requestFilter = new GetAllCVByCampaignRequest()
             {
                 JobId = request.JobId,
@@ -165,7 +173,6 @@ namespace Topmass.CV.Business
                 Status = request.Status,
                 Key = request.Key,
                 Source = request.Source.HasValue ? request.Source.Value : 1
-
             };
             var dataResult = await _cVRepository
                    .GetAllCVApply(requestFilter);
@@ -183,6 +190,9 @@ namespace Topmass.CV.Business
             var requestFilter = new GetAllCVByJobRequest()
             {
                 JobId = request.JobId,
+                Status = request.StatusCode.HasValue == true ? request.StatusCode.Value : -1,
+                KeyWord = request.KeyWord,
+                ViewMode = request.ViewMode,
                 TypeData = request.TypeData,
                 UserId = request.UserId
 
@@ -213,12 +223,117 @@ namespace Topmass.CV.Business
             respone.Data = dataResult.First();
             return respone;
         }
-
         public async Task<SearchCVReponse> GetDetailSearch(string searchId)
         {
 
             return new SearchCVReponse();
         }
+        public async Task<CheckGenFileDigitalReponse> CheckGenFileDigital(int userId)
+        {
+            var result = new CheckGenFileDigitalReponse();
+            var resumeFile = await _resumeRepository.FindOneByStatementSql<Resume>
+                ("select top 1 * from resumes where UserId  = @userid and TypeData = 5", new
+                {
+                    userid = userId
+                });
+            if (resumeFile == null)
+            {
+                result.IsCreateNewFile = true;
+                result.LinkFile = "";
+                return result;
+            }
+            else
+            {
 
+                if (resumeFile.IsReload.HasValue)
+                {
+                    if (resumeFile.IsReload == 0)
+                    {
+                        result.IsCreateNewFile = false;
+                        result.LinkFile = resumeFile.LinkFile;
+                        return result;
+                    }
+                }
+                result.IsCreateNewFile = true;
+                result.LinkFile = "";
+                return result;
+            }
+        }
+        public async Task<CVReponseDigitalAdd> AddOrUpdateCVDigital(CVRequestDigitalAdd request)
+        {
+            var reponse = new CVReponseDigitalAdd();
+            var linkfile = "";
+            if (request.FileCV != null)
+            {
+                var fileCV = request.FileCV;
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(@"https://www.cdn.topmass.vn");
+                    var fileNameCV = "CV-" + Utilities.SlugifySlug2(request.FullName) + "-" + "Topmass";
+                    byte[] fileByteArray;    //1st change here
+                    using (var item = new MemoryStream())
+                    {
+                        request.FileCV.CopyTo(item);
+                        fileByteArray = item.ToArray(); //2nd change here
+                    }
+                    var formContent = new MultipartFormDataContent
+                    {
+                        { new StreamContent(fileCV.OpenReadStream()),"File",fileCV.FileName },
+                        {new StringContent(fileNameCV),"FileName" }
+                    };
+                    var result = await client.PostAsync("/FileMedia/UploadFile", formContent);
+                    if (result.IsSuccessStatusCode)
+                    {
+                        var contents = await result.Content.ReadAsStringAsync();
+                        var result2 = JsonConvert.DeserializeObject<FileReponse>(contents);
+                        linkfile = result2.Data.FullLink;
+                    }
+                }
+            }
+            var resumeInsert = new CVResumeRequest()
+            {
+                DataInput = "",
+                HandleBy = request.HandleBy,
+                LinkFile = linkfile,
+                TemplateID = request.TemplateID,
+                TypeData = 5,
+                UserId = request.UserId
+            };
+            reponse.Success = true;
+            await _cVRepository.AddOrUpdateCVDigital(resumeInsert);
+            reponse.Data = new
+            {
+                linkFile = linkfile
+            };
+            return reponse;
+        }
+
+        public async Task<CVReponseDigitalAdd> AddCVToStore(CVRequesAddToStore request)
+        {
+            return new CVReponseDigitalAdd();
+        }
+        public async Task<GetAllCVOfJobReponse> GetAllCVApplyNew(FilterGetAllCVApply request)
+        {
+            var respone = new GetAllCVOfJobReponse() { };
+            if (request.UserId < 1)
+            {
+                return respone;
+            }
+            var requestFilter = new InputGetAllCVApplyFilter()
+            {
+                UserId = request.UserId,
+                CampaignId = request.CampaignId,
+                KeyWord = request.KeyWord,
+                Source = request.Source,
+                Limit = request.Limit,
+                Page = request.Page,
+                StatusCode = request.StatusCode
+
+            };
+            var dataResult = await _cVRepository
+                   .GetAllCVApplyNew(requestFilter);
+            respone.Data = dataResult.Data;
+            return respone;
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Topmass.core.Business.Model;
-using Topmass.Core.Model.Profile;
 
 namespace Topmass.core.Business
 {
@@ -38,8 +37,9 @@ namespace Topmass.core.Business
 
         public Task<GetJobSettingReponse> GetJobSetting(int userId);
         public Task<bool> AddOrUpdateProfileCV(ProfileUserRequestAdd request);
-        public Task<ProfileCVUser> GetProfileUserCV(int userId);
-
+        public Task<ProfileCVUserDisplay> GetProfileUserCV(int userId);
+        public Task<bool> ReloadGenFileCV(int userId);
         public Task<dynamic> GetAlNTD(int userId);
+        public Task<List<RegionalSearchItem>> GetRegionSearchSetting(int userId);
     }
 }

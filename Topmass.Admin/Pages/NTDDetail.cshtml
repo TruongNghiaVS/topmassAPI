@@ -104,15 +104,20 @@
                 <div class="tab-pane fade" id="profile-justified" role="tabpanel" aria-labelledby="profile-tab">
                         @{
                             var listcolumnLicence = new List<ControlItem>();
-
                             listcolumnLicence.Add(new FileControlItem()
                              {
                              Value = documentInfo.LinkFile,
                             Lable = "Tài liệu, chứng từ",
                             Name = "inputFileDocument",
-
-
                             });
+
+                            listcolumnLicence.Add(new ControlItem()
+                            {
+                            Lable = "Loại chứng từ",
+                            Name = "txtLoaichungtu",
+                            ReadOnly =true,
+                               Value = documentInfo.DocumentType
+                               });
                             listcolumnLicence.Add(new ControlItem()
                             {
                                     Lable = "Trạng thái hiện tại",
@@ -172,8 +177,8 @@
                         new  {
                         id =7, text ="Khác",
                         }
-                        },
-                        Value = 0
+                        }
+                      
                         });
                             listcolumnLicence.Add(new ControlItem()
             {
@@ -473,8 +478,12 @@
                                         Name = "cbReasonLockAccount",
                                         ReadOnly = true,
                                        
-                                        DataSource = new List<dynamic>() { new
+                                            DataSource = new List<dynamic>() { new
                                             {
+                                              id =4, text ="NTD thay đổi thông tin",
+                                            },
+                                            
+                                            new {
                                             id =0, text ="TK không sử dụng",
                                             },
                                             new  {

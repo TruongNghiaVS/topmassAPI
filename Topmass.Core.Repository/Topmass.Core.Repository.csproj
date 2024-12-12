@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Topmass.Core.Model\Topmass.Core.Model.csproj" />
     <ProjectReference Include="..\TopMass.Core.Result\TopMass.Core.Result.csproj" />
+    <ProjectReference Include="..\Topmass.Utility\Topmass.Utility.csproj" />
   </ItemGroup>
 
 </Project>

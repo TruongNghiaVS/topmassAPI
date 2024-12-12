@@ -17,6 +17,7 @@
         public string LocationCode { get; set; }
         public int CountView { get; set; }
         public int CountContact { get; set; }
+        public int SourceType { get; set; }
 
     }
 

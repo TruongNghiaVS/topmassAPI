@@ -7,6 +7,8 @@ namespace Topmass.Recruiter.Bussiness
     public partial interface IRecruiterBusiness
     {
         public Task<UserResgisterResult> RegisterUser(RecruiterRegisterRequest request);
+        public Task<UserResgisterResult> Checkmail(RecruiterRegisterRequest request);
+
         public Task<BaseResult> GetInfo(RecruiterInfoRequest requestInfo);
 
         public Task<BaseResult> UpdateInfoRecruiter(RecruiterInfoUpdate requestInfo);

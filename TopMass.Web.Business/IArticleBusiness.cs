@@ -9,10 +9,9 @@ namespace TopMass.Web.Business
         public Task<ArticleResult> AddOrUpdate(ArticleRequestAdd article);
         public Task<ArticleResult> Delete(DeleteRequest article);
         public Task<GetAllArticleReponse> GetAll(ArticleReqest request);
-
+        public Task<GetAllArticleReponse> GetAllForTool();
         public Task<GetAllArticleReponse> GetAllShort(ArticleReqest request);
         public Task<GetAllByCategoryReponse> GetAllCatagroy();
-
         public Task<GetAllByCategoryReponse> GetAllBlogsCategory();
 
 

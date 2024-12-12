@@ -245,18 +245,12 @@
           "Topmass.Recruiter.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Bussiness.Mail.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Bussiness.Mail.dll": {}
         }
       },
       "Topmass.Core.Model/1.0.0": {
         "runtime": {
-          "Topmass.Core.Model.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Core.Model.dll": {}
         }
       },
       "Topmass.Core.Repository/1.0.0": {
@@ -267,21 +261,16 @@
           "System.Data.SqlClient": "4.8.6",
           "TopMass.Core.Result": "1.0.0",
           "Topmass.Core.Model": "1.0.0",
+          "Topmass.Utility": "1.0.0",
           "log4net": "2.0.17"
         },
         "runtime": {
-          "Topmass.Core.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Core.Repository.dll": {}
         }
       },
       "TopMass.Core.Result/1.0.0": {
         "runtime": {
-          "TopMass.Core.Result.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "TopMass.Core.Result.dll": {}
         }
       },
       "Topmass.Mail.Repository/1.0.0": {
@@ -289,10 +278,7 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Mail.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Mail.Repository.dll": {}
         }
       },
       "Topmass.Recruiter.Repository/1.0.0": {
@@ -300,18 +286,12 @@
           "Topmass.Core.Repository": "1.0.0"
         },
         "runtime": {
-          "Topmass.Recruiter.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Recruiter.Repository.dll": {}
         }
       },
       "Topmass.Utility/1.0.0": {
         "runtime": {
-          "Topmass.Utility.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Topmass.Utility.dll": {}
         }
       }
     }

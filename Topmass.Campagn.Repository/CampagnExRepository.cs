@@ -34,7 +34,23 @@ namespace Topmass.Campagn.Repository
         {
             var data = await ExecuteSqlProcerduceToList<CampagnItemDisplay>("sp_campaign_getAll",
             request, System.Data.CommandType.StoredProcedure
-           );
+            );
+
+            foreach (var item in data)
+            {
+                var childInfo = await FindOneByStatementSql<NewsItem>("select top 1 id, Name   from jobItems where Campagn = @campaignId  order by id desc",
+                    new { campaignId = item.Id });
+                if (childInfo == null)
+                {
+                    childInfo = new NewsItem()
+                    {
+                        Id = -1,
+                        Name = ""
+                    };
+                }
+                item.ChildItems = childInfo;
+
+            }
 
             var reponse = new CampangnSearchReponse();
             if (data.Count > 0)

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Topmass.Business.Regional\Topmass.Business.Regional.csproj" />
     <ProjectReference Include="..\Topmass.core.Business\Topmass.core.Business.csproj" />
     <ProjectReference Include="..\Topmass.Sync.Repository\Topmass.Sync.Repository.csproj" />
     <ProjectReference Include="..\Topmass.Utility\Topmass.Utility.csproj" />

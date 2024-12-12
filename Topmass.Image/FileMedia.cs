@@ -10,6 +10,55 @@ namespace Topmass.Image
             _env = env;
         }
 
+        public async Task<BaseResult> UploadFile(FileUploadResultRequest request)
+        {
+            var reponse = new BaseResult();
+            if (string.IsNullOrEmpty(request.FileName))
+            {
+                reponse.AddError(nameof(request.FileName), "Không có thông tin tên file ");
+                return reponse;
+            }
+            if (request.FileContent == null)
+            {
+                reponse.AddError("file", "Không có thông tin file");
+                return reponse;
+            }
+            var uploadDirecotroy = request.Folder;
+            var folderroot = _env.ContentRootPath;
+            var uploadPath = Path.Combine(folderroot, "uploads",
+                uploadDirecotroy);
+            var file = request.FileContent;
+            if (!Directory.Exists(uploadPath))
+                Directory.CreateDirectory(uploadPath);
+            var fileName = request.FileName + "" + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(uploadPath, fileName);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            using (var strem = File.Create(filePath))
+            {
+                file.CopyTo(strem);
+            }
+
+            var shortlink = Path.Combine(uploadDirecotroy, fileName
+             );
+
+            shortlink = shortlink.Replace("\\", "/");
+
+            var fileInfo = new FileResultInfo()
+            {
+                FileName = fileName,
+
+                FullLink = "https://www.cdn.topmass.vn/static/" + shortlink,
+
+                ShortLink = shortlink
+            };
+            reponse.Data = fileInfo;
+            return reponse;
+        }
+
         public async Task<BaseResult> UploadMedia(FileResultRequest request)
         {
             var reponse = new BaseResult();

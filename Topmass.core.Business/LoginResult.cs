@@ -12,9 +12,14 @@
         {
             get
             {
-                return !DataEror.Any() ? true : false;
-            }
+                var successResult = !DataEror.Any() ? true : false;
 
+                if (successResult == true && string.IsNullOrEmpty(Message) == true)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
 
         public int StatusCode
@@ -25,10 +30,7 @@
             }
 
         }
-
-
         private bool _successTemp { get; set; }
-
         public string Message { get; set; }
         public dynamic Data { get; set; }
         public List<ItemError> DataEror { get; set; }

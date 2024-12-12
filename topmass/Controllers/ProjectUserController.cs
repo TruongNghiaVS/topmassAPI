@@ -59,6 +59,7 @@ namespace topmass.Model
             };
             var data = await _profileBusiness.AddProject(request);
             baseReult.Data = data;
+
             return StatusCode(baseReult.StatusCode, baseReult);
 
         }
@@ -156,6 +157,7 @@ namespace topmass.Model
 
 
             baseReult.Data = true;
+            await _profileBusiness.ReloadGenFileCV(resultUser.UserId);
             return StatusCode(baseReult.StatusCode, baseReult);
 
         }

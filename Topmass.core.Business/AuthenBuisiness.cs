@@ -67,12 +67,12 @@ namespace Topmass.core.Business
             };
             await _logActionModelRepository.AddOrUPdate(itemInsert);
 
-            result.Message = resourceMessage.SuccessfullAuthenMsg;
+            //result.Message = resourceMessage.SuccessfullAuthenMsg;
             var userAuthorize = userInfo as BaseUserInfo;
             var tokenUser = this.GenerateToken(userAuthorize);
             result.Token = tokenUser;
 
-            result.Message = resourceMessage.SuccessAuthenCreateToken;
+            //result.Message = resourceMessage.SuccessAuthenCreateToken;
             return result;
         }
         protected string GenerateToken(BaseUserInfo request, int typeUser = (int)TypeUser.CANDIDATE)
@@ -184,7 +184,7 @@ namespace Topmass.core.Business
             var randomCode = "" + new Random().Next(1000, 10000) + DateTime.Now.Ticks + "";
             forgetPasswordRequest.Code = randomCode;
             await _forgetPasswordRepository.AddOrUPdate(forgetPasswordRequest);
-            reponse.Message = resourceMessage.Message_CheckMail;
+            //reponse.Message = resourceMessage.Message_CheckMail;
             await _mailBussiness.CanddidateCheckMailPassword(candidateInfo.Email, randomCode);
             return reponse;
 
@@ -229,7 +229,7 @@ namespace Topmass.core.Business
             candidateInfo.Password = password;
             candidateInfo.UpdateAt = DateTime.Now;
             await _repository.AddOrUPdate(candidateInfo);
-            reponse.Message = resourceMessage.ChangePasswordSuccess;
+            //reponse.Message = resourceMessage.ChangePasswordSuccess;
             if (reponse.Success)
             {
                 await _mailBussiness.CandidateSucessChangePassNoti(candidateInfo.Email);

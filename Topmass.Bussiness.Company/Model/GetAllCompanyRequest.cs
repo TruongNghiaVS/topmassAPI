@@ -91,6 +91,8 @@ namespace Topmass.Bussiness.Company.Model
 
         public string Name { get; set; }
 
+        public string? IframeEmbeddedMap { get; set; }
+
 
     }
 

@@ -29,8 +29,6 @@ namespace Topmass.Recruiter.Controllers
             _cVUtilities = cVUtilities;
         }
 
-
-
         [HttpGet]
         public async Task<ActionResult> GetAllCVOfJob([FromQuery] InputGetAllCVApplyOfJob request)
         {
@@ -39,13 +37,39 @@ namespace Topmass.Recruiter.Controllers
             var requestAdd = new GetAllCVOfJobRequest()
             {
                 TypeData = request.TypeData,
+                KeyWord = request.KeyWord,
+                StatusCode = request.StatusCode,
                 JobId = request.JobId,
+                ViewMode = request.ViewMode.HasValue == true ? request.ViewMode.Value : -1,
                 UserId = int.Parse(resultUser.Id)
             };
             var result = await _cVBusiness.GetAllCVOfJob(requestAdd);
             reponse.Data = result;
             return StatusCode(reponse.StatusCode, reponse);
         }
+
+
+        [HttpGet]
+        public async Task<ActionResult> ManagenmentGetAllCV([FromQuery] InputGetAllCVApplyRequst request)
+        {
+            var resultUser = await GetCurrentUser();
+
+            var requestAdd = new FilterGetAllCVApply()
+            {
+                UserId = int.Parse(resultUser.Id),
+                CampaignId = request.CampaignId,
+                KeyWord = request.KeyWord,
+                Limit = request.Limit,
+                Page = request.Page,
+                Source = request.Source,
+                StatusCode = request.StatusCode
+            };
+            var reponse = new BaseResult();
+            var result = await _cVBusiness.GetAllCVApplyNew(requestAdd);
+            reponse.Data = result.Data;
+            return StatusCode(reponse.StatusCode, reponse);
+        }
+
 
         [HttpGet]
         public async Task<ActionResult> GetAllSearchCVOfJob([FromQuery] InputGetAllSearchCVApplyOfJob request)
@@ -56,14 +80,16 @@ namespace Topmass.Recruiter.Controllers
             {
                 TypeData = 3,
                 JobId = request.JobId,
+                ViewMode = request.ViewMode.HasValue == true ? request.ViewMode.Value : -1,
+                KeyWord = request.KeyWord,
+                StatusCode = request.StatusCode,
+                Status = request.StatusCode.HasValue == true ? request.StatusCode.Value : -1,
                 UserId = int.Parse(resultUser.Id)
             };
-
             var result = await _cVBusiness.GetAllCVOfJob(requestAdd);
             reponse.Data = result;
             return StatusCode(reponse.StatusCode, reponse);
         }
-
 
         [HttpGet]
         public async Task<ActionResult> GetAllCVApply([FromQuery] InputGetAllCVApply request)
@@ -78,7 +104,6 @@ namespace Topmass.Recruiter.Controllers
                 Status = request.Status,
                 Key = request.Key,
                 Source = request.Source,
-
                 UserId = int.Parse(resultUser.Id)
             };
             var result = await _cVBusiness.GetAllCVApply(requestAdd);
@@ -143,20 +168,13 @@ namespace Topmass.Recruiter.Controllers
         {
             var resultUser = await GetCurrentUser();
             var reponse = new BaseResult();
-
             if (request.Identi < 1)
             {
                 reponse.AddError(nameof(request.Identi), "Thiếu thông tin đối tượng");
             }
-
             if (request.NoteCode < 0)
             {
                 reponse.AddError(nameof(request.NoteCode), "Thiếu thông tin");
-            }
-
-            if (string.IsNullOrEmpty(request.Noted))
-            {
-                reponse.AddError(nameof(request.Noted), "Thiếu thông tin");
             }
 
             var result = await _cVUtilities.AddHistoryStatus(
@@ -171,11 +189,5 @@ namespace Topmass.Recruiter.Controllers
             reponse.Data = result;
             return StatusCode(reponse.StatusCode, reponse);
         }
-
-
-
-
-
-
     }
 }

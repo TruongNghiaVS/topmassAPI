@@ -31,6 +31,9 @@ namespace Topmass.Admin.Business
         public string CurrentStatus { get; set; }
 
         public string Message { get; set; }
+        public string DocumentType { get; set; }
+
+
     }
     public class DataDetailInfo
     {
@@ -69,15 +72,15 @@ namespace Topmass.Admin.Business
             var reponse = new SearchNTDReponse();
             var data = await _repository.NTDRepository.GetAll(new
             {
-                    request.Token,
-                    request.OrderBy,
-                    request.CbDocumnetStatus,
-                    request.Page,
-                    Status = request.Status,
-                    request.Limit,
-                    request.AuthenLevel,
-                    request.From,
-                    request.To
+                request.Token,
+                request.OrderBy,
+                request.CbDocumnetStatus,
+                request.Page,
+                Status = request.Status,
+                request.Limit,
+                request.AuthenLevel,
+                request.From,
+                request.To
             });
             reponse.Data = data.Data;
             return reponse;
@@ -96,7 +99,7 @@ namespace Topmass.Admin.Business
             var data = await _repository.NTDRepository.GetALlLogAccount(id);
             return data;
         }
-      
+
 
         public async Task<List<NTDShortInfo>> GetAllShortNTD()
         {
@@ -125,7 +128,7 @@ namespace Topmass.Admin.Business
             if (documnetInfo == null || string.IsNullOrEmpty(documnetInfo.Email))
             {
                 await _repository.NTDRepository.AddDocumentNTD(request.StatusChange,
-                    request.NotedChange, request.Id, content, request.LinkFile, request.ReasonReject );
+                    request.NotedChange, request.Id, content, request.LinkFile, request.ReasonReject);
 
             }
             else
@@ -141,7 +144,7 @@ namespace Topmass.Admin.Business
         {
 
             return await _repository.NTDRepository.UpdateInfoHuman(statusAccout, statusConfirm, id,
-                reasonCode ,  noted );
+                reasonCode, noted);
 
 
         }
@@ -270,12 +273,17 @@ namespace Topmass.Admin.Business
             else if (resultInfo.Status == 2)
             {
                 documentInfo.CurrentStatus = "Từ chối";
+                if (!string.IsNullOrEmpty(resultInfo.ReasonRejectText))
+                {
+                    documentInfo.CurrentStatus += " _ " + resultInfo.ReasonRejectText + " ";
+                }
             }
             else if (resultInfo.Status == 3)
             {
                 documentInfo.CurrentStatus = "Đã duyệt";
             }
             documentInfo.Status = resultInfo.Status;
+            documentInfo.DocumentType = resultInfo.DocumentTypeText;
             if (string.IsNullOrEmpty(resultInfo.LinkFile))
             {
                 documentInfo.LinkFile = "";

@@ -3,6 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\topmass\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{41C36BAB-79E0-4FD2-83E4-360F8F9A3303}|..\\Topmass.Admin\\Topmass.Admin.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\topmass.admin\\pages\\ntddetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C36BAB-79E0-4FD2-83E4-360F8F9A3303}|..\\Topmass.Admin\\Topmass.Admin.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\topmass.admin\\wwwroot\\js\\employer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{861D33D2-6A0C-43C1-B0ED-1C8DBD7BFE0D}|..\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\recruiter\\topmass.recruiter\\controllers\\authencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59E316CB-5C8F-42BA-9209-A848005F62F4}|topmass.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\topmass\\controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59E316CB-5C8F-42BA-9209-A848005F62F4}|topmass.csproj|solutionrelative:controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A231E636-2C27-4617-9C40-87AB87152E4C}|..\\Topmass.Admin.Repository\\Topmass.Admin.Repository.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\topmass.admin.repository\\model\\indexmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -21,12 +34,6 @@
       "AbsoluteMoniker": "D:0:0:{41C36BAB-79E0-4FD2-83E4-360F8F9A3303}|..\\Topmass.Admin\\Topmass.Admin.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\topmass.admin\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41C36BAB-79E0-4FD2-83E4-360F8F9A3303}|..\\Topmass.Admin\\Topmass.Admin.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\topmass.admin\\wwwroot\\js\\employer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41C36BAB-79E0-4FD2-83E4-360F8F9A3303}|..\\Topmass.Admin\\Topmass.Admin.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\topmass.admin\\pages\\ntddetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41C36BAB-79E0-4FD2-83E4-360F8F9A3303}|..\\Topmass.Admin\\Topmass.Admin.csproj|c:\\users\\admin\\desktop\\syncdata\\topmass\\topmass.admin\\pages\\ntd.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -43,21 +50,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 11,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IndexModel.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin.Repository\\Model\\IndexModel.cs",
-              "RelativeDocumentMoniker": "..\\Topmass.Admin.Repository\\Model\\IndexModel.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin.Repository\\Model\\IndexModel.cs",
-              "RelativeToolTip": "..\\Topmass.Admin.Repository\\Model\\IndexModel.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAAAIgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T22:46:39.411Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -65,6 +59,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "AuthenController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\Controllers\\AuthenController.cs",
+              "RelativeDocumentMoniker": "..\\recruiter\\Topmass.Recruiter\\Controllers\\AuthenController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\recruiter\\Topmass.Recruiter\\Controllers\\AuthenController.cs",
+              "RelativeToolTip": "..\\recruiter\\Topmass.Recruiter\\Controllers\\AuthenController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwB8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T22:54:32.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JobController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\topmass\\Controllers\\JobController.cs",
+              "RelativeDocumentMoniker": "Controllers\\JobController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\topmass\\Controllers\\JobController.cs",
+              "RelativeToolTip": "Controllers\\JobController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T22:53:44.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IndexModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin.Repository\\Model\\IndexModel.cs",
+              "RelativeDocumentMoniker": "..\\Topmass.Admin.Repository\\Model\\IndexModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin.Repository\\Model\\IndexModel.cs",
+              "RelativeToolTip": "..\\Topmass.Admin.Repository\\Model\\IndexModel.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAAAIcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T22:46:39.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "JobDetailModel.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\JobDetailModel.cshtml.cs",
               "RelativeDocumentMoniker": "..\\Topmass.Admin\\Pages\\JobDetailModel.cshtml.cs",
@@ -72,12 +102,11 @@
               "RelativeToolTip": "..\\Topmass.Admin\\Pages\\JobDetailModel.cshtml.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAowGQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T22:45:34.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T22:45:34.805Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "JobDetailModel.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\JobDetailModel.cshtml",
               "RelativeDocumentMoniker": "..\\Topmass.Admin\\Pages\\JobDetailModel.cshtml",
@@ -85,12 +114,11 @@
               "RelativeToolTip": "..\\Topmass.Admin\\Pages\\JobDetailModel.cshtml",
               "ViewState": "AgIAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T22:45:32.458Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T22:45:32.458Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "custom.scss",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\wwwroot\\css\\custom.scss",
               "RelativeDocumentMoniker": "..\\Topmass.Admin\\wwwroot\\css\\custom.scss",
@@ -98,12 +126,11 @@
               "RelativeToolTip": "..\\Topmass.Admin\\wwwroot\\css\\custom.scss",
               "ViewState": "AgIAAJAAAAAAAAAAAAAAAJwAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
-              "WhenOpened": "2024-11-20T22:42:59.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T22:42:59.937Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "..\\Topmass.Admin\\wwwroot\\css\\site.css",
@@ -111,12 +138,11 @@
               "RelativeToolTip": "..\\Topmass.Admin\\wwwroot\\css\\site.css",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-20T22:42:57.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T22:42:57.047Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "NTD.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\NTD.cshtml",
               "RelativeDocumentMoniker": "..\\Topmass.Admin\\Pages\\NTD.cshtml",
@@ -124,12 +150,11 @@
               "RelativeToolTip": "..\\Topmass.Admin\\Pages\\NTD.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T22:39:34.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T22:39:34.695Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Job.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\Job.cshtml.cs",
               "RelativeDocumentMoniker": "..\\Topmass.Admin\\Pages\\Job.cshtml.cs",
@@ -137,12 +162,36 @@
               "RelativeToolTip": "..\\Topmass.Admin\\Pages\\Job.cshtml.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAUwDwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T09:20:10.087Z",
+              "WhenOpened": "2024-11-20T09:20:10.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "employer.js",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\wwwroot\\js\\employer.js",
+              "RelativeDocumentMoniker": "..\\Topmass.Admin\\wwwroot\\js\\employer.js",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\wwwroot\\js\\employer.js",
+              "RelativeToolTip": "..\\Topmass.Admin\\wwwroot\\js\\employer.js",
+              "ViewState": "AgIAAF8KAAAAAAAAAAAawGUKAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-20T09:11:00.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NTDDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\NTDDetail.cshtml",
+              "RelativeDocumentMoniker": "..\\Topmass.Admin\\Pages\\NTDDetail.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\NTDDetail.cshtml",
+              "RelativeToolTip": "..\\Topmass.Admin\\Pages\\NTDDetail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T08:52:11.749Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "NTDDetail.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\NTDDetail.cshtml.cs",
               "RelativeDocumentMoniker": "..\\Topmass.Admin\\Pages\\NTDDetail.cshtml.cs",
@@ -150,12 +199,11 @@
               "RelativeToolTip": "..\\Topmass.Admin\\Pages\\NTDDetail.cshtml.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAiwDQAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T09:12:08.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T09:12:08.409Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "NTD.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\NTD.cshtml.cs",
               "RelativeDocumentMoniker": "..\\Topmass.Admin\\Pages\\NTD.cshtml.cs",
@@ -164,32 +212,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T09:12:07.176Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "employer.js",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\wwwroot\\js\\employer.js",
-              "RelativeDocumentMoniker": "..\\Topmass.Admin\\wwwroot\\js\\employer.js",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\wwwroot\\js\\employer.js",
-              "RelativeToolTip": "..\\Topmass.Admin\\wwwroot\\js\\employer.js",
-              "ViewState": "AgIAAJgKAAAAAAAAAAApwKEKAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-20T09:11:00.655Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "NTDDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\NTDDetail.cshtml",
-              "RelativeDocumentMoniker": "..\\Topmass.Admin\\Pages\\NTDDetail.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\syncdata\\topmass\\Topmass.Admin\\Pages\\NTDDetail.cshtml",
-              "RelativeToolTip": "..\\Topmass.Admin\\Pages\\NTDDetail.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T08:52:11.749Z",
-              "EditorCaption": ""
             }
           ]
         }

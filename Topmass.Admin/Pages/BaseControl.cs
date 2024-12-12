@@ -122,7 +122,12 @@ namespace Topmass.Admin.Pages
                 {
                     return "Control/textareaBox";
                 }
-                
+
+                if (Type == 15)
+                {
+                    return "control/slugBox";
+                }
+
 
 
                 return "Control/textbox";

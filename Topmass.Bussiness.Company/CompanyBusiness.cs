@@ -117,7 +117,8 @@ namespace Topmass.Bussiness.Company
                 Introduction = dataCompany.shortDes,
                 MapInfo = dataCompany.MapInfo,
                 Website = dataCompany.Website,
-                Name = dataCompany.FullName
+                Name = dataCompany.FullName,
+                IframeEmbeddedMap = dataCompany.IframeEmbeddedMap
             };
             data.IsFollow = false;
             if (userId > 0)

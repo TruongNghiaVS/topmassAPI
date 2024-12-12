@@ -18,6 +18,8 @@
 
         public DateTime? DateOfBirth { get; set; }
 
+        public string ProvinceCode { get; set; }
+
 
         public string? AvatarLink { get; set; }
 

@@ -100,6 +100,7 @@ namespace topmass.Model
 
 
             baseReult.Data = true;
+            await _profileBusiness.ReloadGenFileCV(resultUser.UserId);
             return StatusCode(baseReult.StatusCode, baseReult);
 
         }
@@ -136,6 +137,7 @@ namespace topmass.Model
             };
             var data = await _profileBusiness.AddExperience(request);
             baseReult.Data = data;
+            await _profileBusiness.ReloadGenFileCV(resultUser.UserId);
             return StatusCode(baseReult.StatusCode, baseReult);
 
         }
@@ -173,6 +175,7 @@ namespace topmass.Model
             };
             var data = await _profileBusiness.UpdateExperience(request);
             baseReult.Data = data;
+            await _profileBusiness.ReloadGenFileCV(resultUser.UserId);
             return StatusCode(baseReult.StatusCode, baseReult);
 
         }

@@ -1,5 +1,4 @@
 ﻿using Topmass.Core.Model.CV;
-using Topmass.Core.Model.Profile;
 using Topmass.Core.Repository;
 using Topmass.CV.Business.Model;
 using TopMass.Core.Result;
@@ -130,7 +129,7 @@ namespace Topmass.CV.Business
         }
         public async Task<dynamic> GetProfileUserCV(int userId)
         {
-            var profileUser = await _repository.FindOneByStatementSql<ProfileCVUser>("select * from ProfileCV where RelId = @userId",
+            var profileUser = await _repository.FindOneByStatementSql<ProfileCVUserDisplay>("select *, dbo.getprovinceName( ProvinceCode ) as ProvinceName  from ProfileCV where RelId = @userId",
             new
             {
                 userId
@@ -140,11 +139,13 @@ namespace Topmass.CV.Business
             {
                 return profileUser;
             }
-            profileUser = new ProfileCVUser();
+            profileUser = new ProfileCVUserDisplay();
             return profileUser;
         }
         public async Task<dynamic> GetFullProfileUser(string searchId, int userHuamnId)
         {
+
+
             var data = await _repository.FindOneByStatementSql<SearchCVModel>
             ("select * from SearchCV where id = @searchId", new
             {
@@ -168,7 +169,7 @@ namespace Topmass.CV.Business
 
 
             var resultCheck = await _searchCVResultRepository.FindOneByStatementSql<SearchCVResultModel>(
-              "select * from SearchResult where relId=  @searchId  and  CreatedBy = @userid",
+              "select * from OpenCVResult where relId=  @searchId  and  CreatedBy = @userid",
               new
               {
                   searchId,
@@ -221,21 +222,25 @@ namespace Topmass.CV.Business
                 TypeCount = 1,
             };
             var resultCheck = await _searchCVResultRepository.FindOneByStatementSql<SearchCVResultModel>(
-                "select * from SearchResult where relId=  @searchId  and  CreatedBy = @userid",
+                "select * from OpenCVResult where relId=  @searchId  and  CreatedBy = @userid",
                 new
                 {
                     searchId,
                     userid = userId
                 }
             );
-            if (resultCheck != null && resultCheck.Id > 0)
+            if (resultCheck != null)
             {
+
                 data.IsHideInfo = false;
+
             }
             else
             {
                 data.IsHideInfo = true;
             }
+
+
             await _searchCVExtraRepository.AddOrUPdate(searchCVExtraModelInsert);
             var dataSearchCV = await _searchCVRepository.GetById(int.Parse(searchId));
             await _searchCVRepository.AddOrUPdate(dataSearchCV);

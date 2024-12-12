@@ -69,12 +69,30 @@ namespace topmass.Controllers
         public async Task<ActionResult> GetInfoMetadata(string keyScreen = "homePage")
         {
             //public Task<MetaDataReponse> GetInfo(MetaDataRequest request);
-            var reponse = new  TopMass.Core.Result.BaseResult();
+            var reponse = new TopMass.Core.Result.BaseResult();
             var result = await _metaDataBussiness.GetInfo(new MetaDataRequest()
             {
                 KeyScreen = keyScreen
             });
-            return StatusCode(reponse.StatusCode, result);
+            reponse.Data = result;
+            return StatusCode(reponse.StatusCode, reponse);
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult> GetRegionalSearch()
+        {
+            var reponse = new TopMass.Core.Result.BaseResult();
+            int userid = -1;
+            if (User.Identity.IsAuthenticated)
+            {
+                var userCurrent = await GetCurrentUser();
+                userid = userCurrent.UserId;
+            }
+
+            reponse.Data = await _profileBusiness.GetRegionSearchSetting(userid);
+            return StatusCode(reponse.StatusCode, reponse);
+
         }
     }
 }

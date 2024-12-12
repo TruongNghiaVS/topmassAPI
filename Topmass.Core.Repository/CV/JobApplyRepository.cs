@@ -11,5 +11,15 @@ namespace Topmass.Core.Repository
         }
 
 
+        public async Task<bool> AddCounterApply(int jobId, int UserId)
+        {
+            var result = await ExecuteSqlProcedure("sp_AddCounterApply", new
+            {
+                JobId = jobId,
+                userId = UserId
+            });
+            return result;
+        }
+
     }
 }

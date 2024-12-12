@@ -126,6 +126,13 @@ namespace Topmass.Job.Business
                 var dataJOb1 = await _jobRepository
                     .ExecuteSqlProcerduceToList<BestJobOptimizationDisplayItemData>(sqlText,
                     request2);
+                reponse.Page = itemAdd.Page;
+                reponse.Limit = itemAdd.Limit;
+                var itemsearch = dataJOb1.FirstOrDefault();
+                if (itemsearch != null)
+                {
+                    reponse.TotalRecord = itemsearch.TotalRecord;
+                }
                 reponse.Data = dataJOb1;
                 return reponse;
             }
@@ -144,10 +151,14 @@ namespace Topmass.Job.Business
             var dataJOb = await _jobRepository
                 .ExecuteSqlProcerduceToList<BestJobOptimizationDisplayItemData>(sqlText,
                 request);
+            reponse.Page = itemAdd.Page;
+            reponse.Limit = itemAdd.Limit;
+            var itemsearch1 = dataJOb.FirstOrDefault();
+            if (itemsearch1 != null)
+            {
+                reponse.TotalRecord = itemsearch1.TotalRecord;
+            }
             reponse.Data = dataJOb;
-
-
-
 
             if (itemAdd.UserId > 0)
             {
@@ -252,6 +263,8 @@ namespace Topmass.Job.Business
                 {
                     request.Location,
                     request.TypeOfWork,
+                    request.Limit,
+                    request.Page,
                     request.KeyWord,
                     request.Field,
                     request.RankLevel,
@@ -261,6 +274,14 @@ namespace Topmass.Job.Business
                     request.SalaryTo,
                     request.ExperienceId
                 });
+            var itemfirst = dataJob.FirstOrDefault();
+            if (itemfirst != null)
+            {
+                reponse.TotalRecord = itemfirst.TotalRecord;
+                reponse.Limit = request.Limit;
+                reponse.Page = request.Page;
+
+            }
             if (request.UserId > 0)
             {
                 var allJobIdSave = new List<JobCountGroupById>();
@@ -307,7 +328,8 @@ namespace Topmass.Job.Business
                 {
                     request.LocationSearch,
                     request.Limit,
-                    request.Page
+                    request.Page,
+                    request.UserId
 
                 });
 

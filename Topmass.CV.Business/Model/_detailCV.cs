@@ -103,6 +103,8 @@
             }
         }
         public int SourceType { get; set; }
+
+        public string PositionText { get; set; }
         public SearchCVItemDisplay()
         {
             FullName = string.Empty;

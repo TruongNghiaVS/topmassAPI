@@ -6,7 +6,6 @@ using Topmass.Core.Model.location;
 using Topmass.Core.Repository;
 using Topmass.Core.Repository.IndexModel;
 using Topmass.Job.Business.Model;
-using Topmass.Utility;
 using TopMass.Core.Result;
 
 namespace Topmass.Job.Business
@@ -23,6 +22,8 @@ namespace Topmass.Job.Business
         private readonly IMasterDataRepository _masterDataRepository;
         private readonly ICompanyInfoRepository _companyInfoRepository;
         private readonly ICampagnRepository _campagnRepository;
+
+
         private List<MasterDataModel> _masterData { get; set; }
         private List<RegionalModel> _dataRegionals { get; set; }
         public JobItemBusiness(
@@ -51,20 +52,35 @@ namespace Topmass.Job.Business
         public async Task<JobItemReponse> AddJob(JobItemBusinessAdd itemAdd)
         {
             var reponse = new JobItemReponse();
-
             var campagnId = itemAdd.Campaign;
-
-            if (string.IsNullOrEmpty(itemAdd.Name))
-            {
-                reponse.AddError(nameof(itemAdd.Name), "Không có thông tin tên");
-            }
             if (!campagnId.HasValue)
             {
-                reponse.AddError(nameof(itemAdd.Campaign), "Không có thông tin chiến dịch");
+                reponse.Message = "Không có thông tin chiến dịch";
+                return reponse;
             }
-            if (!campagnId.HasValue)
+            var companyInfo = await _jobDisplayItemRepository.FindOneByStatementSql<JobIdCount>("select * from Recruiter d inner join CompanyInfo e on  d.id = e.RelId where d.id = @relid  ",
+             new { relid = itemAdd.HandleBy });
+            if (companyInfo == null || companyInfo.Id < 1)
             {
-                campagnId = -1;
+                reponse.Message = "Hoàn tất cập nhật thông tin công ty, trước khi tạo tin đăng";
+                return reponse;
+            }
+            var jobCount = await _jobDisplayItemRepository.FindOneByStatementSql<JobIdCount>("select id as Id from jobItems where Campagn = @campagnId and status != 5  ",
+               new { campagnId = campagnId });
+            if (jobCount != null && jobCount.Id > 0)
+            {
+                reponse.Message = "Mỗi chiến dịch chỉ có một tin đăng, Vui lòng tạo chiến dịch khác, quay lại sau";
+                return reponse;
+            }
+            var JobSlug = await _jobRepository.CreateSlugJob(itemAdd.HandleBy, itemAdd.Name);
+            var jobItemBySlug = await _jobDisplayItemRepository.FindOneByStatementSql<JobIdCount>
+                ("SELECT id  FROM jobItems WHERE Slug = @slug  ",
+            new { slug = JobSlug }
+            );
+            if (jobItemBySlug != null && jobItemBySlug.Id > 0)
+            {
+                reponse.Message = "Vui lòng chọn tiêu đề khác, tiêu đề hiện tại đã tồn tại";
+                return reponse;
             }
             var jobitem = new JobItemModel()
             {
@@ -77,7 +93,7 @@ namespace Topmass.Job.Business
                 Package = 0,
                 UpdateAt = DateTime.Now,
                 Status = 0,
-                Slug = Utility.Utilities.SlugifySlug(itemAdd.Name),
+                Slug = JobSlug,
                 UpdatedBy = itemAdd.HandleBy
             };
             var idjob = await _jobRepository.AddAndGetId(jobitem);
@@ -86,23 +102,29 @@ namespace Topmass.Job.Business
                 return reponse;
             }
             await AddJobInfo(itemAdd, idjob);
-            await UpdateJobDiplayAdd(itemAdd, idjob);
+            await UpdateJobDiplayAdd(itemAdd, idjob, JobSlug);
             return reponse;
         }
         public async Task<JobItemReponse> UpdateJob(JobItemBusinessUpdate itemAdd)
         {
             var reponse = new JobItemReponse();
-            if (string.IsNullOrEmpty(itemAdd.Name))
-            {
-                reponse.AddError(nameof(itemAdd.Name), "Không có thông tin tên");
-            }
             var jobUpdate = await _jobRepository.GetById(itemAdd.JobId);
             if (jobUpdate == null)
             {
-                reponse.AddError(nameof(itemAdd.JobId), "Không có thông tin trong hệ thống");
+                reponse.Message = "Không có thông tin trong hệ thống";
+            }
+            var JobSlug = await _jobRepository.CreateSlugJob(itemAdd.HandleBy, itemAdd.Name);
+            var jobItemBySlug = await _jobDisplayItemRepository.FindOneByStatementSql<JobIdCount>
+                ("SELECT id  FROM jobItems WHERE Slug = @slug  and  id != @JobId  ",
+            new { slug = JobSlug, JobId = itemAdd.JobId }
+            );
+            if (jobItemBySlug != null && jobItemBySlug.Id > 0)
+            {
+                reponse.Message = "Vui lòng chọn tiêu đề khác, tiêu đề hiện tại đã tồn tại";
+                return reponse;
             }
             jobUpdate.Name = itemAdd.Name;
-            jobUpdate.Slug = Utilities.SlugifySlug(itemAdd.Name);
+            jobUpdate.Slug = JobSlug;
             jobUpdate.UpdateAt = DateTime.Now;
             jobUpdate.UpdatedBy = itemAdd.HandleBy;
             await _jobRepository.AddOrUPdate(jobUpdate);
@@ -148,10 +170,10 @@ namespace Topmass.Job.Business
             jobInfo.Locations = JsonSerializer.Serialize(itemAdd.Locations);
             jobInfo.Time_workings = JsonSerializer.Serialize(itemAdd.Time_working);
             await _jobInfoRepository.AddOrUPdate(jobInfo);
-            await UpdateJobDiplay(itemAdd);
+            await UpdateJobDiplay(itemAdd, JobSlug);
             return reponse;
         }
-        public async Task<JobItemReponse> UpdateJobDiplayAdd(JobItemBusinessAdd itemAdd, int idjob)
+        public async Task<JobItemReponse> UpdateJobDiplayAdd(JobItemBusinessAdd itemAdd, int idjob, string JobSlug)
         {
             if (_masterData == null)
             {
@@ -162,10 +184,7 @@ namespace Topmass.Job.Business
                 _dataRegionals = await _regionalRepository.ExecuteSqlProcerduceToList<RegionalModel>("select id, slug, code, Name from regionals", new { }, System.Data.CommandType.Text);
             }
             var reponse = new JobItemReponse();
-            if (string.IsNullOrEmpty(itemAdd.Name))
-            {
-                reponse.AddError(nameof(itemAdd.Name), "Không có thông tin tên");
-            }
+
             var jobInfo = new JobDisplayItemModel()
             {
                 JobId = idjob
@@ -216,7 +235,7 @@ namespace Topmass.Job.Business
             }
             jobInfo.Deleted = false;
             jobInfo.Hashtags = "";
-            jobInfo.Slug = Utilities.SlugifySlug(jobInfo.JobName);
+            jobInfo.Slug = JobSlug;
             string professionTemp = "";
             string typeOfWorkText = "";
             if (itemAdd.Profession > 0)
@@ -261,11 +280,24 @@ namespace Topmass.Job.Business
             jobInfo.Rank = typeRankText;
             jobInfo.RankSearch = itemAdd.Rank.Value;
             jobInfo.DateExpried = itemAdd.Expired_date;
+            string exprenceText = "";
+
+            if (itemAdd.Profession > 0)
+            {
+                professionTemp = _masterData.Where(x => x.Id == itemAdd.Profession.Value).FirstOrDefault().Text;
+            }
+
+            if (itemAdd.Experience > 0)
+            {
+                exprenceText = _masterData.Where(x => x.Id == itemAdd.Experience.Value).FirstOrDefault().Text;
+            }
+            jobInfo.ExperienceText = exprenceText;
+            jobInfo.ProfessionText = professionTemp;
 
             await _jobDisplayItemRepository.AddOrUPdate(jobInfo);
             return reponse;
         }
-        public async Task<JobItemReponse> UpdateJobDiplay(JobItemBusinessUpdate itemAdd)
+        public async Task<JobItemReponse> UpdateJobDiplay(JobItemBusinessUpdate itemAdd, string JobSlug)
         {
             if (_masterData == null)
             {
@@ -276,15 +308,9 @@ namespace Topmass.Job.Business
                 _dataRegionals = await _regionalRepository.ExecuteSqlProcerduceToList<RegionalModel>("select id, slug, code, Name from regionals", new { }, System.Data.CommandType.Text);
             }
             var reponse = new JobItemReponse();
-            if (string.IsNullOrEmpty(itemAdd.Name))
-            {
-                reponse.AddError(nameof(itemAdd.Name), "Không có thông tin tên");
-            }
+
             var jobUpdate = await _jobRepository.GetById(itemAdd.JobId);
-            if (jobUpdate == null)
-            {
-                reponse.AddError(nameof(itemAdd.JobId), "Không có thông tin trong hệ thống");
-            }
+
             jobUpdate.Name = itemAdd.Name;
             jobUpdate.UpdateAt = DateTime.Now;
             jobUpdate.UpdatedBy = itemAdd.HandleBy;
@@ -358,7 +384,7 @@ namespace Topmass.Job.Business
             }
             jobInfo.Deleted = false;
 
-            jobInfo.Slug = Utilities.SlugifySlug(jobInfo.JobName);
+            jobInfo.Slug = JobSlug;
 
             string professionTemp = "";
             string typeOfWorkText = "";
@@ -489,7 +515,6 @@ namespace Topmass.Job.Business
             }
 
             var jobInfo = await _jobRepository.GetById(itemAdd.IdUpdate.Value);
-
             if (jobInfo == null)
             {
                 reponse.AddError(nameof(itemAdd.IdUpdate), "Không tồn tại tin đăng");
@@ -500,6 +525,14 @@ namespace Topmass.Job.Business
             jobInfo.UpdatedBy = itemAdd.HandleBy;
 
             await _jobRepository.AddOrUPdate(jobInfo);
+
+            await _jobRepository.ExecuteSqlProcedure("updateChangeStatusCampaignDetail", new
+            {
+                jobId = itemAdd.IdUpdate,
+
+                status = itemAdd.Status.Value
+            });
+
 
             return reponse;
 
@@ -531,8 +564,6 @@ namespace Topmass.Job.Business
             (GetAllVierOfJobRequest itemAdd)
         {
             var reponse = new BaseResult();
-
-
             var dataViews = await _jobLogViewRepository.GetAll(new SearchRepJobLogView()
             {
                 CampagnId = itemAdd.CampagnId,
@@ -565,7 +596,7 @@ namespace Topmass.Job.Business
 
             var itemJob = await _jobRepository.GetById(jobInfo.JobId);
 
-            var ItemjobInfo = await _jobInfoRepository.FindOneByStatementSql<JobInfoModel>("select * from jobInfo where jobId =@jobId ",
+            var ItemjobInfo = await _jobInfoRepository.FindOneByStatementSql<JobInfoModel>("select d.*, e.RuleStatus from jobInfo d inner join   jobItems e  on d.JobId = e.Id where d.JobId = @jobId ",
                new
                {
                    jobInfo.JobId
@@ -631,6 +662,7 @@ namespace Topmass.Job.Business
                 Salary_to = ItemjobInfo.Salary_to,
                 Type_money = ItemjobInfo.Type_money,
                 Type_of_work = ItemjobInfo.Type_of_work,
+                RuleStatus = ItemjobInfo.RuleStatus,
 
                 Status = itemJob.Status,
                 UpdateAt = DateTime.Now,
@@ -651,12 +683,14 @@ namespace Topmass.Job.Business
 
 
         }
-        public async Task<BaseResult> UpdateJob(JobItemUpdate item)
+        public async Task<DataResult> UpdateJob(JobItemUpdate item)
         {
             var reponse = new JobItemReponse();
             if (item.JobId < 1)
             {
-                reponse.AddError(nameof(item.JobId), "Không có thông tin đối tượng");
+
+                reponse.Message = "Không có thông tin đối tượng";
+
                 return reponse;
             }
 
@@ -664,7 +698,7 @@ namespace Topmass.Job.Business
 
             if (jobUpdate == null)
             {
-                reponse.AddError(nameof(item.JobId), "Không có thông tin job");
+                reponse.Message = "Không có thông tin job";
                 return reponse;
             }
 
@@ -677,26 +711,16 @@ namespace Topmass.Job.Business
         {
             var reponse = new BaseResult();
             var jobItem = await _jobRepository.GetBySlug(item.jobslug);
-
             if (jobItem == null)
             {
                 reponse.AddError("không có thông tin đối tượng");
                 return reponse;
             }
-
-            var itemInsert = new JobLogViewModel()
+            await _jobLogViewRepository.ExecuteSqlProcedure("sp_addViewUserJob", new
             {
-                CreateAt = DateTime.Now,
-                userId = item.Userid,
-                Status = 0,
-                RelId = jobItem.Id,
-                UpdatedBy = item.Userid,
-                CreatedBy = item.Userid,
-                UpdateAt = DateTime.Now,
-                Deleted = false
-            };
-
-            var result = await _jobLogViewRepository.AddOrUPdate(itemInsert);
+                JobId = jobItem.Id,
+                userId = item.Userid
+            });
             return reponse;
         }
         public async Task<ReportStaticInfoOverviewItem> GetOverviewJob(GetOverViewByJobId request)
@@ -708,6 +732,34 @@ namespace Topmass.Job.Business
                 To = request.To,
                 JobId = request.JobId,
             });
+            var allJobApplyshort = await _jobOverViewCounterRepository.ExecuteSqlProcerduceToList<JobAppplyViewStatus>("sp_getAllShortJobApply",
+            new
+            {
+                request.JobId
+            });
+
+            if (allJobApplyshort == null)
+            {
+                allJobApplyshort = new List<JobAppplyViewStatus>();
+            }
+
+            var rateInfo = 0;
+            var totalCV = allJobApplyshort.Count;
+
+            if (totalCV > 0)
+            {
+
+                var countApplyjobNotInComfor1 = allJobApplyshort.Where(x => x.Status == 17).Count();
+                var countApplyjobNotInComfor2 = allJobApplyshort.Where(x => x.Status == 19).Count();
+
+                var countPhuHop = countApplyjobNotInComfor1 + countApplyjobNotInComfor2;
+
+                if (countPhuHop > 0)
+                {
+                    rateInfo = (int)Math.Round((double)(100 * countPhuHop) / totalCV);
+
+                }
+            }
             var reponse = new ReportStaticInfoOverviewItem()
             {
                 From = result.From,
@@ -719,7 +771,7 @@ namespace Topmass.Job.Business
                 JobName = result.JobName,
                 StatusText = result.StatusText,
                 StatusCode = result.Status,
-                Rate = 100
+                Rate = rateInfo
             };
             return reponse;
         }
@@ -727,71 +779,6 @@ namespace Topmass.Job.Business
 
         {
             var reponse = new JobRelattionReponse();
-            //var listData = new List<JobRelationItemDisplay>()
-            //{
-
-            //    new JobRelationItemDisplay()
-            //    {
-
-            //        CompanyName = "Công ty cổ phần tập đoàn VietStar",
-            //         FieldArray = "IT, Marketting",
-            //        LogoImage ="",
-            //        JobId = 12,
-            //        IsLike =true,
-
-
-            //        SalaryFrom = 10,
-            //        SalaryTo =15,
-
-            //        LastUpdate = DateTime.Now,
-            //        PositionText = "Nhân viên tư vấn Telesale"
-
-            //    },
-
-            //      new JobRelationItemDisplay()
-            //    {
-
-            //        CompanyName = "Công ty cổ phần tập đoàn VietStar",
-            //            FieldArray = "IT, Marketting",
-            //        LogoImage ="",
-            //        JobId = 12,
-
-            //        SalaryFrom = 10,
-            //        IsLike =false,
-            //        SalaryTo =15,
-
-            //        LastUpdate = DateTime.Now,
-            //        PositionText = "Nhân viên tư vấn Telesale"
-
-            //    },
-            //        new JobRelationItemDisplay()
-            //    {
-
-            //        CompanyName = "Công ty cổ phần tập đoàn VietStar",
-            //         FieldArray = "IT, Marketting",
-            //        LogoImage ="",
-            //        JobId = 12,
-
-            //        SalaryFrom = 10,
-            //        SalaryTo =15,
-
-            //        LastUpdate = DateTime.Now,
-            //        PositionText = "Nhân viên tư vấn Telesale"
-
-            //    }
-            //};
-
-
-            //reponse.Data = listData;
-
-
-            //return reponse;
-
-
-
-
-
-
             var dataJOb = await _jobRepository
                 .ExecuteSqlProcerduceToList<JobRelationItemDisplay>("sp_job_getRelation",
 
@@ -842,8 +829,6 @@ namespace Topmass.Job.Business
 
         {
             var reponse = new JobRecommendedReponse();
-
-
             var listData = new List<JobrecommendedItemDisplay>()
             {
 
@@ -1065,7 +1050,8 @@ namespace Topmass.Job.Business
                 Expired_date = jobDetail.Expired_date,
                 Time_workings = jobDetail.Time_workings,
                 Locations = jobDetail.Locations,
-                LocationsInfoMation = locationsArray
+                LocationsInfoMation = locationsArray,
+                Aggrement = jobDetail.Aggrement
             };
 
             var resultData = new JobDetailResult()
