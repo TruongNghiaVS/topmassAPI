@@ -43,6 +43,7 @@
         public string? Locations { get; set; }
         public string? Time_workings { get; set; }
 
+        public string? Time_WorkingText { get; set; }
         public int? RuleStatus { get; set; }
         public JobInfoModel()
         {

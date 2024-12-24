@@ -19,8 +19,8 @@ namespace crmHuman.Pages
         public dynamic DataLinhVuc { get; set; }
         public dynamic DataTypeOfWork { get; set; }
 
-        public dynamic DataLevelMaster {get;set;}
-        public dynamic   DataExperMaster  {get;set;}
+        public dynamic DataLevelMaster { get; set; }
+        public dynamic DataExperMaster { get; set; }
         public dynamic DataLog { get; set; }
 
         public string TitlePage { get; set; }
@@ -63,7 +63,7 @@ namespace crmHuman.Pages
             DataAll = new BaseList();
             DataLinhVuc = new List<object>();
             DataTypeOfWork = new List<object>();
-            DataLevelMaster= new List<object>();
+            DataLevelMaster = new List<object>();
             DataExperMaster = new List<object>();
             MasterBusiness = masterBusiness;
 
@@ -87,7 +87,7 @@ namespace crmHuman.Pages
             DataTypeOfWork = dataTypeOfWork;
             var dataLevelMaster = await MasterBusiness.GetAllDataByType(4);
             DataLevelMaster = dataLevelMaster;
-             var dataExperMaster = await MasterBusiness.GetAllDataByType(5);
+            var dataExperMaster = await MasterBusiness.GetAllDataByType(5);
             DataExperMaster = dataExperMaster;
             //var data = await MasterBusiness.GetAllDataByType(2);
             //DataLinhVuc = dataLinhvuc;

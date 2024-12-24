@@ -121,7 +121,7 @@ namespace Topmass.Admin.Business
                 content = "Sau khi đánh giá chứng tư, chúng tôi từ chối chứng từ, Vui lòng cập nhật chứng từ khác ";
             }
 
-            if (status == "3")
+            if (status == "3" || status == "5")
             {
                 content = "Chứng từ đã được duyệt thành công, bây giờ bạn có thể đăng tin.";
             }
@@ -280,7 +280,11 @@ namespace Topmass.Admin.Business
             }
             else if (resultInfo.Status == 3)
             {
-                documentInfo.CurrentStatus = "Đã duyệt";
+                documentInfo.CurrentStatus = "Đã duyệt (cấp 2)";
+            }
+            else if (resultInfo.Status == 5)
+            {
+                documentInfo.CurrentStatus = "Đã duyệt (cấp 3)";
             }
             documentInfo.Status = resultInfo.Status;
             documentInfo.DocumentType = resultInfo.DocumentTypeText;

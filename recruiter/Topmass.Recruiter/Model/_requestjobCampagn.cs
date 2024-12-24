@@ -68,6 +68,9 @@ namespace Topmass.Recruiter.Model
         public List<TimeWorking>? Time_working { get; set; }
 
         public List<LocationsJob>? Locations { get; set; }
+        public string? Time_WorkingText { get; set; }
+
+
 
     }
     public class JobItemRequestAdd
@@ -110,6 +113,9 @@ namespace Topmass.Recruiter.Model
         public List<EmailProper>? Emails { get; set; }
 
         public List<TimeWorking>? Time_working { get; set; }
+
+        public string? Time_WorkingText { get; set; }
+
 
         public List<LocationsJob>? Locations { get; set; }
 

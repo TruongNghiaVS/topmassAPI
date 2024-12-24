@@ -367,61 +367,10 @@ namespace Topmass.Recruiter.Bussiness
         public async Task<UserResgisterResult> Checkmail(RecruiterRegisterRequest request)
         {
             var reponse = new UserResgisterResult();
-            await _mailBussiness.RecruitmentSuccessRegister("nghia.nguyen@vietstargroup.vn");
+            await _mailBussiness.RecruitmentSuccessRegister("trang.nguyen@topmass.vn");
             return reponse;
 
         }
-        //public async Task<BaseResult> UpdateInfoRecruiter(RecruiterInfoUpdate request)
-        //{
-        //    var reponse = new UserResgisterResult();
-        //    var candidateUpdate = await _repository.GetById(request.UserId.Value);
-
-        //    if (candidateUpdate == null)
-        //    {
-        //        return reponse;
-        //    }
-
-        //    if (!string.IsNullOrEmpty(request.Name))
-        //    {
-        //        candidateUpdate.Name = request.Name;
-        //    }
-
-        //    if (!string.IsNullOrEmpty(request.Phone))
-        //    {
-        //        candidateUpdate.Phone = request.Phone;
-        //    }
-
-
-        //    if (!string.IsNullOrEmpty(request.Taxcode))
-        //    {
-        //        candidateUpdate.TaxCode = request.Taxcode;
-        //    }
-
-
-
-        //    candidateUpdate.UpdatedBy = request.HandleBy.Value;
-
-        //    await _repository.AddOrUPdate(candidateUpdate);
-
-        //    var candidateInfo = await _repository.FindOneByStatementSql<RecruiterInfoModel>("select top 1 * from RecruiterInfo where email = @email", new { email = candidateUpdate.Email });
-
-        //    if (candidateInfo == null)
-        //    {
-        //        return reponse;
-        //    }
-
-        //    if (!string.IsNullOrEmpty(request.AvatarLink))
-        //    {
-        //        candidateInfo.AvatarLink = request.AvatarLink;
-        //    }
-        //    if (request.Gender.HasValue)
-        //    {
-        //        candidateInfo.Gender = request.Gender;
-        //    }
-
-        //    await _infoRepository.AddOrUPdate(candidateInfo);
-        //    return reponse;
-        //}
 
 
         public async Task<BaseResult> ChangePassword(string password, int userId)

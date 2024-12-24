@@ -12,9 +12,7 @@ namespace topmass.Model
 
     public class JobWebController : BaseController
     {
-
         private readonly ILogger<JobWebController> _logger;
-
         private readonly IJobBusiness _jobBusiness;
         private readonly IRegionalBusiness _regionalbussiness;
         public JobWebController(ILogger<JobWebController> logger,
@@ -50,21 +48,20 @@ namespace topmass.Model
             }
             var result = await _jobBusiness.GetInfoJOb(rquest);
             reponse.Data = result;
-
             var itemGlobal = GlobalRegional.GetRegional();
             if (itemGlobal.DataGlobal == null || itemGlobal.DataGlobal.Count < 1)
             {
                 await _regionalbussiness.LoadAllData();
-
             }
             foreach (var item in result.DataJob.LocationsInfoMation)
             {
-
                 if (string.IsNullOrEmpty(item.Location))
                 {
                     continue;
                 }
                 var textDir1 = itemGlobal.GetRegionalById(item.Location);
+
+                result.DataJob.LocationText = textDir1.Name;
                 item.LocationText = textDir1.Name;
                 foreach (var item1 in item.Districts)
                 {
@@ -77,9 +74,7 @@ namespace topmass.Model
                 }
             }
             return StatusCode(reponse.StatusCode, reponse);
-
         }
-
 
         [HttpGet]
         [AllowAnonymous]
@@ -118,7 +113,6 @@ namespace topmass.Model
             var result = await _jobBusiness.GetRelationJob(rquest);
             reponse.Data = result;
             return StatusCode(reponse.StatusCode, reponse);
-
         }
 
         [HttpGet]
@@ -126,7 +120,6 @@ namespace topmass.Model
         public async Task<ActionResult> GetRecommended([FromQuery] InputJobInfo request)
         {
             var reponse = new BaseResult();
-
             if (string.IsNullOrEmpty(request.JobId))
             {
                 reponse.AddError(nameof(request.JobId), "Missing jobId");
@@ -136,19 +129,14 @@ namespace topmass.Model
             {
                 Slug = request.JobId
             };
-
             if (User.Identity.IsAuthenticated)
             {
                 var resultUser = await GetCurrentUser();
                 rquest.UserId = int.Parse(resultUser.Id);
-
             }
             var result = await _jobBusiness.GetRelationJob(rquest);
             reponse.Data = result;
             return StatusCode(reponse.StatusCode, reponse);
         }
-
-
-
     }
 }

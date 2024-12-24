@@ -75,7 +75,8 @@ namespace Topmass.Recruiter.Controllers
             var requestAdd = new CampagnItemStatusUpdate()
             {
                 IdUpdate = request.IdUpdate,
-                Status = request.Status
+                Status = request.Status,
+                HandleBy = resultUser.UserId
             };
             var result = await _bussiness.ChangeStatusActive(requestAdd);
             return StatusCode(result.StatusCode, result);

@@ -19,8 +19,6 @@ namespace Topmass.Job.Business
             _jobRep = jobrep;
         }
 
-
-
         public async Task<GetAllCVApplyReponse> GetAllCVApply(int userId, int status = -1)
         {
             var reponse = new GetAllCVApplyReponse();

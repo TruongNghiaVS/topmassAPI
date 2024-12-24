@@ -85,7 +85,11 @@ namespace Topmass.Admin.Repository
                 }
                 else if (StatusDocumnet == 3)
                 {
-                    return "Đã duyệt";
+                    return "Đã duyệt(Cấp 2)";
+                }
+                else if (StatusDocumnet == 5)
+                {
+                    return "Đã duyệt(Cấp 3)";
                 }
                 return "Chưa ghi nhận thông tin";
             }

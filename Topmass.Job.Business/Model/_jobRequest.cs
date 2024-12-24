@@ -59,6 +59,8 @@ namespace Topmass.Job.Business.Model
 
         public List<LocationsJob>? Locations { get; set; }
 
+        public string? Time_WorkingText { get; set; }
+
 
     }
 
@@ -346,6 +348,8 @@ namespace Topmass.Job.Business.Model
         public string? Locations { get; set; }
         public string? Time_workings { get; set; }
 
+        public string? Time_WorkingText { get; set; }
+
 
         public List<LocationsJob> LocationsInfoMation { get; set; }
         public JobInfoDisplay()
@@ -545,6 +549,8 @@ namespace Topmass.Job.Business.Model
         public string? Phone { get; set; }
 
         public int? RuleStatus { get; set; }
+
+        public string Time_WorkingText { get; set; }
         public List<LocationsJob> Locations { get; set; }
         public List<EmailProper> Emails { get; set; }
         public List<TimeWorking> TimeWorks { get; set; }

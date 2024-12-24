@@ -38,5 +38,20 @@ namespace Topmass.core.Business
 
             return response;
         }
+
+        public async Task<BaseResult> GetAllWebSlug()
+        {
+            var response = new BaseResult();
+            var result = await _repository.ExecuteSqlProcerduceToList<SlugWithRouterReponse>("sp_getAllWebSlug", new
+            {
+            });
+            var listReponse = new List<string>();
+            foreach (var item in result)
+            {
+                listReponse.Add(item.Slug);
+            }
+            response.Data = listReponse;
+            return response;
+        }
     }
 }

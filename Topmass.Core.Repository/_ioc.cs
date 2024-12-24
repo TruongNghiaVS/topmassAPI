@@ -41,6 +41,8 @@
             services.AddSingleton<ISearchCVResultRepository, SearchCVResultRepository>();
             services.AddSingleton<IMetaDataRepository, MetaDataRepository>();
             services.AddSingleton<IOpenCVResultRepository, OpenCVResultRepository>();
+            services.AddSingleton<IActiveCodeMemberRepository, ActiveCodeMemberRepository>();
+            services.AddSingleton<IMailModelRepository, MailModelRepository>();
 
         }
     }

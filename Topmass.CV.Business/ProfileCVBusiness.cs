@@ -239,10 +239,9 @@ namespace Topmass.CV.Business
             {
                 data.IsHideInfo = true;
             }
-
-
             await _searchCVExtraRepository.AddOrUPdate(searchCVExtraModelInsert);
             var dataSearchCV = await _searchCVRepository.GetById(int.Parse(searchId));
+            dataSearchCV.CountView++;
             await _searchCVRepository.AddOrUPdate(dataSearchCV);
             var dataTemplate = data;
             return dataTemplate;

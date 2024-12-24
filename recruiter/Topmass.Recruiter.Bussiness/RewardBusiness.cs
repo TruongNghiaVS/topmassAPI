@@ -13,11 +13,13 @@ namespace Topmass.Recruiter.Bussiness
         private readonly IRewardTransactionRepository _rewardTransactionRepository;
         private readonly ISearchCVResultRepository _searchCVResultRepository;
         private readonly IOpenCVResultRepository _openCVResultRepository;
+        private readonly ISearchCVRepository _searchCVRepository;
         public RewardBusiness(IRecruiterRepository userRepository,
              IRecruiterInfoRepository infoRepository,
              IRewardTransactionRepository rewardTransactionRepository,
              ISearchCVResultRepository searchCVResultRepository,
-             IOpenCVResultRepository openCVResultRepository
+             IOpenCVResultRepository openCVResultRepository,
+             ISearchCVRepository searchCVRepository
 
             )
         {
@@ -26,6 +28,7 @@ namespace Topmass.Recruiter.Bussiness
             _rewardTransactionRepository = rewardTransactionRepository;
             _searchCVResultRepository = searchCVResultRepository;
             _openCVResultRepository = openCVResultRepository;
+            _searchCVRepository = searchCVRepository;
         }
 
         public async Task<BaseResult> ExchangePointToOpenCVNoSearchCV(int
@@ -47,6 +50,7 @@ namespace Topmass.Recruiter.Bussiness
                 reponse.AddError("reward", "Không đủ tia sét để mở CV, vui lòng thu thập thêm tia sét để mở");
             }
             recruiterItem.NumberLightning += -point;
+
             await _openCVResultRepository.ExecuteSqlProcedure("sp_ExchangePointToOpenCVNoSearchCV", new
             {
                 searchId = searchId,
@@ -55,6 +59,7 @@ namespace Topmass.Recruiter.Bussiness
                 identify = identify,
                 linkfile = fileName
             });
+            await _repository.AddOrUPdate(recruiterItem);
             return new BaseResult();
         }
         public async Task<BaseResult> ExchangePointToOpenCV(int searchId,
@@ -124,6 +129,10 @@ namespace Topmass.Recruiter.Bussiness
                     UpdatedBy = userId,
                     Deleted = false
                 };
+
+            var searchResult = await _searchCVRepository.GetById(searchId);
+            searchResult.CountContact++;
+            await _searchCVRepository.AddOrUPdate(searchResult);
             await _openCVResultRepository.AddOrUPdate(resultCheck);
             return reponse;
         }

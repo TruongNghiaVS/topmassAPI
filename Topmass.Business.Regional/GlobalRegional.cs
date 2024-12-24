@@ -40,6 +40,15 @@ namespace Topmass.Business.Regional
         }
         public RegionalModel GetRegionalById(string id)
         {
+            if (id == "-1")
+            {
+                return new RegionalModel()
+                {
+                    Id = -1,
+                    Name = "Toàn quốc",
+                    Code = ""
+                };
+            }
             var reponse = new RegionalModel()
             {
                 Id = -1,

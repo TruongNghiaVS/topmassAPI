@@ -89,58 +89,58 @@ namespace Topmass.Admin.Business
                 locationsArray = JsonSerializer.Deserialize<List<LocationsJob>>(infoBasic.Locations);
             }
             var timeWorkings = new List<TimeWorking>();
-            if (!string.IsNullOrEmpty(infoBasic.Time_workings))
-            {
-                timeWorkings = JsonSerializer.Deserialize<List<TimeWorking>>(infoBasic.Time_workings);
-            }
+            //if (!string.IsNullOrEmpty(infoBasic.Time_workings))
+            //{
+            //    timeWorkings = JsonSerializer.Deserialize<List<TimeWorking>>(infoBasic.Time_workings);
+            //}
             var textTimeWorking = "";
-            foreach (var item in timeWorkings)
-            {
-                if(!string.IsNullOrEmpty( item.Day_from))
-                {
-                    textTimeWorking += "<p> Từ "  + item.Day_from;
-                    
-                }
+            //foreach (var item in timeWorkings)
+            //{
+            //    if(!string.IsNullOrEmpty( item.Day_from))
+            //    {
+            //        textTimeWorking += "<p> Từ "  + item.Day_from;
 
-                if (!string.IsNullOrEmpty(item.Day_to))
-                {
-                    textTimeWorking += " Đến " + item.Day_to;
+            //    }
 
-                }
+            //    if (!string.IsNullOrEmpty(item.Day_to))
+            //    {
+            //        textTimeWorking += " Đến " + item.Day_to;
 
-                if (!string.IsNullOrEmpty(item.Time_from))
-                {
-                    textTimeWorking += "  từ khung giờ  " + item.Time_from;
-                }
+            //    }
 
-                if (!string.IsNullOrEmpty(item.Time_from))
-                {
-                    textTimeWorking += " đến " + item.Time_to;
-                }
-                textTimeWorking += "</p>";
-            }   
-            var addressDetail = "";
-            foreach (var item in locationsArray)
-            {
-                var locationtext1 =  itemGlobal.GetRegionalById(item.Location).Name;
-                var provincecity = item.Location;
-                var city = item.Districts.FirstOrDefault();
-                if( city != null)
-                {
-                    var citycode = city.District;
-                    var cityText = itemGlobal.GetRegionalById(city.District).Name;
-                    var detailAdress = city.Detail_location;
-                    if( !string.IsNullOrEmpty(detailAdress))
-                    {
-                        addressDetail += detailAdress;
-                    }
-                    if (!string.IsNullOrEmpty(detailAdress))
-                    {
-                        addressDetail += "," + cityText + ", ";
-                    }
-                }
-                addressDetail += locationtext1;
-            }
+            //    if (!string.IsNullOrEmpty(item.Time_from))
+            //    {
+            //        textTimeWorking += "  từ khung giờ  " + item.Time_from;
+            //    }
+
+            //    if (!string.IsNullOrEmpty(item.Time_from))
+            //    {
+            //        textTimeWorking += " đến " + item.Time_to;
+            //    }
+            //    textTimeWorking += "</p>";
+            //}   
+            //var addressDetail = "";
+            //foreach (var item in locationsArray)
+            //{
+            //    var locationtext1 =  itemGlobal.GetRegionalById(item.Location).Name;
+            //    var provincecity = item.Location;
+            //    var city = item.Districts.FirstOrDefault();
+            //    if( city != null)
+            //    {
+            //        var citycode = city.District;
+            //        var cityText = itemGlobal.GetRegionalById(city.District).Name;
+            //        var detailAdress = city.Detail_location;
+            //        if( !string.IsNullOrEmpty(detailAdress))
+            //        {
+            //            addressDetail += detailAdress;
+            //        }
+            //        if (!string.IsNullOrEmpty(detailAdress))
+            //        {
+            //            addressDetail += "," + cityText + ", ";
+            //        }
+            //    }
+            //    addressDetail += locationtext1;
+            //}
             var salaryText = "";
             var unitText = "";
             if (infoBasic.Aggrement == false)
@@ -168,15 +168,15 @@ namespace Topmass.Admin.Business
             {
                 salaryText = "Thỏa thuận";
             }
-            
-            
+
+
             return new JobAdminDetail()
             {
                 DataBasic = detailBasic,
                 InfoBasic = infoBasic,
                 SalaryText = salaryText,
                 UnitText = unitText,
-                AddressDetail = addressDetail,
+                AddressDetail = infoBasic.Time_WorkingText,
                 TextTimeWorking = textTimeWorking
 
             };

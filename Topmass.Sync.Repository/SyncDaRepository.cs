@@ -23,9 +23,7 @@ namespace Topmass.Sync.Repository
 
         public async Task<bool> AddCVToSeachCV(object requestAdd)
         {
-
             await ExecuteSqlProcedure("AddCVToSearchCV", requestAdd);
-
             return true;
         }
     }

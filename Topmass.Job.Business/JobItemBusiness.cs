@@ -58,6 +58,16 @@ namespace Topmass.Job.Business
                 reponse.Message = "Không có thông tin chiến dịch";
                 return reponse;
             }
+            if (!itemAdd.Expired_date.HasValue)
+            {
+                reponse.Message = "Không có thông tin thời hạn đăng";
+                return reponse;
+            }
+            if (itemAdd.Expired_date.Value.AddDays(1).Date > DateTime.Now.AddDays(1).Date.AddMonths(1))
+            {
+                reponse.Message = "Thời hạn tin đăng, nhỏ hơn 1 tháng kể từ thời điểm tạo tin";
+                return reponse;
+            }
             var companyInfo = await _jobDisplayItemRepository.FindOneByStatementSql<JobIdCount>("select * from Recruiter d inner join CompanyInfo e on  d.id = e.RelId where d.id = @relid  ",
              new { relid = itemAdd.HandleBy });
             if (companyInfo == null || companyInfo.Id < 1)
@@ -65,7 +75,16 @@ namespace Topmass.Job.Business
                 reponse.Message = "Hoàn tất cập nhật thông tin công ty, trước khi tạo tin đăng";
                 return reponse;
             }
-            var jobCount = await _jobDisplayItemRepository.FindOneByStatementSql<JobIdCount>("select id as Id from jobItems where Campagn = @campagnId and status != 5  ",
+            //var jobApprove = await _jobDisplayItemRepository.ExecuteSqlProcerduceToList<JobIdCount>("getAllCountJob",
+            // new { userId = itemAdd.HandleBy });
+            //if (jobApprove != null && jobApprove.Count >= 5)
+            //{
+            //    reponse.Message = "Tài khoản của bạn chỉ được hiển thị 5 tin đăng, vui lòng nâng cấp để đăng nhiều tin hơn";
+            //    return reponse;
+            //}
+
+            var jobCount = await _jobDisplayItemRepository.FindOneByStatementSql<JobIdCount>
+                ("select id as Id from jobItems where Campagn = @campagnId and status != 5  ",
                new { campagnId = campagnId });
             if (jobCount != null && jobCount.Id > 0)
             {
@@ -112,6 +131,16 @@ namespace Topmass.Job.Business
             if (jobUpdate == null)
             {
                 reponse.Message = "Không có thông tin trong hệ thống";
+            }
+            if (!itemAdd.Expired_date.HasValue)
+            {
+                reponse.Message = "Không có thông tin thời hạn đăng";
+                return reponse;
+            }
+            if (itemAdd.Expired_date.Value.AddDays(1).Date > DateTime.Now.AddDays(1).Date.AddMonths(1))
+            {
+                reponse.Message = "Thời hạn tin đăng, nhỏ hơn 1 tháng kể từ thời điểm tạo tin";
+                return reponse;
             }
             var JobSlug = await _jobRepository.CreateSlugJob(itemAdd.HandleBy, itemAdd.Name);
             var jobItemBySlug = await _jobDisplayItemRepository.FindOneByStatementSql<JobIdCount>
@@ -169,6 +198,7 @@ namespace Topmass.Job.Business
             jobInfo.UpdatedBy = itemAdd.HandleBy;
             jobInfo.Locations = JsonSerializer.Serialize(itemAdd.Locations);
             jobInfo.Time_workings = JsonSerializer.Serialize(itemAdd.Time_working);
+            jobInfo.Time_WorkingText = itemAdd.Time_WorkingText;
             await _jobInfoRepository.AddOrUPdate(jobInfo);
             await UpdateJobDiplay(itemAdd, JobSlug);
             return reponse;
@@ -205,7 +235,7 @@ namespace Topmass.Job.Business
                 jobInfo.SalaryTo = 0;
             }
             jobInfo.SalaryFrom = itemAdd.Salary_from.Value;
-            jobInfo.SalaryTo = itemAdd.Salary_from.Value;
+            jobInfo.SalaryTo = itemAdd.Salary_to.Value;
             if (itemAdd.Aggrement == true)
             {
                 jobInfo.RangeSalary = "Thoả thuận";
@@ -244,9 +274,15 @@ namespace Topmass.Job.Business
             }
             var listStringLocationSearch = new List<string>();
             var listStringLocation = new List<string>();
+            var isNational = false;
 
             foreach (var item in itemAdd.Locations)
             {
+                if (item.Location == "-1")
+                {
+                    isNational = true;
+                    break;
+                }
                 var provice = _dataRegionals.Where(x => x.Code == item.Location)
                                             .FirstOrDefault();
                 if (provice == null)
@@ -257,9 +293,20 @@ namespace Topmass.Job.Business
                 listStringLocation.Add(provice.Name);
 
             }
-            var textLocationSearch = string.Join<string>(";", listStringLocationSearch);
-            jobInfo.LocationSearch = textLocationSearch;
-            jobInfo.LocationText = string.Join<string>(";", listStringLocation);
+            if (isNational == false)
+            {
+                var textLocationSearch = string.Join<string>(";", listStringLocationSearch);
+                jobInfo.LocationSearch = textLocationSearch;
+                jobInfo.LocationText = string.Join<string>(";", listStringLocation);
+
+            }
+            else
+            {
+                jobInfo.LocationSearch = "-1";
+                jobInfo.LocationText = "-1";
+
+            }
+
             jobInfo.ProfessionText = professionTemp;
             if (itemAdd.Type_of_work > 0)
             {
@@ -352,7 +399,7 @@ namespace Topmass.Job.Business
                 jobInfo.SalaryTo = 0;
             }
             jobInfo.SalaryFrom = itemAdd.Salary_from.Value;
-            jobInfo.SalaryTo = itemAdd.Salary_from.Value;
+            jobInfo.SalaryTo = itemAdd.Salary_to.Value;
 
 
             if (itemAdd.Aggrement == true)
@@ -403,9 +450,13 @@ namespace Topmass.Job.Business
 
             var listStringLocationSearch = new List<string>();
             var listStringLocation = new List<string>();
-
+            var isNational = false;
             foreach (var item in itemAdd.Locations)
             {
+                if (item.Location == "-1")
+                {
+                    isNational = true;
+                }
                 var provice = _dataRegionals.Where(x => x.Code == item.Location)
                                             .FirstOrDefault();
                 if (provice == null)
@@ -416,9 +467,21 @@ namespace Topmass.Job.Business
                 listStringLocation.Add(provice.Name);
 
             }
-            var textLocationSearch = string.Join<string>(";", listStringLocationSearch);
-            jobInfo.LocationSearch = textLocationSearch;
-            jobInfo.LocationText = string.Join<string>(";", listStringLocation);
+
+            if (isNational == false)
+            {
+                var textLocationSearch = string.Join<string>(";", listStringLocationSearch);
+                jobInfo.LocationSearch = textLocationSearch;
+                jobInfo.LocationText = string.Join<string>(";", listStringLocation);
+
+            }
+            else
+            {
+                jobInfo.LocationSearch = "-1";
+                jobInfo.LocationText = "-1";
+
+            }
+
             jobInfo.ProfessionText = professionTemp;
             jobInfo.TypeOfWork = typeOfWorkText;
 
@@ -441,8 +504,6 @@ namespace Topmass.Job.Business
             if (itemAdd.Rank > 0)
             {
                 typeRankText = _masterData.Where(x => x.Id == itemAdd.Rank.Value).FirstOrDefault().Text;
-
-
             }
             jobInfo.Rank = typeRankText;
             jobInfo.RankSearch = itemAdd.Rank.Value;
@@ -499,7 +560,9 @@ namespace Topmass.Job.Business
                 Emails = JsonSerializer.Serialize(itemAdd.Emails),
                 UpdatedBy = itemAdd.HandleBy,
                 Locations = JsonSerializer.Serialize(itemAdd.Locations),
-                Time_workings = JsonSerializer.Serialize(itemAdd.Time_working)
+                Time_workings = JsonSerializer.Serialize(itemAdd.Time_working),
+                Time_WorkingText = itemAdd.Time_WorkingText
+
 
             };
 
@@ -514,10 +577,25 @@ namespace Topmass.Job.Business
                 reponse.AddError(nameof(itemAdd.IdUpdate), "Không có thông tin đối tượng");
             }
 
+
+
+            if (itemAdd.Status.HasValue && itemAdd.Status.Value == 1)
+            {
+                var jobApprove = await _jobRepository
+                                        .ExecuteSqlProcerduceToList<JobIdCount>("getAllActiveCamapang",
+                                         new { createby = itemAdd.HandleBy });
+                if (jobApprove != null && jobApprove.Count >= 5)
+                {
+                    reponse.Message = "Tài khoản của quý khách chỉ hiển thị cùng lúc 5 tin tuyển dụng, vui lòng kiểm tra lại";
+                    return reponse;
+                }
+            }
+
             var jobInfo = await _jobRepository.GetById(itemAdd.IdUpdate.Value);
             if (jobInfo == null)
             {
-                reponse.AddError(nameof(itemAdd.IdUpdate), "Không tồn tại tin đăng");
+                reponse.Message = "Không tồn tại tin đăng";
+                return reponse;
             }
 
             jobInfo.Status = itemAdd.Status.Value;
@@ -663,6 +741,7 @@ namespace Topmass.Job.Business
                 Type_money = ItemjobInfo.Type_money,
                 Type_of_work = ItemjobInfo.Type_of_work,
                 RuleStatus = ItemjobInfo.RuleStatus,
+                Time_WorkingText = ItemjobInfo.Time_WorkingText,
 
                 Status = itemJob.Status,
                 UpdateAt = DateTime.Now,
@@ -888,6 +967,18 @@ namespace Topmass.Job.Business
         public async Task<dynamic> GetDetailMetadata(string jobSlug)
         {
             var jobInfo = await _jobRepository.GetBySlug(jobSlug);
+
+            if (jobInfo == null)
+            {
+                return new
+                {
+                    title = "",
+                    KeyWord = "Topmass",
+                    Author = "Topmass",
+                    ShortDes = "",
+                    linkImage = "https://topmass.vn/imgs/logo-new.svg"
+                };
+            }
             return new
             {
                 title = jobInfo.Name,
@@ -924,9 +1015,7 @@ namespace Topmass.Job.Business
                         LevelText = "",
                         NumOfRecruits = 1,
                         ProfessionText = ""
-
                     }
-
                 }
             };
             var jobInfo = await _jobRepository.GetBySlug(request.Slug);
@@ -1049,6 +1138,7 @@ namespace Topmass.Job.Business
                 CommonData = commonData,
                 Expired_date = jobDetail.Expired_date,
                 Time_workings = jobDetail.Time_workings,
+                Time_WorkingText = jobDetail.Time_WorkingText,
                 Locations = jobDetail.Locations,
                 LocationsInfoMation = locationsArray,
                 Aggrement = jobDetail.Aggrement

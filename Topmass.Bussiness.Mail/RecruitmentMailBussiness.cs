@@ -23,55 +23,60 @@ namespace Topmass.Bussiness.Mail
             _activeCodeRecruiterRepository = activeCodeRecruiterRepository;
         }
 
-        private async Task<bool> SendMail(
+        private async Task SendMail(
             string content,
             string emailTo,
             string subjectTitle
             )
         {
-            var mailconfig = new
-            {
-                MailConfigValue.Port,
-                MailConfigValue.MailFrom,
-                MailConfigValue.Host,
-                MailConfigValue.userName,
-                MailConfigValue.password
-            };
-            var contents = content;
-            var mailFrom = mailconfig.MailFrom;
-            var mailTo = emailTo;
-            var subjectInfo = subjectTitle;
-            var bodyContent = contents;
-            MailMessage message = new MailMessage();
-            SmtpClient smtp = new SmtpClient();
-            message.From = new MailAddress(mailFrom, "topmass.vn");
-            message.To.Add(new MailAddress(mailTo));
-            message.Subject = subjectInfo;
-            message.IsBodyHtml = true;
-            message.Body = bodyContent;
 
-            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(contents, null, "text/html");
-            LinkedResource imageResource = new LinkedResource("C:\\vietbank\\crm\\topmass\\Topmass.Bussiness.Mail\\Template\\mailLogo.png");
-            imageResource.ContentId = "imageLogo";
-            htmlView.LinkedResources.Add(imageResource);
-            message.AlternateViews.Add(htmlView);
-
-            smtp.Port = mailconfig.Port;
-            smtp.Host = mailconfig.Host;
-            smtp.EnableSsl = true;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential(mailconfig.userName, mailconfig.password);
-            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             try
             {
+
+                var mailconfig = new
+                {
+                    MailConfigValue.Port,
+                    MailConfigValue.MailFrom,
+                    MailConfigValue.Host,
+                    MailConfigValue.userName,
+                    MailConfigValue.password
+                };
+                var contents = content;
+                var mailFrom = mailconfig.MailFrom;
+                var mailTo = emailTo;
+                var subjectInfo = subjectTitle;
+                var bodyContent = contents;
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress(mailFrom, "topmass.vn");
+                message.To.Add(new MailAddress(mailTo));
+                message.Subject = subjectInfo;
+                message.IsBodyHtml = true;
+                message.Body = bodyContent;
+
+                AlternateView htmlView = AlternateView.CreateAlternateViewFromString(contents, null, "text/html");
+                LinkedResource imageResource = new LinkedResource("C:\\vietbank\\crm\\topmass\\Topmass.Bussiness.Mail\\Template\\mailLogo.png");
+                imageResource.ContentId = "imageLogo";
+                htmlView.LinkedResources.Add(imageResource);
+                message.AlternateViews.Add(htmlView);
+
+                smtp.Port = mailconfig.Port;
+                smtp.Host = mailconfig.Host;
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential(mailconfig.userName, mailconfig.password);
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 await smtp.SendMailAsync(message);
+
+
+
             }
             catch (Exception e)
             {
-                throw;
+
+
             }
 
-            return true;
 
         }
         public async Task<MailReponse> PushMail(MailItem mailItem)
@@ -82,7 +87,8 @@ namespace Topmass.Bussiness.Mail
             {
                 return new MailReponse();
             }
-            await SendMail(mailItem.Data.Content, mailItem.MailTo, mailItem.Data.Subject);
+            var thread = new Thread(async () => await SendMail(mailItem.Data.Content, mailItem.MailTo, mailItem.Data.Subject));
+            thread.Start();
             return new MailReponse();
         }
 
@@ -202,5 +208,35 @@ namespace Topmass.Bussiness.Mail
             await PushMail(mailData);
             return reponse;
         }
+        public async Task<ResultRequestSendMail> NotifyJobApplyChangeStatus(
+        string emailto,
+        string companyName,
+        string position,
+        string fullName
+        )
+        {
+            var reponse = new ResultRequestSendMail();
+            var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\NTD\notifyWhenStatusChange.html";
+            var contents = File.ReadAllText(pathTemplate);
+
+            contents = contents.Replace("{CompanyName}", companyName);
+            contents = contents.Replace("{positionJob}", position);
+            contents = contents.Replace("{fullName}", fullName);
+            var mailData = new MailItem()
+            {
+                Data = new DataMailInfo()
+                {
+                    Content = contents,
+                    Subject = "Thông báo thay đổi trạng thái ứng tuyển – Topmass.vn"
+                },
+                MailTo = emailto
+
+            };
+
+
+            await PushMail(mailData);
+            return reponse;
+        }
+
     }
 }

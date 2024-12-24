@@ -82,14 +82,10 @@ namespace crmHuman.Pages
                 ResultData = resultView;
             }
             return Page();
-
-
         }
         public async Task<ActionResult> GetAll(NTDRequest request2)
         {
             RequestSearch = request2;
-
-
             return Page();
         }
 
@@ -114,7 +110,7 @@ namespace crmHuman.Pages
                 Id = request.Id,
                 LinkFile = request.Linkfile,
                 NotedChange = request.NotedChange,
-                ReasonReject = request.ReasonReject.HasValue? request.ReasonReject.Value:-1,
+                ReasonReject = request.ReasonReject.HasValue ? request.ReasonReject.Value : -1,
                 StatusChange = request.StatusChange
             });
             var dataReponse = new
@@ -145,9 +141,9 @@ namespace crmHuman.Pages
                     StatusCode = StatusCodes.Status400BadRequest
                 };
             }
-            await business.UpdateInfoHuman(request.StatusAccount, 
+            await business.UpdateInfoHuman(request.StatusAccount,
                 request.ConfirmAccout, request.Id,
-                request.ReasonLock.HasValue?request.ReasonLock.Value:-1,
+                request.ReasonLock.HasValue ? request.ReasonLock.Value : -1,
                 request.Noted);
             var dataReponse = new
             {

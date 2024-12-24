@@ -11,6 +11,12 @@
 
         public string Email { get; set; }
     }
+
+    public class MailRequest
+    {
+
+        public string Email { get; set; }
+    }
     public class PasswordChanged
     {
         public string? CurrentPassword { get; set; }

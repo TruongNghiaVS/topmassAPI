@@ -17,7 +17,6 @@
             }
         elementchange.onchange();
     setTimeout(() => {
-        
             var projectIdcb = document.getElementById("cbProject");
             if(  document.getElementById("txtProjectId")  == null)
                 {

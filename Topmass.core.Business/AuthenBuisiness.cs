@@ -17,6 +17,7 @@ namespace Topmass.core.Business
         private readonly ICandidateRepository _repository;
         private readonly IForgetPasswordRepository _forgetPasswordRepository;
         private readonly ILogActionModelRepository _logActionModelRepository;
+        private readonly IActiveCodeMemberRepository _activeCodeMemberRepository;
 
         private BusinessResourceMessage resourceMessage;
 
@@ -24,7 +25,8 @@ namespace Topmass.core.Business
         public AuthenBuisiness(ICandidateRepository userRepository,
             IForgetPasswordRepository forgetPasswordRepository,
             IMailBussiness mailBussiness,
-            ILogActionModelRepository logActionModelRepository
+            ILogActionModelRepository logActionModelRepository,
+            IActiveCodeMemberRepository activeCodeMemberRepository
             )
         {
             _repository = userRepository;
@@ -32,6 +34,7 @@ namespace Topmass.core.Business
             resourceMessage = BusinessResourceMessage.GetMessage();
             _mailBussiness = mailBussiness;
             _logActionModelRepository = logActionModelRepository;
+            _activeCodeMemberRepository = activeCodeMemberRepository;
         }
         public async Task<LoginResult> LoginCandidate(string username, string password)
         {
@@ -40,19 +43,24 @@ namespace Topmass.core.Business
             {
 
                 result.AddError(resourceMessage.Missing_param);
+                result.Message = resourceMessage.Authen_NotFoundAccout;
+                return result;
             }
-
             var userInfo = await _repository.FindUser(new CandidateSearch()
             {
                 Email = username,
                 Password = password
             });
-
             if (userInfo == null || userInfo.Id < 1)
             {
-
-                result.Message = resourceMessage.Authen_NotFoundAccout;
+                //result.Message = resourceMessage.Authen_NotFoundAccout;
                 result.AddError(resourceMessage.Authen_NotFoundAccout);
+                result.Message = resourceMessage.Authen_NotFoundAccout;
+                return result;
+            }
+            if (userInfo.Rulestatus != 1)
+            {
+                result.Message = "Tài khoản của bạn chưa được kích hoạt, vui lòng kiểm tra Email và tiến hành kích hoạt";
                 return result;
             }
             var itemInsert = new LogActionModel
@@ -66,13 +74,9 @@ namespace Topmass.core.Business
 
             };
             await _logActionModelRepository.AddOrUPdate(itemInsert);
-
-            //result.Message = resourceMessage.SuccessfullAuthenMsg;
             var userAuthorize = userInfo as BaseUserInfo;
             var tokenUser = this.GenerateToken(userAuthorize);
             result.Token = tokenUser;
-
-            //result.Message = resourceMessage.SuccessAuthenCreateToken;
             return result;
         }
         protected string GenerateToken(BaseUserInfo request, int typeUser = (int)TypeUser.CANDIDATE)
@@ -218,6 +222,40 @@ namespace Topmass.core.Business
             return reponse;
         }
 
+
+        public async Task<LoginResult> ConfirmAccoutCandidate(string code)
+        {
+            var reponse = new LoginResult();
+            var codeForgetLink = await _activeCodeMemberRepository
+            .FindOneByStatementSql<ActiveCodeMember>("select * from ActiveCodeMember where Code = @code  ", new
+            {
+                code
+            });
+            if (codeForgetLink == null)
+            {
+                reponse.Message = "Mã xác nhận không hợp lệ";
+                return reponse;
+            }
+            var candidateInfo = await _repository.FindOneByStatementSql<CandidateModel>("select * from Candidate where Email = @email",
+            new
+            {
+                email = codeForgetLink.Email
+            }
+            );
+            if (candidateInfo != null)
+            {
+                candidateInfo.Status = 1;
+                candidateInfo.UpdateAt = DateTime.Now;
+                codeForgetLink.Status = 2;// request
+                codeForgetLink.UpdateAt = DateTime.Now;
+                candidateInfo.DateActive = DateTime.Now;
+                candidateInfo.Rulestatus = 1;
+                await _repository.AddOrUPdate(candidateInfo);
+                await _activeCodeMemberRepository.AddOrUPdate(codeForgetLink);
+                await _mailBussiness.CandidateSuccessRegister(candidateInfo.Email);
+            }
+            return reponse;
+        }
         public async Task<BaseResult> ChangePassword(string password, int userId)
         {
             var reponse = new BaseResult();

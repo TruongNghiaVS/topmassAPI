@@ -12,5 +12,6 @@ namespace Topmass.Recruiter.Bussiness
         public Task<BaseResult> ChangePassword(string password, int userId);
         public Task<BaseResult> ChangePasswordNotMail(string password, int userId);
 
+
     }
 }

@@ -11,10 +11,9 @@ namespace Topmass.core.Business
             services.ConfigRep();
             services.AddSingleton<ICandidateBusiness, CandidateBusiness>();
             services.AddSingleton<IAuthenBuisiness, AuthenBuisiness>();
-
             services.AddSingleton<IProfileBusiness, ProfileBusiness>();
             services.AddSingleton<IMetaDataBussiness, MetaDataBusiness>();
-            
+            services.AddSingleton<ICandidateMailBusiness, CandidateMailBusiness>();
             services.ConfigMailBusiness();
         }
     }

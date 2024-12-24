@@ -21,7 +21,6 @@ namespace topmass.Controllers
             _logger = logger;
             _candidateBusiness = candidateBusiness;
             _authenBuisiness = authenBuisiness;
-
         }
         [HttpGet]
         public async Task<ActionResult> GetUserCurrent()
@@ -32,30 +31,27 @@ namespace topmass.Controllers
                 Email = resultUser.UserName
             });
             return StatusCode(result.StatusCode, result);
-
         }
         [HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> LoginUser(AuthenRequest request)
         {
-            var dataError = new ErrorData() { };
-            if (string.IsNullOrEmpty(request.UserName))
-            {
-                dataError.AddError(nameof(request.UserName), "Thiếu thông tin tên đăng nhập");
-            }
-            if (string.IsNullOrEmpty(request.Password))
-            {
-                dataError.AddError(nameof(request.Password), "Thiếu thông tin mật khẩu");
-            }
-            if (dataError.HasErorr())
-            {
-                return StatusCode(303, dataError);
-            }
             var result = await _authenBuisiness.LoginCandidate(request.UserName, request.Password);
             return StatusCode(result.StatusCode, result);
         }
 
-
-
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> ValidAccount(ValidLinkRequest request)
+        {
+            var dataResult = new BaseResult();
+            if (string.IsNullOrEmpty(request.Code))
+            {
+                dataResult.Message = "Thiếu tham số Code";
+                return StatusCode(dataResult.StatusCode, dataResult);
+            }
+            var result = await _authenBuisiness.ConfirmAccoutCandidate(request.Code);
+            return StatusCode(result.StatusCode, result);
+        }
     }
 }

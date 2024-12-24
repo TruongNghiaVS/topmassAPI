@@ -49,9 +49,7 @@ namespace Topmass.Campagn.Repository
                     };
                 }
                 item.ChildItems = childInfo;
-
             }
-
             var reponse = new CampangnSearchReponse();
             if (data.Count > 0)
             {

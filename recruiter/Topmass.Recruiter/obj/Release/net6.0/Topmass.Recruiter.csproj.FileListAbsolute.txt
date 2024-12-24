@@ -191,6 +191,13 @@ C:\Users\Admin\Desktop\syncdata\topmass\recruiter\Topmass.Recruiter\obj\Release\
 C:\Users\Admin\Desktop\syncdata\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.pdb
 C:\Users\Admin\Desktop\syncdata\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.genruntimeconfig.cache
 C:\Users\Admin\Desktop\syncdata\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\ref\Topmass.Recruiter.dll
+C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.csproj.AssemblyReference.cache
+C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.GeneratedMSBuildEditorConfig.editorconfig
+C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.AssemblyInfoInputs.cache
+C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.AssemblyInfo.cs
+C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.csproj.CoreCompileInputs.cache
+C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.MvcApplicationPartsAssemblyInfo.cache
+C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.sourcelink.json
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\bin\Release\net6.0\appsettings.Development.json
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\bin\Release\net6.0\appsettings.json
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\bin\Release\net6.0\Topmass.Recruiter.exe
@@ -266,14 +273,6 @@ C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\bin\Release\net6.0\Topmas
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\bin\Release\net6.0\Topmass.Notification.Repository.pdb
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\bin\Release\net6.0\Topmass.Recruiter.Repository.pdb
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\bin\Release\net6.0\Topmass.Web.Repository.pdb
-C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.csproj.AssemblyReference.cache
-C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.GeneratedMSBuildEditorConfig.editorconfig
-C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.AssemblyInfoInputs.cache
-C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.AssemblyInfo.cs
-C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.csproj.CoreCompileInputs.cache
-C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.MvcApplicationPartsAssemblyInfo.cs
-C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.MvcApplicationPartsAssemblyInfo.cache
-C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.sourcelink.json
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\staticwebassets.build.json
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\staticwebassets.development.json
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\staticwebassets\msbuild.Topmass.Recruiter.Microsoft.AspNetCore.StaticWebAssets.props
@@ -288,3 +287,4 @@ C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\refint
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.pdb
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.genruntimeconfig.cache
 C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\ref\Topmass.Recruiter.dll
+C:\tomass2\topmass\topmass\recruiter\Topmass.Recruiter\obj\Release\net6.0\Topmass.Recruiter.MvcApplicationPartsAssemblyInfo.cs

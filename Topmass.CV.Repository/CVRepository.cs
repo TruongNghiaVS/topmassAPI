@@ -104,7 +104,6 @@ namespace Topmass.CV.Repository
         {
             var respone = new GetAllCVByJobReponse()
             {
-
             };
             if (request.JobId < 1)
             {
@@ -201,8 +200,6 @@ namespace Topmass.CV.Repository
             return response;
         }
 
-
-
         public async Task<GetAllCVByCampaignReponse> GetAllCVApply(GetAllCVByCampaignRequest request)
         {
             var respone = new GetAllCVByCampaignReponse()
@@ -237,10 +234,6 @@ namespace Topmass.CV.Repository
                  requestfilter);
                 respone.Data = dataResult;
             }
-
-
-
-
             return respone;
         }
 
@@ -302,10 +295,6 @@ namespace Topmass.CV.Repository
                 return respone;
             }
             return respone;
-
-
         }
-
-
     }
 }

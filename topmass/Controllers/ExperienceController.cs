@@ -29,8 +29,6 @@ namespace topmass.Model
         {
             var resultUser = await GetCurrentUser();
             var baseReult = new BaseResult();
-
-
             foreach (var item in requestAdd)
             {
                 if (string.IsNullOrEmpty(item.CompanyName))
@@ -38,12 +36,10 @@ namespace topmass.Model
                     baseReult.AddError(nameof(item.CompanyName), "Thiếu thông tin trường");
                 }
             }
-
             if (!baseReult.Success)
             {
                 return StatusCode(baseReult.StatusCode, baseReult);
             }
-
             var allIdExited = await _profileBusiness.GetAllId(resultUser.UserId, 2);
             foreach (var item in requestAdd)
             {
@@ -87,9 +83,7 @@ namespace topmass.Model
                     await _profileBusiness.UpdateExperience(requestUpdate);
                 }
             }
-
             var deleteAll = allIdExited.Select(a => a.Id).Except(requestAdd.Select(b => b.Id)).ToList();
-
             foreach (var item in deleteAll)
             {
                 await _profileBusiness.DeleteExperience(new ExperienceUserInfoDeleteRequest()
@@ -97,12 +91,9 @@ namespace topmass.Model
                     Id = item
                 });
             }
-
-
             baseReult.Data = true;
             await _profileBusiness.ReloadGenFileCV(resultUser.UserId);
             return StatusCode(baseReult.StatusCode, baseReult);
-
         }
 
         [HttpPost]

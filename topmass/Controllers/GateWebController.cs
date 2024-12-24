@@ -14,7 +14,6 @@ namespace topmass.Controllers
     {
         private readonly ILogger<WebController> _logger;
         private readonly IProfileBusiness _profileBusiness;
-
         private readonly IMetaDataBussiness _metaDataBussiness;
         public GateWebController(ILogger<WebController> logger,
             IProfileBusiness profileBusiness,
@@ -61,9 +60,6 @@ namespace topmass.Controllers
             return StatusCode(baseReult.StatusCode, baseReult);
         }
 
-
-
-
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult> GetInfoMetadata(string keyScreen = "homePage")
@@ -78,7 +74,6 @@ namespace topmass.Controllers
             return StatusCode(reponse.StatusCode, reponse);
         }
 
-
         [HttpGet]
         public async Task<ActionResult> GetRegionalSearch()
         {
@@ -89,10 +84,17 @@ namespace topmass.Controllers
                 var userCurrent = await GetCurrentUser();
                 userid = userCurrent.UserId;
             }
-
             reponse.Data = await _profileBusiness.GetRegionSearchSetting(userid);
             return StatusCode(reponse.StatusCode, reponse);
-
         }
+
+        [HttpGet]
+        public async Task<ActionResult> GetInfomationAllSlugWeb()
+        {
+            var dataAllSlug = await _metaDataBussiness.GetAllWebSlug();
+            return StatusCode(dataAllSlug.StatusCode, dataAllSlug);
+        }
+
+
     }
 }

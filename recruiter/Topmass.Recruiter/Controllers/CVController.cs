@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Topmass.CV.Business;
 using Topmass.CV.Business.Model;
+using Topmass.Recruiter.Bussiness;
 using Topmass.Recruiter.Model;
 using TopMass.Core.Result;
 
@@ -13,20 +14,21 @@ namespace Topmass.Recruiter.Controllers
     {
 
         private readonly ILogger<CVController> _logger;
-
-
         private readonly ICVBusiness _cVBusiness;
         private readonly ICVUtilities _cVUtilities;
+        private readonly IRecruiterMail _recruiterMail;
         public CVController(ILogger<CVController> logger,
 
             ICVBusiness cVBusiness,
-            ICVUtilities cVUtilities
+            ICVUtilities cVUtilities,
+            IRecruiterMail recruiterMail
             ) : base(logger)
         {
             _logger = logger;
 
             _cVBusiness = cVBusiness;
             _cVUtilities = cVUtilities;
+            _recruiterMail = recruiterMail;
         }
 
         [HttpGet]
@@ -69,8 +71,6 @@ namespace Topmass.Recruiter.Controllers
             reponse.Data = result.Data;
             return StatusCode(reponse.StatusCode, reponse);
         }
-
-
         [HttpGet]
         public async Task<ActionResult> GetAllSearchCVOfJob([FromQuery] InputGetAllSearchCVApplyOfJob request)
         {
@@ -90,7 +90,6 @@ namespace Topmass.Recruiter.Controllers
             reponse.Data = result;
             return StatusCode(reponse.StatusCode, reponse);
         }
-
         [HttpGet]
         public async Task<ActionResult> GetAllCVApply([FromQuery] InputGetAllCVApply request)
         {
@@ -161,8 +160,6 @@ namespace Topmass.Recruiter.Controllers
             return StatusCode(reponse.StatusCode, reponse);
         }
 
-
-
         [HttpPost]
         public async Task<ActionResult> AddLogStatus(IntputCVStatusHistoryRequest request)
         {
@@ -176,7 +173,6 @@ namespace Topmass.Recruiter.Controllers
             {
                 reponse.AddError(nameof(request.NoteCode), "Thiếu thông tin");
             }
-
             var result = await _cVUtilities.AddHistoryStatus(
                 new CVStatusHistoryRequest()
                 {
@@ -187,6 +183,7 @@ namespace Topmass.Recruiter.Controllers
                 }
               );
             reponse.Data = result;
+            await _recruiterMail.NotificationMailWhenJobAplyStatusChange(request.Identi);
             return StatusCode(reponse.StatusCode, reponse);
         }
     }

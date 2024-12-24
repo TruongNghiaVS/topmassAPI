@@ -7,5 +7,7 @@ namespace Topmass.core.Business
     public interface IMetaDataBussiness
     {
         public Task<MetaDataReponse> GetInfo(MetaDataRequest request);
+
+        public Task<BaseResult> GetAllWebSlug();
     }
 }

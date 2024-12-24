@@ -40,6 +40,8 @@ namespace Topmass.Campagn.Business.Model
         public int? IdUpdate { get; set; }
         public int? Status { get; set; }
 
+        public int? HandleBy { get; set; }
+
 
 
     }
@@ -52,5 +54,15 @@ namespace Topmass.Campagn.Business.Model
         public string Email { get; set; }
         public int? Status { get; set; }
 
+    }
+
+    public class JobIdCount
+    {
+        public int Id { get; set; }
+
+        public JobIdCount()
+        {
+            Id = -1;
+        }
     }
 }

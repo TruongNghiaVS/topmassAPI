@@ -23,10 +23,5 @@ namespace Topmass.Core.Repository
             reponse.Page = request.Page;
             return reponse;
         }
-
-
-
-
-
     }
 }

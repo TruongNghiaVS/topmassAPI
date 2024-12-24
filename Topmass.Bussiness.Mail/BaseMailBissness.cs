@@ -59,7 +59,8 @@ namespace Topmass.Bussiness.Mail
             {
                 return new MailReponse();
             }
-            await SendMail(mailItem.Data.Content, mailItem.MailTo, mailItem.Data.Subject);
+            var thread = new Thread(async () => await SendMail(mailItem.Data.Content, mailItem.MailTo, mailItem.Data.Subject));
+            thread.Start();
             return new MailReponse();
         }
 

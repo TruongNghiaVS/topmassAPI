@@ -12,17 +12,20 @@ namespace Topmass.core.Business
         private readonly ICandidateRepository _repository;
         private readonly ICandidateInfoRepository _candidateInfoRepository;
         private readonly IMailBussiness _mailBussiness;
+        private readonly IActiveCodeMemberRepository _activeCodeMemberRepository;
 
 
         public CandidateBusiness(ICandidateRepository userRepository,
             IMailBussiness mailBussiness,
-            ICandidateInfoRepository candidateInfoRepository
+            ICandidateInfoRepository candidateInfoRepository,
+            IActiveCodeMemberRepository activeCodeMemberRepository
             )
         {
             _repository = userRepository;
 
             _mailBussiness = mailBussiness;
             _candidateInfoRepository = candidateInfoRepository;
+            _activeCodeMemberRepository = activeCodeMemberRepository;
         }
         public async Task<BaseResult> ChangePassword(string password, int userId)
         {
@@ -106,22 +109,17 @@ namespace Topmass.core.Business
                 )
             {
                 reponse.AddError("email", "Thiếu thông tin email hoặc mật khẩu");
-
             }
-
             if (string.IsNullOrWhiteSpace(request.FirstName) ||
            string.IsNullOrWhiteSpace(request.LastName)
            )
             {
                 reponse.AddError("FirstName", "Thiếu thông tin họ và tên");
-
             }
-
             if (string.IsNullOrWhiteSpace(request.Phone)
             )
             {
                 reponse.AddError("phone", "Thiếu thông tin số điện thoại");
-
             }
             var itemInsert = new CandidateAdd()
             {
@@ -144,6 +142,18 @@ namespace Topmass.core.Business
                 reponse.AddError(nameof(itemInsert.Email), "Trùng lặp thông tin Email ");
             }
             var result = await _repository.AddUser(itemInsert);
+            var item = new ActiveCodeMember();
+            var randomCode = "" + new Random().Next(1000, 10000) + DateTime.Now.Ticks + "";
+            item.Code = randomCode;
+            item.Email = itemInsert.Email;
+            item.Status = 1;
+            item.CreateAt = DateTime.Now;
+            await _activeCodeMemberRepository.AddOrUPdate(item);
+            if (result == true)
+            {
+                await _mailBussiness.ValidateCandidateMail(itemInsert.Email, item.Code);
+            }
+            return reponse;
             if (result == true)
             {
                 await _mailBussiness.CandidateSuccessRegister(itemInsert.Email);

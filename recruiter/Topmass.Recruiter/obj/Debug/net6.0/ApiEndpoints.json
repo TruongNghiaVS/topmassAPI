@@ -121,6 +121,16 @@
         "Name": "Status",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Limit",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -439,6 +449,38 @@
       {
         "Name": "request",
         "Type": "Topmass.Recruiter.Model.IntputCVChangeViewModeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.EmailController",
+    "Method": "RequestMailValidAccount",
+    "RelativePath": "api/recruiter/Email/RequestMailValidAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.MailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.EmailController",
+    "Method": "RequestSendMailChangePassword",
+    "RelativePath": "api/recruiter/Email/RequestSendMailChangePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.RequestChangePasswordRequest",
         "IsRequired": true
       }
     ],

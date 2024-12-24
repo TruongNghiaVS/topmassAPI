@@ -25,6 +25,8 @@ namespace Topmass.Bussiness.Mail
             )
         {
 
+
+
             var mailconfig = new
             {
                 MailConfigValue.Port,
@@ -59,7 +61,9 @@ namespace Topmass.Bussiness.Mail
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = new NetworkCredential(mailconfig.userName, mailconfig.password);
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
             await smtp.SendMailAsync(message);
+
             return true;
         }
         public async Task<MailReponse> PushMail(MailItem mailItem)
@@ -70,7 +74,10 @@ namespace Topmass.Bussiness.Mail
             {
                 return new MailReponse();
             }
-            await SendMail(mailItem.Data.Content, mailItem.MailTo, mailItem.Data.Subject);
+            var thread = new Thread(async () => await SendMail(mailItem.Data.Content,
+                mailItem.MailTo,
+                mailItem.Data.Subject));
+            thread.Start();
             return new MailReponse();
         }
 
@@ -113,6 +120,39 @@ namespace Topmass.Bussiness.Mail
             return reponse;
         }
 
+
+        public async Task<ResultRequestSendMail> ValidateCandidateMail(string email, string code)
+        {
+            var reponse = new ResultRequestSendMail();
+            var candidateInfo = await _candidateRepository
+            .FindOneByStatementSql<CandidateModel>
+            (" select top 1 * from  Candidate where email = @Email ",
+            new
+            {
+                Email = email
+            });
+            if (candidateInfo == null)
+            {
+                reponse.IsSucess = false;
+                return reponse;
+            }
+            var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\\validateCandidateMail.html";
+            var contents = File.ReadAllText(pathTemplate);
+            contents = contents.Replace("{fullName}", (candidateInfo.FirstName + " " + candidateInfo.FullName));
+            contents = contents.Replace("{email}", candidateInfo.Email);
+            contents = contents.Replace("{code}", code);
+            var mailData = new MailItem()
+            {
+                Data = new DataMailInfo()
+                {
+                    Content = contents,
+                    Subject = "Kích hoạt tài khoản Ứng viên – Topmass.vn"
+                },
+                MailTo = email
+            };
+            await PushMail(mailData);
+            return reponse;
+        }
         public async Task<ResultRequestSendMail> CandidateSuccessRegister(string email)
         {
             var reponse = new ResultRequestSendMail();
@@ -164,7 +204,7 @@ namespace Topmass.Bussiness.Mail
                 reponse.IsSucess = false;
                 return reponse;
             }
-            var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\\notificationPassword.html";
+            var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\notificationPassword.html";
             var contents = File.ReadAllText(pathTemplate);
             contents = contents.Replace("{fullName}", (candidateInfo.FirstName + " " + candidateInfo.FullName));
 

@@ -31,7 +31,6 @@ namespace Topmass.Recruiter.Controllers
         {
             var resultUser = await GetCurrentUser();
             var reponse = new DataResult();
-
             if (string.IsNullOrEmpty(request.Name))
             {
                 reponse.Message = "Thiếu tông tin tiêu đề";
@@ -62,7 +61,8 @@ namespace Topmass.Recruiter.Controllers
                 Emails = request.Emails,
                 Skills = request.Skills,
                 Locations = request.Locations,
-                Time_working = request.Time_working
+                Time_working = request.Time_working,
+                Time_WorkingText = request.Time_WorkingText
 
             };
             var result = await _jobBusiness.AddJob(requestAdd);
@@ -112,7 +112,8 @@ namespace Topmass.Recruiter.Controllers
                 Expired_date = request.Expired_date,
                 Emails = request.Emails,
                 Locations = request.Locations,
-                Time_working = request.Time_working
+                Time_working = request.Time_working,
+                Time_WorkingText = request.Time_WorkingText
             };
             var result = await _jobBusiness.UpdateJob(requestAdd);
             return StatusCode(result.StatusCode, result);
@@ -138,7 +139,8 @@ namespace Topmass.Recruiter.Controllers
             var requestAdd = new JobItemStatusUpdate()
             {
                 IdUpdate = request.IdUpdate,
-                Status = request.Status
+                Status = request.Status,
+                HandleBy = resultUser.UserId
             };
             var result = await _jobBusiness.ChangeStatus(requestAdd);
             return StatusCode(result.StatusCode, result);

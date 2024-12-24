@@ -6,6 +6,7 @@
         public Task<BaseResult> HandleRequestPassword(string email);
         public Task<LoginResult> ConfirmHasValidResetPasswordLink(string code);
         public Task<BaseResult> ChangePassword(string password, int userId);
+        public Task<LoginResult> ConfirmAccoutCandidate(string code);
 
     }
 }

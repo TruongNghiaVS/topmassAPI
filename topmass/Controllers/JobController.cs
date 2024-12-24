@@ -28,6 +28,7 @@ namespace topmass.Model
             _jobBusiness = jobBusiness;
         }
 
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> AddViewForJob(AddViewForJobRequest request)
@@ -70,10 +71,6 @@ namespace topmass.Model
             {
                 reponse.AddError(nameof(request.JobId), "Thiếu thông tin việc làm");
             }
-            if (string.IsNullOrEmpty(request.Introduction))
-            {
-                reponse.AddError(nameof(request.Introduction), "Thiếu thông tin mô tả");
-            }
             if (!reponse.Success)
             {
                 return StatusCode(reponse.StatusCode, reponse);
@@ -89,7 +86,6 @@ namespace topmass.Model
                 HandleBy = int.Parse(resultUser.Id)
             };
             var result = await _cVBusiness.ApplyJob(requestAdd);
-
             return StatusCode(result.StatusCode, result);
         }
 
@@ -117,14 +113,9 @@ namespace topmass.Model
                 LinkFile = request.LinkFile,
                 Phone = request.Phone,
                 TemplateID = request.TemplateID
-
             };
             var result = await _cVBusiness.ApplyJobWithCV(requestAdd);
-
             return StatusCode(result.StatusCode, result);
         }
-
-
-
     }
 }

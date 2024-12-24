@@ -69,7 +69,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topmass.Sync.Business", "..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topmass.Sync.Repository", "..\Topmass.Sync.Repository\Topmass.Sync.Repository.csproj", "{50ABE333-3C5E-4A88-94B4-720BFEC8DED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topmass.Quartz.Job", "..\Topmass.Quartz.Job\Topmass.Quartz.Job.csproj", "{BC53042E-35E3-47DB-B834-37FD4243DE05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topmass.Quartz.Job", "..\Topmass.Quartz.Job\Topmass.Quartz.Job.csproj", "{BC53042E-35E3-47DB-B834-37FD4243DE05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topmass.SendMail", "..\Topmass.SendMail\Topmass.SendMail.csproj", "{971F9BC6-3531-481B-9C28-48E341B6F6F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +215,10 @@ Global
 		{BC53042E-35E3-47DB-B834-37FD4243DE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC53042E-35E3-47DB-B834-37FD4243DE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC53042E-35E3-47DB-B834-37FD4243DE05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971F9BC6-3531-481B-9C28-48E341B6F6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971F9BC6-3531-481B-9C28-48E341B6F6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971F9BC6-3531-481B-9C28-48E341B6F6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971F9BC6-3531-481B-9C28-48E341B6F6F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

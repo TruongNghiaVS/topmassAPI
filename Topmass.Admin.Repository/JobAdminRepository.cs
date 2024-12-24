@@ -15,7 +15,7 @@ namespace Topmass.Campagn.Repository
         }
         public async Task<SearchJobAdminReponse> GetAll(dynamic request)
         {
-            
+
             var result = await ExecuteSqlProcerduceToList<JobAdminItemDisplay>("sp_jobadmin_getall",
                 request, System.Data.CommandType.StoredProcedure);
             var reponse = new SearchJobAdminReponse();

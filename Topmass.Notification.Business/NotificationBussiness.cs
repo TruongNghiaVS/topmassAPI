@@ -11,7 +11,6 @@ namespace Topmass.Notification.Business
         {
             _notificationRepository = notificationRepository;
         }
-
         public async Task<GetallNotificationReponse> GetAll(GetallNotificationPushRequest request)
         {
             var result = await _notificationRepository.ExecuteSqlProcerduceToList<NotificationItemDisplay>("sp_getAllNotification",

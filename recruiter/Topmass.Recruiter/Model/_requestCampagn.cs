@@ -7,6 +7,15 @@
         public DateTime? To { get; set; }
 
         public int? Status { get; set; }
+        public int? Page { get; set; }
+
+        public int? Limit { get; set; }
+
+        public CampagnSearchRequestFilter()
+        {
+            Limit = 1;
+            Page = 10;
+        }
 
     }
     public class CampagnItemRequestAdd

@@ -18,4 +18,9 @@
         public string MetaKeyWord { get; set; }
 
     }
+
+    public class SlugWithRouterReponse
+    {
+        public string Slug { get; set; }
+    }
 }
