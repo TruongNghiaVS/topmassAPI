@@ -8,11 +8,18 @@
         {
             get
             {
-
-                return "0xxxxxxxxx";
+                if (ViewMode == 0)
+                {
+                    return "0xxxxxxxxx";
+                }
+                return PhoneNumberInput;
 
             }
         }
+
+        public string StatusText { get; set; }
+
+        public int Status { get; set; }
 
         protected string PhoneNumberInput
         {
@@ -20,7 +27,19 @@
         }
         protected string EmailInput { get; set; }
 
-        public string Email { get { return "xxxxxx@gmail.com"; } }
+        public string Email
+        {
+            get
+            {
+
+                if (ViewMode == 0)
+                {
+                    return "xxxxx@gmail.com";
+                }
+                return PhoneNumberInput;
+
+            }
+        }
 
         public DateTime CreateAt { get; set; }
 
@@ -29,7 +48,17 @@
         public string ExtraText { get; set; }
 
 
-        protected bool Lockinfo { get; set; }
+        protected bool Lockinfo
+        {
+            get
+            {
+                if (ViewMode == 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
         public int ViewMode { get; set; }
         public string ViewModeText
         {
@@ -37,11 +66,11 @@
             {
                 if (ViewMode == 0)
                 {
-                    return "Chưa xem";
+                    return "Chưa mở";
                 }
                 else
                 {
-                    return "Đã xem";
+                    return "Đã mở";
                 }
 
             }
@@ -50,16 +79,15 @@
         {
             get
             {
-                return Lockinfo;
+                return !Lockinfo;
             }
         }
 
 
         public JobLogViewIndexModel()
         {
-            ExtraText = "";
-            ViewMode = 0;
-            Lockinfo = false;
+
+
         }
 
 

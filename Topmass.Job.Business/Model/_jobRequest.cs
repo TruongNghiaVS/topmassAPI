@@ -190,6 +190,8 @@ namespace Topmass.Job.Business.Model
         public int CampagnId { get; set; }
 
         public int HandleId { get; set; }
+        public int Status { get; set; }
+        public int ViewMode { get; set; }
         public GetAllVierOfJobRequest()
         {
             Limit = 10;

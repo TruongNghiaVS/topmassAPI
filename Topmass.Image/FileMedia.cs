@@ -101,15 +101,10 @@ namespace Topmass.Image
             reponse.Data = fileInfo;
             return reponse;
         }
-
-
-
-
         public async Task<byte[]> GetFileMedia(string? shortLink)
         {
             var folderroot = _env.ContentRootPath;
             var shortlink = Path.Combine(folderroot, shortLink);
-
             byte[] fileBytes = System.IO.File.ReadAllBytes(shortlink);
             string fileName = DateTime.Now.Ticks + Path.GetExtension(shortlink);
             return fileBytes;

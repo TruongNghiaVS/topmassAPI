@@ -97,7 +97,6 @@ namespace crmHuman.Pages
             {
                 listEror.Add("thiếu thông tin");
             }
-
             if (listEror.Count > 0)
             {
                 return new JsonResult(listEror)
@@ -133,7 +132,6 @@ namespace crmHuman.Pages
             {
                 listEror.Add("thiếu thông tin");
             }
-
             if (listEror.Count > 0)
             {
                 return new JsonResult(listEror)
@@ -152,7 +150,6 @@ namespace crmHuman.Pages
             return new JsonResult(dataReponse)
             {
                 StatusCode = StatusCodes.Status200OK
-
             };
         }
 
@@ -206,8 +203,6 @@ namespace crmHuman.Pages
 
             };
         }
-
-
         public async Task<IActionResult> OnpostSendMailActiveAccount(int id)
         {
             var listEror = new List<object>();
@@ -230,8 +225,6 @@ namespace crmHuman.Pages
 
             };
         }
-
-
         public virtual async Task<PartialViewResult> OnGetFormEdit(int id)
         {
             var resultView = new
@@ -240,7 +233,5 @@ namespace crmHuman.Pages
             };
             return Partial("editOrUpdateEmployee", resultView);
         }
-
-
     }
 }

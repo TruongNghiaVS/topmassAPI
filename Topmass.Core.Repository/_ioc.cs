@@ -43,7 +43,8 @@
             services.AddSingleton<IOpenCVResultRepository, OpenCVResultRepository>();
             services.AddSingleton<IActiveCodeMemberRepository, ActiveCodeMemberRepository>();
             services.AddSingleton<IMailModelRepository, MailModelRepository>();
-
+            services.AddSingleton<IOpenViewerResultRepository, OpenViewerResultRepository>();
+            services.AddSingleton<IcandidateViewStatusRepository, CandidateViewStatusRepository>();
         }
     }
 }

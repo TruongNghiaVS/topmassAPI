@@ -3,7 +3,13 @@
   "WorkspaceRootPath": "C:\\tomass2\\topmass\\topmass\\topmass\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{861D33D2-6A0C-43C1-B0ED-1C8DBD7BFE0D}|..\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj|c:\\tomass2\\topmass\\topmass\\recruiter\\topmass.recruiter\\controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAC8AED0-F4C2-4AE1-A5B8-67D252F01D11}|..\\Topmass.Core.Model\\Topmass.Core.Model.csproj|c:\\tomass2\\topmass\\topmass\\topmass.core.model\\campagn\\jobsavemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC8AED0-F4C2-4AE1-A5B8-67D252F01D11}|..\\Topmass.Core.Model\\Topmass.Core.Model.csproj|c:\\tomass2\\topmass\\topmass\\topmass.core.model\\campagn\\logactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC8AED0-F4C2-4AE1-A5B8-67D252F01D11}|..\\Topmass.Core.Model\\Topmass.Core.Model.csproj|c:\\tomass2\\topmass\\topmass\\topmass.core.model\\campagn\\jobdisplayitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,14 +28,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "JobController.cs",
-              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\Controllers\\JobController.cs",
-              "RelativeDocumentMoniker": "..\\recruiter\\Topmass.Recruiter\\Controllers\\JobController.cs",
-              "ToolTip": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\Controllers\\JobController.cs",
-              "RelativeToolTip": "..\\recruiter\\Topmass.Recruiter\\Controllers\\JobController.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAjwIEAAAANAAAA",
+              "Title": "JobsaveModel.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Campagn\\JobsaveModel.cs",
+              "RelativeDocumentMoniker": "..\\Topmass.Core.Model\\Campagn\\JobsaveModel.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Campagn\\JobsaveModel.cs",
+              "RelativeToolTip": "..\\Topmass.Core.Model\\Campagn\\JobsaveModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T08:14:06.134Z",
+              "WhenOpened": "2024-12-30T10:22:19.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LogActionModel.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Campagn\\LogActionModel.cs",
+              "RelativeDocumentMoniker": "..\\Topmass.Core.Model\\Campagn\\LogActionModel.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Campagn\\LogActionModel.cs",
+              "RelativeToolTip": "..\\Topmass.Core.Model\\Campagn\\LogActionModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T10:22:15.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JobDisplayItemModel.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Campagn\\JobDisplayItemModel.cs",
+              "RelativeDocumentMoniker": "..\\Topmass.Core.Model\\Campagn\\JobDisplayItemModel.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\Topmass.Core.Model\\Campagn\\JobDisplayItemModel.cs",
+              "RelativeToolTip": "..\\Topmass.Core.Model\\Campagn\\JobDisplayItemModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T10:22:13.66Z",
               "EditorCaption": ""
             }
           ]

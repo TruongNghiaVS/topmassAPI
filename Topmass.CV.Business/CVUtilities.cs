@@ -10,16 +10,19 @@ namespace Topmass.CV.Business
 
         private readonly IJobApplyRepository _jobApplyRepository;
         private readonly IJobApplyStatusRepository _jobApplyStatusRepository;
+        private readonly IcandidateViewStatusRepository _candidateViewStatusRepository;
 
         public CVUtilities(
              IJobApplyRepository jobApplyRepository,
-             IJobApplyStatusRepository jobApplyStatusRepository
+             IJobApplyStatusRepository jobApplyStatusRepository,
+             IcandidateViewStatusRepository candidateViewStatusRepository
 
             )
         {
 
             _jobApplyRepository = jobApplyRepository;
             _jobApplyStatusRepository = jobApplyStatusRepository;
+            _candidateViewStatusRepository = candidateViewStatusRepository;
 
         }
 
@@ -57,6 +60,58 @@ namespace Topmass.CV.Business
                 await _jobApplyRepository.AddOrUPdate(jobApply);
             }
             await AddViewerByHumnan(request.HandleBy, request.Identi);
+            return true;
+
+        }
+
+
+        public async Task<bool> CandidateViewerAddStatus(
+                int identiti, int handleby, int noteCode, string noted
+
+            )
+        {
+            if (identiti < 1)
+            {
+                return false;
+            }
+
+
+            if (noteCode < 1)
+            {
+                return false;
+            }
+
+            var itemCheck = await _candidateViewStatusRepository.FindOneByStatementSql<CandidateViewStatus>("select * from CandidateViewStatus where RelId = @relId order by id  desc",
+                new
+                {
+                    relId = identiti
+                }
+              );
+
+            if (itemCheck != null && itemCheck.Id > 0)
+            {
+
+                itemCheck.Status = noteCode;
+                itemCheck.UpdateAt = DateTime.Now;
+                itemCheck.Note = noted;
+                itemCheck.UpdatedBy = handleby;
+                await _candidateViewStatusRepository.AddOrUPdate(itemCheck);
+
+                return true;
+            }
+
+            var itemInsert = new CandidateViewStatus()
+            {
+                RelId = identiti,
+                CreatedBy = handleby,
+                CreateAt = DateTime.Now,
+                Deleted = false,
+                Status = noteCode,
+                Note = noted,
+                UpdateAt = DateTime.Now,
+                UpdatedBy = handleby
+            };
+            await _candidateViewStatusRepository.AddOrUPdate(itemInsert);
             return true;
 
         }

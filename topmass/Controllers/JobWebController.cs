@@ -60,16 +60,16 @@ namespace topmass.Model
                     continue;
                 }
                 var textDir1 = itemGlobal.GetRegionalById(item.Location);
-
-                result.DataJob.LocationText = textDir1.Name;
                 item.LocationText = textDir1.Name;
+                //result.DataJob.LocationText += "," + textDir1.Name;
                 foreach (var item1 in item.Districts)
                 {
+
                     if (string.IsNullOrEmpty(item1.District))
                     {
                         continue;
                     }
-                    var textDir = itemGlobal.GetRegionalById(item1.District);
+                    var textDir = itemGlobal.GetRegionalById(item1.District, false);
                     item1.DistrictText = textDir.Name;
                 }
             }

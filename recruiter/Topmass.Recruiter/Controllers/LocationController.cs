@@ -38,13 +38,10 @@ namespace Topmass.Recruiter.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> GetAllDistrict([FromQuery] GetAllDistrictRequest requestAll)
         {
-
             var baseResult = new BaseResult();
             var result = await bussiness.GetAllDistrict(requestAll);
             baseResult.Data = result;
             return StatusCode(result.StatusCode, result);
-
-
         }
 
     }

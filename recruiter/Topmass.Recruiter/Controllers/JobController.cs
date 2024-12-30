@@ -218,6 +218,8 @@ namespace Topmass.Recruiter.Controllers
                 HandleId = int.Parse(resultUser.Id),
                 Page = 1,
                 Limit = 10,
+                Status = request.StatusCode.HasValue == true ? request.StatusCode.Value : -1,
+                ViewMode = request.ViewMode.HasValue == true ? request.ViewMode.Value : -1,
                 CampagnId = -1,
                 JobId = request.JobId
             };

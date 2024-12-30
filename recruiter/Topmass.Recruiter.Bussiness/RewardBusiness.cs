@@ -14,12 +14,15 @@ namespace Topmass.Recruiter.Bussiness
         private readonly ISearchCVResultRepository _searchCVResultRepository;
         private readonly IOpenCVResultRepository _openCVResultRepository;
         private readonly ISearchCVRepository _searchCVRepository;
+
+        private readonly IOpenViewerResultRepository _openViewerResultRepository;
         public RewardBusiness(IRecruiterRepository userRepository,
              IRecruiterInfoRepository infoRepository,
              IRewardTransactionRepository rewardTransactionRepository,
              ISearchCVResultRepository searchCVResultRepository,
              IOpenCVResultRepository openCVResultRepository,
-             ISearchCVRepository searchCVRepository
+             ISearchCVRepository searchCVRepository,
+             IOpenViewerResultRepository openViewerResultRepository
 
             )
         {
@@ -29,6 +32,7 @@ namespace Topmass.Recruiter.Bussiness
             _searchCVResultRepository = searchCVResultRepository;
             _openCVResultRepository = openCVResultRepository;
             _searchCVRepository = searchCVRepository;
+            _openViewerResultRepository = openViewerResultRepository;
         }
 
         public async Task<BaseResult> ExchangePointToOpenCVNoSearchCV(int
@@ -109,7 +113,8 @@ namespace Topmass.Recruiter.Bussiness
                     searchId = searchId,
                     CreatedBy = userId
                 }
-               );
+
+                );
 
             if (resultCheck.Id > 0)
             {
@@ -137,7 +142,73 @@ namespace Topmass.Recruiter.Bussiness
             return reponse;
         }
 
-
+        public async Task<BaseResult> ExchangePointToOpenViewer(
+            int userId, int point,
+            int logviewerId)
+        {
+            var reponse = new BaseResult();
+            if (logviewerId < 1)
+            {
+                reponse.Message = "Thiếu đối tượng mở";
+                return reponse;
+            }
+            var recruiterItem = await _repository.GetById(userId);
+            if (recruiterItem == null)
+            {
+                return reponse;
+            }
+            var resultCheck = await _rewardTransactionRepository.FindOneByStatementSql<OpenViewerResult>(
+                    "select * from OpenViewerResult where viewId = @id", new
+                    {
+                        id = logviewerId
+                    }
+            );
+            if (resultCheck != null && resultCheck.Id > 0)
+            {
+                if (resultCheck.Status != 2)
+                {
+                    return reponse;
+                }
+            }
+            if (recruiterItem.NumberLightning < 1)
+            {
+                reponse.Message = "Không đủ tia sét để mở thông tin, vui lòng thu thập tia sét vả thử lại sau";
+                return reponse;
+            }
+            recruiterItem.NumberLightning += -point;
+            await _repository.AddOrUPdate(recruiterItem);
+            var historyItem = new RewardTransaction()
+            {
+                BusinessDate = DateTime.Now,
+                Content = "Dùng " + point + " tia sét để mở Ứng viên",
+                CreateAt = DateTime.Now,
+                DataType = 2,
+                Rel = userId,
+                Point = point,
+                CreatedBy = userId,
+                Status = 0,
+                Deleted = false,
+                UpdateAt = DateTime.Now,
+                UpdatedBy = userId
+            };
+            var transaction = await _rewardTransactionRepository.AddAndGetId(historyItem);
+            var openViewerResult = new OpenViewerResult()
+            {
+                TranSactionId = transaction,
+                LockInfo = true,
+                Status = 2,
+                ViewId = logviewerId,
+                RelId = userId,
+                BussinessTime = DateTime.Now,
+                UpdateAt = DateTime.Now,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+                CreateAt = DateTime.Now,
+                Deleted = false,
+            };
+            await _openViewerResultRepository.AddOrUPdate(openViewerResult);
+            return reponse;
+        }
 
 
     }

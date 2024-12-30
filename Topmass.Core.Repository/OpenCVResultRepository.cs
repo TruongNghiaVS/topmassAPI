@@ -12,3 +12,4 @@ namespace Topmass.Core.Repository
 
     }
 }
+//IOpenViewerResultRepository

@@ -38,10 +38,20 @@ namespace Topmass.Business.Regional
             }
             return itemfind;
         }
-        public RegionalModel GetRegionalById(string id)
+        public RegionalModel GetRegionalById(string id, bool province = true)
         {
             if (id == "-1")
             {
+                if (province == false)
+                {
+                    return new RegionalModel()
+                    {
+                        Id = -1,
+                        Name = "",
+                        Code = ""
+                    };
+                }
+
                 return new RegionalModel()
                 {
                     Id = -1,
@@ -61,6 +71,8 @@ namespace Topmass.Business.Regional
             }
 
             var itemfind = DataGlobal.Where(x => x.Code == id).FirstOrDefault();
+
+
             if (itemfind == null)
             {
                 return new RegionalModel()

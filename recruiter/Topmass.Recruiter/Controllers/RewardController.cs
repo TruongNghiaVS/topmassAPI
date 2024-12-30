@@ -43,5 +43,20 @@ namespace Topmass.Recruiter.Controllers
             await _rewardBusiness.ExchangePointToOpenCVNoSearchCV(request.SearchId, 2, resultUser.UserId, request.Identify, request.LinkFile);
             return StatusCode(reponse.StatusCode, reponse);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> OpenViewer(OpenViewerCVRequest request)
+        {
+            var resultUser = await GetCurrentUser();
+            var reponse = new BaseResult();
+
+            if (request.ViewerId < 1)
+            {
+                reponse.Message = "Thiếu đối tượng mở";
+                return StatusCode(reponse.StatusCode, reponse);
+            }
+            await _rewardBusiness.ExchangePointToOpenViewer(resultUser.UserId, 2, request.ViewerId.Value);
+            return StatusCode(reponse.StatusCode, reponse);
+        }
     }
 }

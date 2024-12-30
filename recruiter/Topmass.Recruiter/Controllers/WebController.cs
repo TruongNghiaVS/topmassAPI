@@ -78,6 +78,7 @@ namespace Topmass.Recruiter.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult> GetAllPartner()

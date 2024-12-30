@@ -72,6 +72,19 @@ namespace Topmass.Recruiter.Model
 
     }
 
+
+    public class IntputJobViewerRequest
+    {
+
+        public int Identi { get; set; }
+        public int NoteCode { get; set; }
+        public string? Noted { get; set; }
+
+        public int HandleBy { get; set; }
+
+
+    }
+
     public class InputGetAllCVApplyOfJob
     {
         public int? StatusCode { get; set; }

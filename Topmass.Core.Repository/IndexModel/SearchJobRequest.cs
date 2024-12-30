@@ -161,6 +161,9 @@
         public int Page { get; set; }
 
         public int UserId { get; set; }
+
+        public int Status { get; set; }
+        public int ViewMode { get; set; }
         public SearchRepJobLogView()
         {
 

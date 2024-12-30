@@ -119,28 +119,39 @@ namespace Topmass.Admin.Business
             //    }
             //    textTimeWorking += "</p>";
             //}   
-            //var addressDetail = "";
-            //foreach (var item in locationsArray)
-            //{
-            //    var locationtext1 =  itemGlobal.GetRegionalById(item.Location).Name;
-            //    var provincecity = item.Location;
-            //    var city = item.Districts.FirstOrDefault();
-            //    if( city != null)
-            //    {
-            //        var citycode = city.District;
-            //        var cityText = itemGlobal.GetRegionalById(city.District).Name;
-            //        var detailAdress = city.Detail_location;
-            //        if( !string.IsNullOrEmpty(detailAdress))
-            //        {
-            //            addressDetail += detailAdress;
-            //        }
-            //        if (!string.IsNullOrEmpty(detailAdress))
-            //        {
-            //            addressDetail += "," + cityText + ", ";
-            //        }
-            //    }
-            //    addressDetail += locationtext1;
-            //}
+            var addressDetail = "";
+            foreach (var item in locationsArray)
+            {
+
+                addressDetail += "<p>";
+                var locationtext1 = itemGlobal.GetRegionalById(item.Location).Name;
+                var provincecity = item.Location;
+                var city = item.Districts.FirstOrDefault();
+
+                var citycode = city.District;
+                if (citycode == "-1")
+                {
+                    addressDetail += locationtext1;
+                    addressDetail += "</p>";
+                    continue;
+                }
+                if (city != null)
+                {
+
+                    var cityText = itemGlobal.GetRegionalById(citycode).Name;
+                    var detailAdress = city.Detail_location;
+                    if (!string.IsNullOrEmpty(detailAdress))
+                    {
+                        addressDetail += detailAdress;
+                    }
+                    if (!string.IsNullOrEmpty(detailAdress))
+                    {
+                        addressDetail += "," + cityText + ", ";
+                    }
+                }
+                addressDetail += locationtext1;
+                addressDetail += "</p>";
+            }
             var salaryText = "";
             var unitText = "";
             if (infoBasic.Aggrement == false)
@@ -176,8 +187,8 @@ namespace Topmass.Admin.Business
                 InfoBasic = infoBasic,
                 SalaryText = salaryText,
                 UnitText = unitText,
-                AddressDetail = infoBasic.Time_WorkingText,
-                TextTimeWorking = textTimeWorking
+                AddressDetail = addressDetail,
+                TextTimeWorking = infoBasic.Time_WorkingText
 
             };
         }

@@ -94,7 +94,6 @@ namespace topmass.Model
         {
             var resultUser = await GetCurrentUser();
             var reponse = new BaseResult();
-
             if (string.IsNullOrEmpty(request.JobId))
             {
                 reponse.AddError(nameof(request.JobId), "Thiếu thông tin việc làm");

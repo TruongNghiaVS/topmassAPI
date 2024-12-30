@@ -646,10 +646,12 @@ namespace Topmass.Job.Business
             {
                 CampagnId = itemAdd.CampagnId,
                 JobId = itemAdd.JobId,
+
+                ViewMode = itemAdd.ViewMode,
                 Limit = itemAdd.Limit,
+                Status = itemAdd.Status,
                 Page = itemAdd.Page,
                 UserId = itemAdd.HandleId
-
             });
             reponse.Data = dataViews;
             return reponse;
