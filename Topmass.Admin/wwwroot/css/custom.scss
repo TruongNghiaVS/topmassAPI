@@ -155,6 +155,17 @@
     margin-top: 20px;
     margin-right: 10px;
   }
-  td {
+/*  td {
       max-width:150px;
-  }
+  }*/
+  .search-form {
+    background-color: #ffffff;
+    padding:20px;
+}
+
+table {
+display: block;
+overflow-x: auto;
+// white-space: nowrap
+
+}

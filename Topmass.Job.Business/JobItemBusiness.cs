@@ -22,8 +22,6 @@ namespace Topmass.Job.Business
         private readonly IMasterDataRepository _masterDataRepository;
         private readonly ICompanyInfoRepository _companyInfoRepository;
         private readonly ICampagnRepository _campagnRepository;
-
-
         private List<MasterDataModel> _masterData { get; set; }
         private List<RegionalModel> _dataRegionals { get; set; }
         public JobItemBusiness(

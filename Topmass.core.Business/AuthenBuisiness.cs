@@ -53,16 +53,11 @@ namespace Topmass.core.Business
             });
             if (userInfo == null || userInfo.Id < 1)
             {
-                //result.Message = resourceMessage.Authen_NotFoundAccout;
                 result.AddError(resourceMessage.Authen_NotFoundAccout);
                 result.Message = resourceMessage.Authen_NotFoundAccout;
                 return result;
             }
-            if (userInfo.Rulestatus != 1)
-            {
-                result.Message = "Tài khoản của bạn chưa được kích hoạt, vui lòng kiểm tra Email và tiến hành kích hoạt";
-                return result;
-            }
+
             var itemInsert = new LogActionModel
             {
                 Actor = 1,
@@ -77,6 +72,20 @@ namespace Topmass.core.Business
             var userAuthorize = userInfo as BaseUserInfo;
             var tokenUser = this.GenerateToken(userAuthorize);
             result.Token = tokenUser;
+            //if (userInfo.Rulestatus != 1)
+            //{
+            //    result.Message = "Tài khoản của bạn chưa được kích hoạt, vui lòng kiểm tra Email và tiến hành kích hoạt";
+            //    result.ErrorCode = ListCodeError.Register_HaveNotValidMail;
+            //    return result;
+            //}
+            if (userInfo.Rulestatus != 1)
+            {
+                result.AuthenLevel = 0;
+            }
+            else
+            {
+                result.AuthenLevel = 1;
+            }
             return result;
         }
         protected string GenerateToken(BaseUserInfo request, int typeUser = (int)TypeUser.CANDIDATE)
@@ -89,15 +98,19 @@ namespace Topmass.core.Business
             var firstName = request.FirstName;
             var fullName = request.FullName;
             var idRequest = request.Id;
+
+
+
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
                 {
                         new Claim("userId", idRequest.ToString()),
                         new Claim("userName", userName),
-
                         new Claim("fullName", fullName),
-                        new Claim("firstName", firstName)
+                        new Claim("firstName", firstName),
+
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(60),
                 Issuer = issuer,
@@ -214,9 +227,19 @@ namespace Topmass.core.Business
                 reponse.AddError(resourceMessage.NotExitAccount);
                 return reponse;
             }
+
             var userBasic = candidateInfo as BaseUserInfo;
 
             reponse.Token = GenerateToken(userBasic);
+
+            if (candidateInfo.Rulestatus != 1)
+            {
+                reponse.AuthenLevel = 0;
+            }
+            else
+            {
+                reponse.AuthenLevel = 1;
+            }
             codeForgetLink.Status = 1;
             await _forgetPasswordRepository.AddOrUPdate(codeForgetLink);
             return reponse;

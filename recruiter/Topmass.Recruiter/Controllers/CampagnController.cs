@@ -13,11 +13,9 @@ namespace Topmass.Recruiter.Controllers
     [Authorize]
     public class CampagnController : BaseController
     {
-
         private readonly ILogger<CampagnController> _logger;
         private readonly ICampagnBusiness _bussiness;
         private readonly IJobBusiness _jobBusiness;
-
         public CampagnController(ILogger<CampagnController> logger,
             ICampagnBusiness articleBusiness,
             IJobBusiness jobBusiness
@@ -28,7 +26,6 @@ namespace Topmass.Recruiter.Controllers
             _jobBusiness = jobBusiness;
 
         }
-
         [HttpPost]
         public async Task<ActionResult> Add(CampagnItemRequestAdd request)
         {
@@ -59,7 +56,6 @@ namespace Topmass.Recruiter.Controllers
         {
             var resultUser = await GetCurrentUser();
             var reponse = new BaseResult();
-
             if (request.IdUpdate < 1)
             {
                 reponse.AddError(nameof(request.IdUpdate), "Thiếu thông đối tượng ");
@@ -86,7 +82,6 @@ namespace Topmass.Recruiter.Controllers
         {
             var resultUser = await GetCurrentUser();
             var reponse = new BaseResult();
-
             if (request.IdUpdate < 1)
             {
                 reponse.AddError(nameof(request.IdUpdate), "Thiếu thông đối tượng ");
@@ -105,7 +100,6 @@ namespace Topmass.Recruiter.Controllers
                 To = DateTime.Now,
                 IdUpdate = request.IdUpdate,
                 Status = request.Status,
-
                 Name = request.Name,
                 Email = resultUser.UserName,
                 HandleBy = int.Parse(resultUser.Id)
@@ -158,9 +152,6 @@ namespace Topmass.Recruiter.Controllers
             var result = await _jobBusiness.GetallJob(requestAdd);
             return StatusCode(result.StatusCode, result);
         }
-
-
-
 
     }
 }

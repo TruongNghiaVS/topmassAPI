@@ -2,17 +2,15 @@
     <label class="form-label">@Model.Lable</label>
     <input type="file" onchange="UploadImageBlog(this,'avatar')" name="@Model.Name" class="form-control" required placeholder="" />
     <div class="invalid-feedback-cs">
+
     </div>
     <div class="fileResult">
         @if( !string.IsNullOrEmpty(Model.Value))
-            {  var linkfiledisplay = Model.Value;
-                <img class="avatarClass" src="@linkfiledisplay">
-
-           
-            }
+        { 
+            var linkfiledisplay = Model.Value;
+            <img class="avatarClass" src="@linkfiledisplay">
+        }   
     </div>
-
-   
     <div class="fileValue">
         <input type="hidden" id="@Model.Name"  class="valuefile" value="@Model.Value" />
     </div>

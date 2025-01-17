@@ -14,16 +14,12 @@
         </ol>
     </nav>
 </div><!-- End Page Title -->
-
+@{
+    Html.RenderPartial("SearchPage/_formSearchArticle", Model);
+}
 <section class="section">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
+ 
 
-                   @{
-                        Html.RenderPartial("SearchPage/_formSearchArticle", Model);
-                   }
                     @{
                         var columnText = Model.TableColumnText;
                      
@@ -92,11 +88,7 @@
                         </tbody>
                     </table>
                   
-                </div>
-            </div>
-
-        </div>
-    </div>
+              
 </section>
 
 <div class="modal fade" id="formModal" tabindex="-1">

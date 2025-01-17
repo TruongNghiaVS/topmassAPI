@@ -41,7 +41,7 @@
     public class NTDRequest : BaseInputRequestSearch
     {
 
-        
+
         public int CbStatus { get; set; }
         public int CbDocumnetStatus { get; set; }
         public int Orderby { get; set; }
@@ -89,5 +89,27 @@
         }
     }
 
+
+
+    public class CandidateInputRequest : BaseInputRequestSearch
+    {
+        public int CbStatus { get; set; }
+        public int Orderby { get; set; }
+
+        public string AuthenLevel
+        {
+            get; set;
+        }
+
+        public CandidateInputRequest()
+        {
+            AuthenLevel = "-1";
+            CbStatus = -1;
+
+            Orderby = 0;
+            From = DateTime.Now.AddMonths(-3).Date;
+            To = DateTime.Now.AddDays(1).Date.AddSeconds(-1);
+        }
+    }
 
 }

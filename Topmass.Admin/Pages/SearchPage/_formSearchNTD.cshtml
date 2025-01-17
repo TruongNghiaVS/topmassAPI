@@ -1,121 +1,97 @@
-﻿<form class="row g-3" method="get" action="@Model.NameController">
+﻿@using Topmass.Admin.GlobalData
 
-    <div class="col-md-6">
-    <label class="form-label">Từ Ngày</label>
-    <input value="@Model.RequestSearch.FromText" type="date" name="from" class="form-control">
-    </div>
-    <div class="col-md-6">
-     <label class="form-label">Đến ngày</label>
-    <input value="@Model.RequestSearch.ToText" type="date" name="to" class="form-control">
-    </div>
-
-    <div class="col-md-6">
-        <label class="form-label">Từ khoá</label>
-        <input type="text" value="@Model.RequestSearch.Token" name="token" placeholder="MST, SĐT, Email, Tên người đại diện, Tên công ty " class="form-control">
-    </div>
-
+<section class="section search-form">
+    <div class="row">
+<form class="row g-3" method="get" action="@Model.NameController">
     @{
+        var keywordSearch = new ControlItem()
+        {
+            Lable = "Từ khoá",
+            Name = "token",
+            Col_Width = "col-md-6",
+            Placeholder = "MST, SĐT, Email, Tên người đại diện, Tên công ty",
+            Value = Model.RequestSearch.Token
+        };
+  
+        var rowFrom = new ControlItem()
+        {
+            Lable = "Từ Ngày",
+            Name = "from",
+            TypeInputText = "date",
+            Col_Width = "col-md-3",
+            Placeholder = "",
+            Value = Model.RequestSearch.FromText
+        };
 
-   
+        var rowTo = new ControlItem()
+        {
+            Lable = "Đến ngày",
+            Name = "to",
+            TypeInputText = "date",
+            Col_Width = "col-md-3",
+            Placeholder = "",
+            Value = Model.RequestSearch.ToText
+        };
+      
+
         var authenLevel = new SelectControl()
-            {
+          {
                 Lable ="Cấp độ xác thực",
                 Value = Model.RequestSearch.AuthenLevel,
                 Name = "AuthenLevel",
-                DisplayAll = true, 
-                DataSource = new List<dynamic>()
-    {
-    new  {id = "0", text = "Chưa xác thực email"
-    },
-    new  {id = "1", text = "Cấp độ 1"
-    },
-    new  {id = "2", text = "Cấp độ 2"
-    },
-    new  {id = "3", text = "Cấp độ 3"
-    }
-    }
+                Col_Width = "col-md-3",
+                DisplayAll = true,
+                DataSource = Constaint.GetListMailConfirm()
 
         };
-       
+
         var statusControl = new SelectControl()
         {
-                Value = Model.RequestSearch.CbStatus,
-                Lable = "Trạng thái tài khoản",
-                DisplayAll =true,
-           
-                Name = "cbStatus",
-                DataSource = new List<dynamic>() { new
-                {
-                id =0, text ="Khoá tài khoản",
-                },
-                new  {
-                id =1, text ="Hoạt động",
-                }
-                },
-                };
+            Value = Model.RequestSearch.CbStatus,
+            Lable = "Trạng thái tài khoản",
+            DisplayAll = true,
+            Col_Width = "col-md-3",
+            Name = "cbStatus",
+            DataSource = Constaint.GetListAccountStatus()
+        };
 
         var timeWayOrderBy = new SelectControl()
         {
-            Value = Model.RequestSearch.Orderby,
-            Lable ="Sắp xếp theo",
-                
-            DataSource = new List<dynamic>()
-            {
-                new
-                {
-                    id = 0,
-                    text = "thời gian cập nhật gần nhất"
-                },
-                 new
-                {
-                    id = 1,
-                    text = "thời gian cập nhật xa nhất"
-                }
-            },
+                Value = Model.RequestSearch.Orderby,
+                Lable ="Sắp xếp theo",
+                Col_Width = "col-md-3",
+                DataSource = Constaint.GetTimeWayOrderBy(),
                 Name = "Orderby"
         };
 
         var statusChungTu = new SelectControl()
-            {
-                Value = Model.RequestSearch.CbDocumnetStatus,
-                Lable = "Trạng thái chứng từ",
-                Name = "cbDocumnetStatus",
-                DisplayAll =true,
-                DataSource = new List<dynamic>() { new
-                {
-                id =0, text ="Chưa ghi nhận thông tin",
-                },
-                new  {
-                id =1, text ="Chờ duyệt",
-                },
-                new  {
-                id =2, text ="Từ chối",
-                },
-                new  {
-                id =3, text ="Đã duyệt",
-                }
-                },
-               
-            };
-        
-    }
+        {
+            Value = Model.RequestSearch.CbDocumnetStatus,
+            Lable = "Trạng thái chứng từ",
+            Name = "cbDocumnetStatus",
+            DisplayAll =true,
+            Col_Width = "col-md-3",
+            DataSource = Constaint.GetListDocumentStatus(),
+        };
 
-    @{
+        Html.RenderPartial(keywordSearch.PathControl, keywordSearch);
+        Html.RenderPartial(rowFrom.PathControl, rowFrom);
+        Html.RenderPartial(rowTo.PathControl, rowTo);
         Html.RenderPartial(authenLevel.PathControl, authenLevel);
         Html.RenderPartial(statusControl.PathControl, statusControl);
         Html.RenderPartial(statusChungTu.PathControl, statusChungTu);
         Html.RenderPartial(timeWayOrderBy.PathControl, timeWayOrderBy);
-
         
      }
-
-
     <div class="col-md-6" style="display:none">
         <label class="form-label">Limit</label>
         <input type="text" name="limit" value="@Model.RequestSearch.Limit" class="form-control">
     </div>
     <div class="text-end">
         <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-        @* <button type="button" class="btn btn-primary" onclick="openFormCommon(-1,'@Model.NameController')">Thêm mới</button> *@
+     
     </div>
 </form>
+</div>
+
+</section>

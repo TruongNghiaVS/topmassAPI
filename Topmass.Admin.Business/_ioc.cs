@@ -16,9 +16,8 @@ namespace Topmass.Admin.Business
             services.AddSingleton<IAdminArticleBusiness, AdminArticleBusiness>();
             services.AddSingleton<IMasterBusiness, MasterDataBusiness>();
             services.AddSingleton<IJobAdminBusiness, JobAdminBusiness>();
+            services.AddSingleton<ICandidateAdminBusiness, CandidateAdminBusiness>();
             services.ConfigLocationBusiness();
-            
-
             services.ConfigMailBusiness();
         }
     }

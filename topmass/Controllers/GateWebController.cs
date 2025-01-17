@@ -6,10 +6,7 @@ using Topmass.core.Business.Model;
 
 namespace topmass.Controllers
 {
-
-
     [ApiController]
-
     public class GateWebController : BaseController
     {
         private readonly ILogger<WebController> _logger;
@@ -94,7 +91,5 @@ namespace topmass.Controllers
             var dataAllSlug = await _metaDataBussiness.GetAllWebSlug();
             return StatusCode(dataAllSlug.StatusCode, dataAllSlug);
         }
-
-
     }
 }

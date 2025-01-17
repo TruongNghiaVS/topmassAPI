@@ -7,7 +7,7 @@
 
         public SearchNTDRequest()
         {
-              
+
         }
     }
 
@@ -116,5 +116,17 @@
         }
     }
 
+
+
+    public class SearchCandidateAdminRequest : BaseRequest
+    {
+        public int OrderBy { get; set; }
+        public int CbStatus { get; set; }
+
+        public SearchCandidateAdminRequest()
+        {
+
+        }
+    }
 
 }

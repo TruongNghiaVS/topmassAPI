@@ -754,4 +754,13 @@ namespace Topmass.Admin.Repository
             Data = new List<JobAdminItemDisplay>();
         }
     }
+
+    public class SearchCandidateAdminReponse
+    {
+        public List<CandidateAdminItemDisplay> Data { get; set; }
+        public SearchCandidateAdminReponse()
+        {
+            Data = new List<CandidateAdminItemDisplay>();
+        }
+    }
 }

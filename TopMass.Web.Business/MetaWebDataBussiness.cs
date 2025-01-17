@@ -23,7 +23,7 @@ namespace Topmass.Web.Business
                 result = new MetaDataPage()
                 {
                     Title = "Topmass-tuyển dụng việc làm",
-                    ImageLink = "https://topmass.vn/imgs/logo-footer.png",
+                    ImageLink = "https://topmass.vn/imgs/logo-new.svg",
                     KeyWord = "Topmass",
                     Author = "Topmass",
                     ShortDes = "Topmass-tuyển dụng việc làm",

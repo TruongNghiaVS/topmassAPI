@@ -49,7 +49,6 @@ namespace Topmass.Recruiter.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
-
         [HttpPost]
         public async Task<ActionResult> SendmailXacThuc()
         {

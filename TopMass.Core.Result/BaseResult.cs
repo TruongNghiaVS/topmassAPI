@@ -2,6 +2,8 @@
 {
     public class BaseResult
     {
+
+        public int ErrorCode { get; set; }
         public BaseResult()
         {
 

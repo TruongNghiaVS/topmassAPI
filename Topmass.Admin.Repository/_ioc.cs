@@ -16,7 +16,10 @@ namespace Topmass.Admin.Repository
             services.AddSingleton<IMasterDataRepository, MasterDataRepository>();
             services.AddSingleton<IForgetPasswordRepository, ForgetPasswordRepository>();
             services.AddSingleton<IJobAdminRepository, JobAdminRepository>();
-            
+            services.AddSingleton<ICandidateAdminRepository, CandidateAdminRepository>();
+
+
+
 
         }
     }

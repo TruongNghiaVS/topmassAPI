@@ -52,15 +52,14 @@ namespace Topmass.Admin.Pages
 
         public string Name { get; set; }
         public dynamic Value { get; set; }
-
         public int Type { get; set; }
-
+        public string Placeholder { get; set; }
         public string Lable { get; set; }
         public bool ReadOnly { get; set; }
         public bool Disiable { get; set; }
 
-
-
+        public string TypeInputText { get; set; }
+        public string Col_Width { get; set; }
         public string PathControl
         {
             get
@@ -128,15 +127,14 @@ namespace Topmass.Admin.Pages
                     return "control/slugBox";
                 }
 
-
-
                 return "Control/textbox";
             }
         }
-
         public ControlItem()
         {
             Type = 1;
+            Col_Width = "col-12";
+            TypeInputText = "Text";
         }
     }
 }

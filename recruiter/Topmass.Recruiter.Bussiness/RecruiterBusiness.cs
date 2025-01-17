@@ -345,6 +345,7 @@ namespace Topmass.Recruiter.Bussiness
             if (itemDup != null)
             {
                 reponse.AddError(nameof(itemInsert.Email), "Trùng lặp thông tin Email ");
+                return reponse;
 
             }
             if (!reponse.Success)
@@ -384,8 +385,6 @@ namespace Topmass.Recruiter.Bussiness
             itemChange.Password = password;
             itemChange.UpdateAt = DateTime.Now;
             await _repository.AddOrUPdate(itemChange);
-
-
             return reponse;
         }
     }

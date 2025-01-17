@@ -1,9 +1,13 @@
-<div class="col-12 form-group">
+
+
+<div class="@Model.Col_Width form-group">
     <label class="form-label"> @Model.Lable </label>
     @{
         var readonlyMode = Model.ReadOnly == true ? "readonly" : "";
     }
-    <input type="text" value="@Model.Value" id="@Model.Name" class="form-control" @readonlyMode placeholder="" />
+    <input type="@Model.TypeInputText" placeholder="@Model.Placeholder" class="form-control"
+    name="@Model.Name"
+    value="@Model.Value" id="@Model.Name" @readonlyMode placeholder="" />
 <div class="invalid-feedback-cs">
 </div>
 

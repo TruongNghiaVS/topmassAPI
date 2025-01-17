@@ -106,10 +106,5 @@ namespace Topmass.Recruiter.Controllers
             var result = await _authenBuisiness.ChangePasswordNotMail(request.Password, int.Parse(resultUserChange.Id));
             return StatusCode(result.StatusCode, result);
         }
-
-
-
-
-
     }
 }

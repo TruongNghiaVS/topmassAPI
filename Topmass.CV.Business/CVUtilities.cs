@@ -67,20 +67,17 @@ namespace Topmass.CV.Business
 
         public async Task<bool> CandidateViewerAddStatus(
                 int identiti, int handleby, int noteCode, string noted
-
             )
         {
+
             if (identiti < 1)
             {
                 return false;
             }
-
-
             if (noteCode < 1)
             {
                 return false;
             }
-
             var itemCheck = await _candidateViewStatusRepository.FindOneByStatementSql<CandidateViewStatus>("select * from CandidateViewStatus where RelId = @relId order by id  desc",
                 new
                 {

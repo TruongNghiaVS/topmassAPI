@@ -8,11 +8,7 @@
         public int TypeData { get; set; }
         public int Actor { get; set; }
         public int Source { get; set; }
-
         public string DocumentType { get; set; }
-
-
-
         public LogActionModel()
         {
             TypeData = -1;

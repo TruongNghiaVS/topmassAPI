@@ -13,86 +13,69 @@
             <li class="breadcrumb-item active">Danh sách</li>
         </ol>
     </nav>
-</div><!-- End Page Title -->
+</div>
+
+@{
+Html.RenderPartial("SearchPage/_formSearchNTD", Model);
+}
 
 <section class="section">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
+     @{
+    var columnText = Model.TableColumnText;
+    }
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                @foreach (var item in columnText)
+                {
+                    <th>
+                        @item
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
 
-                   @{
-                        Html.RenderPartial("SearchPage/_formSearchNTD", Model);
-                   }
-                    @{
-                        var columnText = Model.TableColumnText;
-                     
-
-                    }
-
-                    <table class="table  table-striped">
-                        <thead>
-                            <tr>
-                                @foreach (var item in columnText)
-                                {
-                                    <th>
-                                        @item
-                                    </th>
-                                }
-                            </tr>
-                        </thead>
-                        <tbody>
-                           
-                            @{
-                                int i = 0;
-                            }
-                            @foreach (var itemData in Model.DataAll.Data)
-                            {
-
-                                var itemInfo = itemData as dynamic;
-
-                                var datetimeCreate = @itemInfo.CreateAt.ToString("dd/MM/yyyy HH:mm");
-                                var datetimeUpdate = "";
-                                if (@itemInfo.UpdateAt != null)
-                                {
-                                    datetimeUpdate = @itemInfo.UpdateAt.ToString("dd/MM/yyyy HH:mm");
-                                }
-                                i++;
-                                <tr>
-                                    <td>@i</td>
-                                    <td>@itemInfo.Code</td>
-                                    <td>@itemInfo.Name</td>
-                                    <td>@itemInfo.Email</td>
-                                     <td>@itemInfo.CompanyName</td>
-                                    <td>@itemInfo.Taxcode</td>
-                                    <td>@itemInfo.Phone</td>
-                           
-                                    <td>@itemInfo.StatusText</td>
-                                    <td>@itemInfo.AuthenText</td>
-                                    <td>@itemInfo.StatusDocumnetText</td>
-                                    <td>@datetimeCreate</td>
-                                    <td>
-                                        <a href="/NTDDetail?Id=@itemInfo.Id" >
-                                            <i class="bi bi-pencil">
-                                            </i>
-                                        </a>
-                                    </td>
-
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                  
-                </div>
-            </div>
-
-        </div>
-    </div>
+            @{
+                int i = 0;
+            }
+            @foreach (var itemData in Model.DataAll.Data)
+            {
+                var itemInfo = itemData as dynamic;
+                var datetimeCreate = @itemInfo.CreateAt.ToString("dd/MM/yyyy HH:mm");
+                var datetimeUpdate = "";
+                if (@itemInfo.UpdateAt != null)
+                {
+                    datetimeUpdate = @itemInfo.UpdateAt.ToString("dd/MM/yyyy HH:mm");
+                }
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@itemInfo.Code</td>
+                    <td>@itemInfo.Name</td>
+                    <td>@itemInfo.Email</td>
+                    <td>@itemInfo.CompanyName</td>
+                    <td>@itemInfo.Taxcode</td>
+                    <td>@itemInfo.Phone</td>
+                    <td>@itemInfo.StatusText</td>
+                    <td>@itemInfo.AuthenText</td>
+                    <td>@itemInfo.StatusDocumnetText</td>
+                    <td>@datetimeCreate</td>
+                    <td>
+                        <a href="/NTDDetail?Id=@itemInfo.Id">
+                            <i class="bi bi-pencil">
+                            </i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </section>
 
 <div class="modal fade" id="formModal" tabindex="-1">
-    <div class="modal-dialog  modal-dialog-centered modal-lg">
-        <div class="modal-content" id="contentModal">
-        </div>
+<div class="modal-dialog  modal-dialog-centered modal-lg">
+    <div class="modal-content" id="contentModal">
     </div>
-</div><!-- End Large Modal-->
+</div>
+</div>

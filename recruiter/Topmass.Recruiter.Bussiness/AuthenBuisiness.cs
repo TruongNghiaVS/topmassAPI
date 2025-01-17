@@ -14,14 +14,11 @@ namespace Topmass.Recruiter.Bussiness
     public partial class AuthenBuisiness : IAuthenBuisiness
     {
         private readonly IRecruiterRepository _repository;
-
         private readonly IRecruiterInfoRepository _recruiterInfoRepository;
         private readonly IForgetPasswordRepository _forgetPasswordRepository;
         private readonly IRecruitmentMailBussiness _mailBussiness;
         private readonly ILogActionModelRepository _logActionModelRepository;
-
         private readonly IActiveCodeRecruiterRepository activeCodeRecruiterRepository;
-
         private BusinessResourceMessage resourceMessage;
         public AuthenBuisiness(IRecruiterRepository userRepository,
             IForgetPasswordRepository forgetPasswordRepository,
@@ -62,30 +59,14 @@ namespace Topmass.Recruiter.Bussiness
                 return result;
             }
 
-            if (userInfo.LevelAuthen == 0)
-            {
+            //if (userInfo.LevelAuthen == 0)
+            //{
 
-                result.Message = "Tài khoản chưa kích hoạt email";
-                result.AddError("Email", "Tài khoản chưa kích hoạt email");
-                return result;
-            }
-
-
-            if (userInfo.Status == 0)
-            {
-
-                result.Message = "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin";
-                result.AddError("Email", "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin");
-                return result;
-            }
-
-            if (userInfo.Status == 2)
-            {
-
-                result.Message = "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin";
-                result.AddError("Email", "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin");
-                return result;
-            }
+            //    result.Message = "Tài khoản chưa kích hoạt email";
+            //    result.ErrorCode = ListCodeError.Register_HaveNotValidMail;
+            //    result.AddError("Email", "Tài khoản chưa kích hoạt email");
+            //    return result;
+            //}
             //result.Message = resourceMessage.SuccessfullAuthenMsg;
 
             var itemInsert = new LogActionModel
@@ -96,11 +77,31 @@ namespace Topmass.Recruiter.Bussiness
                 BusinessTime = DateTime.Now,
                 UserId = userInfo.Id,
                 Content = "Đăng nhập",
-
             };
             await _logActionModelRepository.AddOrUPdate(itemInsert);
             var tokenUser = this.GenerateToken(userInfo);
             result.Token = tokenUser;
+            result.AuthenLevel = userInfo.LevelAuthen;
+
+            if (result.AuthenLevel < 1)
+            {
+                return result;
+            }
+            if (userInfo.Status == 0)
+            {
+                result.ErrorCode = ListCodeError.Account_Loked;
+                result.Message = "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin";
+                result.AddError("Email", "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin");
+                return result;
+            }
+
+            if (userInfo.Status == 2)
+            {
+                result.ErrorCode = ListCodeError.Account_Loked;
+                result.Message = "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin";
+                result.AddError("Email", "Tài khoản đang bị khoá. vui lòng liên hệ bộ phận admin");
+                return result;
+            }
             //result.Message = resourceMessage.SuccessAuthenCreateToken;
             return result;
         }
@@ -153,14 +154,12 @@ namespace Topmass.Recruiter.Bussiness
            )
             {
                 reponse.AddError(resourceMessage.Missing_param_Name);
-
             }
 
             if (string.IsNullOrWhiteSpace(request.Phone)
             )
             {
                 reponse.AddError(resourceMessage.Missing_param_PhoneNumber);
-
             }
             var itemInsert = new RecruiterRepAdd()
             {
@@ -174,7 +173,6 @@ namespace Topmass.Recruiter.Bussiness
             };
             await _repository.AddUser(itemInsert);
             return reponse;
-
         }
         public async Task<BaseResult> HandleRequestPassword(string email)
         {
@@ -203,8 +201,6 @@ namespace Topmass.Recruiter.Bussiness
                 UpdateAt = DateTime.Now,
                 Email = email,
                 UpdatedBy = 1,
-
-
             };
             var randomCode = "" + new Random().Next(1000, 10000) + DateTime.Now.Ticks + "";
             forgetPasswordRequest.Code = randomCode;
@@ -279,12 +275,22 @@ namespace Topmass.Recruiter.Bussiness
                }
                );
 
+
             if (itemRecuInfo != null)
             {
-                itemRecuInfo.LevelAuthen = 1;
+
+                if (itemRecuInfo.LevelAuthen >= 1)
+                {
+
+                }
+                else
+                {
+                    itemRecuInfo.LevelAuthen = 1;
+                }
                 itemRecuInfo.DateActive = DateTime.Now;
                 itemRecuInfo.Status = 1;
                 await _recruiterInfoRepository.AddOrUPdate(itemRecuInfo);
+
             }
             await activeCodeRecruiterRepository.AddOrUPdate(codeForgetLink);
 

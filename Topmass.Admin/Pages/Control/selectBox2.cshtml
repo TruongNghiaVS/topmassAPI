@@ -1,4 +1,9 @@
-﻿<div class="col-12 form-group">
+﻿@{
+    var col_width = Model.Col_Width;
+    
+}
+
+<div class="@col_width form-group">
 
     <label class="form-label"> @Model.Lable </label>
     <select name="@Model.Name"  id = "@Model.Name" class="form-select" aria-label="">

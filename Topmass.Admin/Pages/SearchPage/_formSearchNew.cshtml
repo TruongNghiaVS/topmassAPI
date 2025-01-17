@@ -1,113 +1,95 @@
-﻿<form class="row g-3" method="get" action="@Model.NameController">
+﻿@using Topmass.Admin.GlobalData
 
-    <div class="col-md-6">
-    <label class="form-label">Từ Ngày</label>
-    <input value="@Model.RequestSearch.FromText" type="date" name="from" class="form-control">
-    </div>
-    <div class="col-md-6">
-     <label class="form-label">Đến ngày</label>
-    <input value="@Model.RequestSearch.ToText" type="date" name="to" class="form-control">
-    </div>
+<section class="section search-form">
+    <div class="row">
+<form class="row g-3" method="get" action="@Model.NameController">
 
-    <div class="col-md-6">
-        <label class="form-label">Từ khoá</label>
-        <input type="text" value="@Model.RequestSearch.Token" name="token" placeholder="Tên, vị trí" class="form-control">
-    </div>
-
-  
     @{
-        var authenLevel = new SelectControl()
-            {
-                Lable ="Công ty",
-                DataSource = Model.DataCompnay  as dynamic,
-                Name = "cbCompany",
-                Value = Model.RequestSearch.CbCompany,
-                DisplayAll = true
+        var keywordSearch = new ControlItem()
+        {
+            Lable = "Từ khoá",
+            Name = "token",
+            Col_Width = "col-md-6",
+            Placeholder = "Tên, vị trí",
+            Value = Model.RequestSearch.Token
         };
-     
+        var rowFrom = new ControlItem()
+        {
+            Lable = "Từ ngày",
+            Name = "from",
+            TypeInputText = "date",
+            Col_Width = "col-md-3",
+            Placeholder = "",
+            Value = Model.RequestSearch.FromText
+        };
+        var rowTo = new ControlItem()
+        {
+            Lable = "Đến ngày",
+            Name = "to",
+            TypeInputText = "date",
+            Col_Width = "col-md-3",
+            Placeholder = "",
+            Value = Model.RequestSearch.ToText
+        };
+        var dataListCompany = new SelectControl()
+        {
+            Lable = "Công ty",
+            DataSource = Model.DataCompnay as dynamic,
+            Name = "cbCompany",
+                Col_Width = "col-md-6",
+            Value = Model.RequestSearch.CbCompany,
+            DisplayAll = true
+        };
         var statusControl = new SelectControl()
-            {
+        {
                 Lable = "Trạng thái duyệt",
                 Name = "cbstatus",
+                Col_Width = "col-md-4",
+                DisplayAll  = true,
                 Value = Model.RequestSearch.CbStatus,
-                DataSource = new List<dynamic>() {
-                    new
-                    {
-                    id = -1, text = "Tất cả",
-                    },
-                    new
-                    {
-                        id = 0, text = "Đang xét duyệt",
-                    },
-                    
-                    new {
-                        id = 2, text = "Đã duyệt",
-                    },
-                    new {
-                        id = 3, text = "Bị từ chối",
-                    },
-                    new {
-                        id = 4, text = "Tin bị khóa",
-                    }
-             }
-            };
+                DataSource = Constaint.GetListStatusNews()
+        };
 
         var displayStatus = new SelectControl()
-            {
-                Lable = "Trạng thái hiển thị",
-                Name = "cbDisplay",
-                Value = Model.RequestSearch.CbDisplay,
-                DataSource = new List<dynamic>() {
-    new
-    {
-    id = -1, text = "Tất cả",
-    },
-    new
-    {
-    id = 0, text = "Đang tắt",
-    },
-    new {
-    id = 1, text = "Bật",
-    },
-    new {
-    id = 2, text = "Hết hạn",
-    }
-    }
-            };
+        {
+            Lable = "Trạng thái hiển thị",
+            Name = "cbDisplay",
+                Col_Width = "col-md-4",
+            Value = Model.RequestSearch.CbDisplay,
+            DataSource = Constaint.GetListStatusDisplayNews()
+        };
 
         var timeWayOrderBy = new SelectControl()
+        {
+            Value = Model.RequestSearch.Orderby,
+            Lable = "Sắp xếp theo",
+                Col_Width = "col-md-4",
+            DataSource = new List<dynamic>()
             {
-                Value = Model.RequestSearch.Orderby,
-                Lable = "Sắp xếp theo",
-
-                DataSource = new List<dynamic>()
-    {
-    new
-    {
-    id = 0,
-    text = "thời gian cập nhật gần nhất"
-    },
-    new
-    {
-    id = 1,
-    text = "thời gian cập nhật xa nhất"
-    }
-    },
-                Name = "Orderby"
+            new
+            {
+            id = 0,
+            text = "thời gian cập nhật gần nhất"
+            },
+            new
+            {
+            id = 1,
+            text = "thời gian cập nhật xa nhất"
+            }
+            },
+            Name = "Orderby"
             };
-        }
+    }
     @{
+        Html.RenderPartial(keywordSearch.PathControl, keywordSearch);
+        Html.RenderPartial(rowFrom.PathControl, rowFrom);
+        Html.RenderPartial(rowTo.PathControl, rowTo);
         Html.RenderPartial(statusControl.PathControl, displayStatus);
         Html.RenderPartial(statusControl.PathControl, statusControl);
-        Html.RenderPartial(authenLevel.PathControl, authenLevel);
         Html.RenderPartial(timeWayOrderBy.PathControl, timeWayOrderBy);
+        Html.RenderPartial(dataListCompany.PathControl, dataListCompany);
 
-        
-
-        
-       
      }
-
 
     <div class="col-md-6" style="display:none">
         <label class="form-label">Limit</label>
@@ -115,6 +97,8 @@
     </div>
     <div class="text-end">
         <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-        @* <button type="button" class="btn btn-primary" onclick="openFormCommon(-1,'@Model.NameController')">Thêm mới</button> *@
     </div>
 </form>
+    </div>
+
+</section>

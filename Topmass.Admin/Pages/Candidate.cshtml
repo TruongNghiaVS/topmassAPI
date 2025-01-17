@@ -1,0 +1,90 @@
+﻿@page
+@using crmHuman.Pages
+@model CandidateModel
+@{
+    ViewData["Title"] = Model.TitlePage;
+    var datasourceCompany = Model.DataCompnay;
+}
+<div class="pagetitle">
+    <h1>@Model.TitlePage</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/Employee">Nhân viên</a></li>
+            <li class="breadcrumb-item active">Danh sách</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+@{
+    Html.RenderPartial("SearchPage/_formSearchCandidate", Model);
+}
+<section class="section">
+  
+    @{
+        var columnText = Model.TableColumnText;
+    }
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                @foreach (var item in columnText)
+                {
+                    <th>
+                        @item
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+
+            @{
+                int i = 0;
+            }
+            @foreach (var itemData in Model.DataAll.Data)
+            {
+                var itemInfo = itemData as dynamic;
+                var datetimeCreate = itemInfo.CreateAt.ToString("dd/MM/yyyy HH:mm");
+                var lastChangeText = "";
+                var datetimeUpdate = "";
+                if (@itemInfo.UpdateAt != null)
+                {
+                    var temp = itemInfo.LastChange > itemInfo.CreateAt ? itemInfo.LastChange : itemInfo.CreateAt;
+                    var timeUpdate = itemInfo.UpdateAt > itemInfo.temp ? itemInfo.UpdateAt : itemInfo.temp;
+                    datetimeUpdate = timeUpdate.ToString("dd/MM/yyyy HH:mm");
+                }
+                i++;
+                <tr>
+                        <td>@i</td>
+                        <td>@itemInfo.Id</td>
+                        <td>@itemInfo.FirstName</td>
+                        <td>@itemInfo.FullName</td>
+                        <td>@itemInfo.Email</td>
+                        <td>@itemInfo.Phone</td>
+                        <td>@itemInfo.EmailStatus</td>
+                        <td>@datetimeCreate</td>
+                        <td>@datetimeUpdate</td>
+                        <td>@lastChangeText</td>
+                        <td>
+                            <a href="/CandidateDetail?Id=@itemInfo.Id">
+                                <i class="bi bi-pencil">
+                                </i>
+                            </a>
+                        </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
+<div class="modal fade" id="formModal" tabindex="-1">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content" id="contentModal">
+        </div>
+    </div>
+</div>
+<script>
+     function runDataOnLoad () {
+            $('#cbCompany').select2();
+        }
+
+
+</script>

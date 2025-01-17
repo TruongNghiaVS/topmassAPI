@@ -156,7 +156,7 @@ namespace Topmass.Bussiness.Mail
                 return reponse;
             }
 
-            var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\\NTD\\RegisterActiveNTD.html";
+            var pathTemplate = @"C:\vietbank\crm\topmass\Topmass.Bussiness.Mail\Template\NTD\RegisterActiveNTD.html";
             var contents = File.ReadAllText(pathTemplate);
             contents = contents.Replace("{code}", codeGen.Code);
             contents = contents.Replace("{fullName}", itemInfo.Name);

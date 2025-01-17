@@ -27,7 +27,7 @@
     }
     public class RecruiterInfoModel : BaseModel
     {
-        public int? LevelAuthen { get; set; }
+        public int LevelAuthen { get; set; }
 
         public DateTime? DateActive { get; set; }
 
@@ -38,8 +38,6 @@
         public string? AvatarLink { get; set; }
 
         public bool? Gender { get; set; }
-
-
         public RecruiterInfoModel()
         {
 

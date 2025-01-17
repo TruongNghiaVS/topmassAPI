@@ -140,6 +140,9 @@ namespace Topmass.core.Business
             if (candidateDup != null)
             {
                 reponse.AddError(nameof(itemInsert.Email), "Trùng lặp thông tin Email ");
+                reponse.ErrorCode = ListCodeError.Register_DuplicateInfo;
+                reponse.Message = "\"Trùng lặp thông tin Email";
+                return reponse;
             }
             var result = await _repository.AddUser(itemInsert);
             var item = new ActiveCodeMember();
@@ -154,11 +157,11 @@ namespace Topmass.core.Business
                 await _mailBussiness.ValidateCandidateMail(itemInsert.Email, item.Code);
             }
             return reponse;
-            if (result == true)
-            {
-                await _mailBussiness.CandidateSuccessRegister(itemInsert.Email);
-            }
-            return reponse;
+            //if (result == true)
+            //{
+            //    await _mailBussiness.CandidateSuccessRegister(itemInsert.Email);
+            //}
+            //return reponse;
         }
 
         private string GetFullLink(string shortLink)

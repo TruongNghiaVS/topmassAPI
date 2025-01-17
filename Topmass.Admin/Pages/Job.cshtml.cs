@@ -37,7 +37,7 @@ namespace crmHuman.Pages
             )
         {
             _logger = logger;
-            TitlePage = "Danh sách nhà tuyển dụng";
+            TitlePage = "Danh sách tin đăng";
             KeyPage = "NTD";
             TableColumnText = new List<string>()
             {
@@ -64,7 +64,7 @@ namespace crmHuman.Pages
                 Limit = request2.Limit,
                 Page = request2.Page,
                 To = request2.To,
-                OrderBy =request2.Orderby,
+                OrderBy = request2.Orderby,
                 Token = request2.Token,
                 CbDisplay = request2.CbDisplay,
                 CbStatus = request2.CbStatus,

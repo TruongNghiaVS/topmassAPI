@@ -3,10 +3,12 @@
 
     public class BaseResult
     {
+        public int ErrorCode { get; set; }
         public BaseResult()
         {
 
             DataEror = new List<ItemError>();
+            ErrorCode = -1;
         }
         public bool Success
         {
@@ -21,7 +23,6 @@
                 return false;
             }
         }
-
         public int StatusCode
         {
             get
@@ -32,6 +33,7 @@
         }
         private bool _successTemp { get; set; }
         public string Message { get; set; }
+
         public dynamic Data { get; set; }
         public List<ItemError> DataEror { get; set; }
 
@@ -79,6 +81,7 @@
     {
         public string Token { get; set; }
 
+        public int AuthenLevel { get; set; }
         public LoginResult()
         {
 
