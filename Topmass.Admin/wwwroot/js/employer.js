@@ -3020,4 +3020,143 @@ function updateStatusDisplay() {
 
     
 }
-//endjob
+
+
+function UpdateJobDetail() {
+
+   
+    var txtTileJob = getValueControl("txtTitle");
+
+    var thoigianlamViec  =  getvalueTextEdditor("txtThoiGianLamViec");
+
+    var motacongviec =  getvalueTextEdditor("Description");
+    var yeucaucongviec =  getvalueTextEdditor("Requirement");
+    var loiichcongviec =  getvalueTextEdditor("Benefit");
+  
+    var txtSalaryFromControl = getValueControl("txtSalaryFrom");
+    var txtSalaryToControl = getValueControl("txtSalaryTo");
+    var unitMoneyValue = getValueControl("cbUnit");
+    var cbRangeSalaryTypeRange = getValueControl("cbRangeSalaryType");
+
+    if (   thoigianlamViec == "") {
+        Swal.fire({
+            icon: "error",
+            title: "Có lỗi xảy ra.",
+            text: "Thời gian làm việc không được để trống",
+            footer: ''
+          });
+          return;
+    }
+
+    
+    if (   motacongviec == "") {
+        Swal.fire({
+            icon: "error",
+            title: "Có lỗi xảy ra.",
+            text: "Mô tả công việc không được để trống",
+            footer: ''
+          });
+          return;
+    }
+
+    
+    if ( yeucaucongviec == "") {
+        Swal.fire({
+            icon: "error",
+            title: "Có lỗi xảy ra.",
+            text: "Yêu cầu công việc không được để trống",
+            footer: ''
+          });
+          return;
+    }
+
+    if( cbRangeSalaryTypeRange == 0)
+    {
+
+        if( txtSalaryFromControl  < 1  || txtSalaryToControl < 1  )
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Có lỗi xảy ra.",
+                text: "Yêu cầu có mức lương tù - đến",
+                footer: ''
+              });
+              return;
+        }
+    }
+
+    else 
+
+    {
+        txtSalaryFromControl =0 ;
+        txtSalaryToControl =0;
+    }
+
+    var bodyRequest =  {
+        id : getValueControl("idinput"), 
+        titleJob :  txtTileJob,
+        timeWorking: thoigianlamViec,
+        description: motacongviec,
+        requirment:  yeucaucongviec,
+        benefit:  loiichcongviec,
+        RangeSalaryType :  cbRangeSalaryTypeRange,
+        unitMoney: unitMoneyValue,
+        SalaryFrom :  txtSalaryFromControl,
+        SalaryTo: txtSalaryToControl
+     };
+
+
+     $.ajax({
+        headers: {
+            "RequestVerificationToken":
+                $('input[name="__RequestVerificationToken"]').val()
+        },
+        type: "POST",
+        datatype: "JSON",
+        url: '/JobDetailModel?handler=UpdateJob',
+        data: bodyRequest,
+        success: function (data) {
+            successAdd(getValueControl("idinput"));
+        },
+        error: function (jqXHR, exception) {
+            showError(jqXHR);
+        },
+        complete: function () {
+           
+        }
+    });
+}
+
+function updatecompanyInfo() {
+    var txtNameCompany = getValueControl("txtCompnayName");
+    var addressCompany = getValueControl("txtAddress");
+    var descriptionCompany = getvalueTextEdditor("txtShortDescription");
+    var bodyRequest =  {
+        id : getValueControl("idinput"), 
+        descriptionCompany :  descriptionCompany,
+        companyName: txtNameCompany,
+        address:  addressCompany
+     };
+
+     $.ajax({
+        headers: {
+            "RequestVerificationToken":
+                $('input[name="__RequestVerificationToken"]').val()
+        },
+        type: "POST",
+        datatype: "JSON",
+        url: '/NTDDetail?handler=UpdateCompanyInfo',
+        data: bodyRequest,
+        success: function (data) {
+            successAdd(getValueControl("idinput"));
+        },
+        error: function (jqXHR, exception) {
+            showError(jqXHR);
+        },
+        complete: function () {
+           
+        }
+    });
+}
+
+

@@ -95,5 +95,12 @@ namespace Topmass.Campagn.Repository
             });
             return result;
         }
+
+        public async Task<bool> UpdateJobAdmin(dynamic jobRequestUpdate)
+        {
+            var result = await ExecuteSqlProcedure("sp_adminUpdateJob", jobRequestUpdate);
+            return result;
+        }
+
     }
 }

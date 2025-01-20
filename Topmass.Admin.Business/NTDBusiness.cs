@@ -308,5 +308,16 @@ namespace Topmass.Admin.Business
             return dataReponse;
         }
 
+        public async Task<bool> UpdateCompanyInfo(UpdateCompanyRequestInfo request)
+        {
+
+
+            await _repository.NTDRepository.UpdateCompanyInfo(request);
+
+
+            return true;
+
+        }
+
     }
 }

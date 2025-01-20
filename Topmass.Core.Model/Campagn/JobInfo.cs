@@ -19,6 +19,7 @@
 
         public bool? Aggrement { get; set; }
 
+
         public int? Salary_from { get; set; }
 
         public int? Salary_to { get; set; }

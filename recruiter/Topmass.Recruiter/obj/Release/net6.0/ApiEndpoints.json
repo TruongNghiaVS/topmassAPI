@@ -121,6 +121,16 @@
         "Name": "Status",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Limit",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -177,6 +187,22 @@
       {
         "Name": "request",
         "Type": "Topmass.Recruiter.Model.CampagnItemRequestUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.CandidateViewerController",
+    "Method": "AddLogStatus",
+    "RelativePath": "api/recruiter/CandidateViewer/AddLogStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.IntputJobViewerRequest",
         "IsRequired": true
       }
     ],
@@ -445,6 +471,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Topmass.Recruiter.Controllers.EmailController",
+    "Method": "RequestMailValidAccount",
+    "RelativePath": "api/recruiter/Email/RequestMailValidAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.MailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.EmailController",
+    "Method": "RequestSendMailChangePassword",
+    "RelativePath": "api/recruiter/Email/RequestSendMailChangePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.RequestChangePasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Topmass.Recruiter.Controllers.ExchangeCVController",
     "Method": "CancleItem",
     "RelativePath": "api/recruiter/ExchangeCV/CancleItem",
@@ -554,6 +612,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.ForgetController",
+    "Method": "testmail",
+    "RelativePath": "api/recruiter/Forget/testmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -1022,6 +1090,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Topmass.Recruiter.Controllers.RegisterController",
+    "Method": "SendmailXacThuc",
+    "RelativePath": "api/recruiter/Register/SendmailXacThuc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Topmass.Recruiter.Controllers.RewardController",
     "Method": "OpenCV",
     "RelativePath": "api/recruiter/Reward/OpenCV",
@@ -1048,6 +1126,59 @@
       {
         "Name": "request",
         "Type": "Topmass.Recruiter.Model.OpenSearchCVRequestNoSearch",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.RewardController",
+    "Method": "OpenViewer",
+    "RelativePath": "api/recruiter/Reward/OpenViewer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.OpenViewerCVRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.SearchCVController",
+    "Method": "AddCVToStore",
+    "RelativePath": "api/recruiter/SearchCV/AddCVToStore",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TemplateID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileCV",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Topmass.Recruiter.Controllers.SearchCVController",
+    "Method": "CheckFileGenCV",
+    "RelativePath": "api/recruiter/SearchCV/CheckFileGenCV",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Topmass.Recruiter.Model.CheckFileGenCVDegital",
         "IsRequired": true
       }
     ],

@@ -233,5 +233,26 @@ namespace crmHuman.Pages
             };
             return Partial("editOrUpdateEmployee", resultView);
         }
+
+
+        public async Task<IActionResult> OnpostUpdateCompanyInfo(UpdateCompanyInfoChangeRequest request)
+        {
+
+            await business.UpdateCompanyInfo(new UpdateCompanyRequestInfo()
+            {
+                CompanyName = request.CompanyName,
+                DescriptionCompany = request.DescriptionCompany,
+                Id = request.Id,
+                Address = request.Address
+            });
+            var dataReponse = new
+            {
+                success = true,
+            };
+            return new JsonResult(dataReponse)
+            {
+                StatusCode = StatusCodes.Status200OK
+            };
+        }
     }
 }

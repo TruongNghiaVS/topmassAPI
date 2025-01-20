@@ -128,5 +128,32 @@
 
         }
     }
+    public class UpdateJobInfoAdmin
+    {
+        public int Id { get; set; }
+        public string TitleJob { get; set; }
+        public string TimeWorking { get; set; }
+        public string Description { get; set; }
+        public string Requirment { get; set; }
+        public string Benefit { get; set; }
+
+        public int RangeSalaryType { get; set; }
+
+        public int unitMoney { get; set; }
+
+        public int SalaryFrom { get; set; }
+
+        public int SalaryTo { get; set; }
+
+    }
+
+    public class UpdateCompanyRequestInfo
+    {
+        public int Id { get; set; }
+        public string DescriptionCompany { get; set; }
+        public string CompanyName { get; set; }
+        public string Address { get; set; }
+
+    }
 
 }

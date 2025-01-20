@@ -106,7 +106,7 @@ namespace Topmass.Admin.Repository
                     return CreateAt.ToString("dd/MM/yyyy");
                 }
 
-             
+
 
 
             }
@@ -141,6 +141,18 @@ namespace Topmass.Admin.Repository
     public class DataInfoJobAdmin : JobInfoModel
     {
 
+        public int AggrementGet
+        {
+            get
+            {
+                if (Aggrement.HasValue)
+                {
+                    if (Aggrement == true)
+                        return 1;
+                }
+                return 0;
+            }
+        }
 
 
     }

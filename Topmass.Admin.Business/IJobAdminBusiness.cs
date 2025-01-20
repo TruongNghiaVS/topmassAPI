@@ -12,5 +12,8 @@ namespace Topmass.Admin.Business
         public Task<bool> UpdateStatusDisplay(int id, int statusChange, string noted = "", string content = "");
         //public Task<BaseResultAdd> AddNTD(NTDRequestAdd request);
 
+        //job
+        public Task<bool> UpdateInfoJob(UpdateJobInfoAdmin requestUpdateJob);
+
     }
 }

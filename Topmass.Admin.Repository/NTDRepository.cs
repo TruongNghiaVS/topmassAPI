@@ -152,5 +152,12 @@ namespace Topmass.Campagn.Repository
             });
             return result;
         }
+
+        public async Task<bool> UpdateCompanyInfo(dynamic requestUpdate)
+        {
+            var result = await ExecuteSqlProcedure("sp_adminUpdateCopmpanyInfo", requestUpdate);
+            return result;
+        }
+
     }
 }

@@ -31,8 +31,19 @@
         });
     }
 
+    var dataUnit  = new List<Object>();
+    dataTypeOfWork.Add(new
+    {
+        id = 0,
+        text = "VNĐ"
+    });
+    dataTypeOfWork.Add(new
+    {
+        id = 1,
+        text = "USD"
+    });
 
-        var dataAll3 = Model.DataLevelMaster as dynamic;
+    var dataAll3 = Model.DataLevelMaster as dynamic;
 
     var dataCapBac= new List<Object>();
 
@@ -274,26 +285,53 @@
                                         
                                         });
 
-                                         
-
-                                         listColumnLeft.Add(new ControlItem()
+                                    listColumnLeft.Add(new SelectControl()
                                         {
                                         Lable = "Mức lương",
+                                        Value =  infoBasic.AggrementGet,
+                                        Name = "cbRangeSalaryType",
+                                        DataSource  = new List<dynamic>() {
+                                                new
+                                                {
+                                                id = 1, text = "Thoả thuận",
+                                                },
+                                                new
+                                                {
+                                                id = 0, text = "Khoảng lương",
+                                                }
+                                        }});
+                                        listColumnLeft.Add(new ControlItem()
+                                        {
+                                        Lable = "Mức lương Từ",
                                        
-                                        Name = "txtLuong",
-                                        Value =  dataModel.SalaryText
+                                        Name = "txtSalaryFrom",
+                                        Value =  infoBasic.Salary_from
                                         
                                         });
 
-                                          listColumnLeft.Add(new ControlItem()
+                                        listColumnLeft.Add(new ControlItem()
                                         {
-                                        Lable = "Đơn vị tiền tệ",
+                                        Lable = "Mức lương đến",
                                        
-                                        Name = "txtUnit",
-                                        Value =  dataModel.UnitText
+                                        Name = "txtSalaryTo",
+                                        Value =  infoBasic.Salary_to
                                         
                                         });
-                                      
+                                        listColumnLeft.Add(new SelectControl()
+                                            {
+                                            Lable = "Đơn vị tiề tệ",
+                                            Value =  int.Parse(infoBasic.Type_money),
+                                            Name = "cbUnit",
+                                            DataSource  = new List<dynamic>() {
+                                                    new
+                                                    {
+                                                    id = 0, text = "VNĐ",
+                                                    },
+                                                    new
+                                                    {
+                                                    id = 1, text = "USD",
+                                                    }
+                                            }});
                                        listColumnLeft.Add(new ControlItem()
                                         {
                                         Lable = "Thời giam làm việc",
@@ -545,7 +583,7 @@
                                             <br />
 
                                             <div class="justify-content-center">
-                                                <button type="button" class="btn btn-primary">Cập nhật thông tin</button>
+                                                <button type="button" onclick="UpdateJobDetail()"  class="btn btn-primary">Cập nhật thông tin</button>
                                             </div>
 
                                         </div>
@@ -627,7 +665,7 @@
 
 <script>
      let globledata = @Html.Raw(Json.Serialize( Model.ResultData))
-     console.log(globledata);
+
      function runDataOnLoad() {
         document.getElementById("cbGender").selectedIndex = -1;
         document.getElementById("cbKinhnghiem").selectedIndex = -1;
@@ -639,9 +677,6 @@
         document.getElementById("cbLoaiCongViec").value = globledata.infoBasic.type_of_work;
         document.getElementById("cbNganhNghe").value = globledata.infoBasic.profession;
         document.getElementById("cbCapBac").value = globledata.infoBasic.rank;
-
-        debugger;
-
         if(globledata.infoBasic.emails.length  > 1)
         {
              var emailsList =JSON.parse(globledata.infoBasic.emails);
@@ -661,9 +696,26 @@
 
             document.getElementById("txtEmailReceive").value = emailData;
             $("#contact-tab").click();
+
+
+                    var elementcbRangeSalaryType = document.getElementById('cbRangeSalaryType');
+                    var eventChange  = new Event('change');
+                    elementcbRangeSalaryType.dispatchEvent(eventChange);
         }
 
 
     }
+    document.getElementById('cbRangeSalaryType').onchange = function(){
+            if( this.value == 0)
+            {
+                    showElement("txtSalaryFrom");
+                    showElement("txtSalaryTo");
+            }
+            else {
+                    HideElement("txtSalaryFrom");
+                    HideElement("txtSalaryTo");
+            }
+    }
+  
 
 </script>

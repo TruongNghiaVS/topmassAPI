@@ -21,5 +21,7 @@
         public Task<List<JobLogAdminItemDisplay>> GetAllLog(int id);
         public Task<bool> UpdateInfoHuman(int statusAccout, int statusConfirm, int id);
 
+        public Task<bool> UpdateJobAdmin(dynamic jobRequestUpdate);
+
     }
 }

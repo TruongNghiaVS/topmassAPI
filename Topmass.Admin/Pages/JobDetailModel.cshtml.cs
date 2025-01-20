@@ -199,7 +199,45 @@ namespace crmHuman.Pages
             };
         }
 
+        public async Task<IActionResult> OnpostUpdateJob(UpdateJobRequest request)
+        {
+            var listEror = new List<object>();
 
+            if (request == null)
+            {
+                listEror.Add("thiếu thông tin");
+            }
+
+            if (listEror.Count > 0)
+            {
+                return new JsonResult(listEror)
+                {
+                    StatusCode = StatusCodes.Status400BadRequest
+                };
+            }
+            await jobAdminBusiness.UpdateInfoJob(new UpdateJobInfoAdmin()
+            {
+                Benefit = request.Benefit,
+                Description = request.Description,
+                Requirment = request.Requirment,
+                TimeWorking = request.TimeWorking,
+                TitleJob = request.TitleJob,
+                SalaryFrom = request.SalaryFrom,
+                SalaryTo = request.SalaryTo,
+                RangeSalaryType = request.RangeSalaryType,
+                unitMoney = request.unitMoney,
+                Id = request.Id
+            });
+            var dataReponse = new
+            {
+                success = true,
+            };
+            return new JsonResult(dataReponse)
+            {
+                StatusCode = StatusCodes.Status200OK
+
+            };
+        }
 
         public virtual async Task<PartialViewResult> OnGetFormEdit(int id)
         {

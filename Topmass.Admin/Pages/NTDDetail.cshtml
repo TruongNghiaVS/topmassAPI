@@ -264,7 +264,6 @@
                                                 @{
                                                     
                                                     var listColumnLeft = new List<ControlItem>();
-
                                                     listColumnLeft.Add(new AvatarControlItem()
                                                     {
                                                     Value = companyInfo.FullLinkLogoLink,
@@ -382,9 +381,9 @@
 
                                             <br />
 
-                                           @*  <div class="justify-content-center">
-                                                <button type="button" class="btn btn-primary">Cập nhật thông tin</button>
-                                            </div> *@
+                                            <div class="justify-content-center">
+                                                <button type="button" onclick="updatecompanyInfo()" class="btn btn-primary">Cập nhật thông tin</button>
+                                            </div>
 
                                         </div>
 
@@ -604,7 +603,6 @@
 
 <script>
      let globledata = @Html.Raw(Json.Serialize( Model.ResultData))
-     console.log(globledata);
      function runDataOnLoad() {
          
          document.getElementById("cbStatusDucoment").selectedIndex =-1;

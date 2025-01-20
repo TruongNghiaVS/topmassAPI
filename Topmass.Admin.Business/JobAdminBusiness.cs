@@ -59,6 +59,12 @@ namespace Topmass.Admin.Business
             return await _repository.NTDRepository.UpdateConfirmStatus(request.Id, request.StatusChange, request.NotedChange, content);
         }
 
+        public async Task<bool> UpdateInfoJob(UpdateJobInfoAdmin request)
+        {
+
+            return await _repository.JobAdminRep.UpdateJobAdmin(request);
+        }
+
         public async Task<bool> UpdateStatusDisplay(int id, int statusChange, string noted = "", string content = "")
         {
             content = "Chúng tôi đã thay trạng thái hiển thị của tin đăng, quý khách vui lòng kiểm tra và  thay đổi lại trong phần chiến dịch tuyển dụng";

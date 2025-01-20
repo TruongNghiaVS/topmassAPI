@@ -317,3 +317,26 @@
   }
 
 })();
+
+
+
+
+function getvalueTextEdditor( id)
+{
+  var textEditor =tinymce.get(id);
+  if(textEditor != null)
+    {
+      return  textEditor.getContent();
+    } 
+  
+}
+
+function showElement(id)
+{
+  document.getElementById(id).closest(".form-group").style.display = "block"
+}
+
+function HideElement(id)
+{
+     document.getElementById(id).closest(".form-group").style.display = "none"
+}
