@@ -24,13 +24,11 @@ namespace crmHuman.Pages
 
         public string NameController { get; set; }
         public string KeyPage { get; set; }
-
         public List<string> TableColumnText { get; set; }
         private INTDBusiness business { get; set; }
         private IMasterBusiness MasterBusiness { get; set; }
         public int TotalRecord
         {
-
             get
             {
                 return DataAll.Total;

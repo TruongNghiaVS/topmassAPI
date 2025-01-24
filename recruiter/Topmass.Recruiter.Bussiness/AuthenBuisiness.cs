@@ -58,17 +58,6 @@ namespace Topmass.Recruiter.Bussiness
                 result.AddError("Email", resourceMessage.Authen_NotFoundAccout);
                 return result;
             }
-
-            //if (userInfo.LevelAuthen == 0)
-            //{
-
-            //    result.Message = "Tài khoản chưa kích hoạt email";
-            //    result.ErrorCode = ListCodeError.Register_HaveNotValidMail;
-            //    result.AddError("Email", "Tài khoản chưa kích hoạt email");
-            //    return result;
-            //}
-            //result.Message = resourceMessage.SuccessfullAuthenMsg;
-
             var itemInsert = new LogActionModel
             {
                 Actor = 1,
@@ -82,7 +71,6 @@ namespace Topmass.Recruiter.Bussiness
             var tokenUser = this.GenerateToken(userInfo);
             result.Token = tokenUser;
             result.AuthenLevel = userInfo.LevelAuthen;
-
             if (result.AuthenLevel < 1)
             {
                 return result;
@@ -249,7 +237,6 @@ namespace Topmass.Recruiter.Bussiness
                 reponse.AddError(resourceMessage.ValidLinkFail);
                 return reponse;
             }
-
             var itemRecru = await _repository.FindOneByStatementSql<RecruiterModel>("select top 1 * from Recruiter where Email = @email",
                 new
                 {

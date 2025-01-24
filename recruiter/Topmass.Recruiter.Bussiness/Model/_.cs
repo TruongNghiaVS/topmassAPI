@@ -17,6 +17,11 @@
 
     }
 
+    public class DocumentBusinessGetInfo
+    {
+        public int DocumentStatusCode { get; set; }
+    }
+
 
     public class RecruiterInfoResult
     {
@@ -98,6 +103,9 @@
 
 
         public int? NumberLightning { get; set; }
+
+
+
 
         public RecruiterInfoResult()
         {

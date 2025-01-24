@@ -77,6 +77,11 @@ namespace Topmass.Recruiter.Bussiness
                 ("select top 1 * from RecruiterInfo where RelId = @RelId",
                 new { RelId = request.RecuruiterId }
               );
+
+            var documentBussinessInfo = await _infoRepository.FindOneByStatementSql<DocumentBusinessGetInfo>(
+                "select   ISNULL(h.Status, 0 ) as DocumentStatusCode  from Recruiter g left join BusinessLicense h on g.Email = h.Email where g.id = @id",
+                new { id = request.RecuruiterId }
+                );
             if (recruiterInfo == null)
             {
                 recruiterInfo = new RecruiterInfoModel()
@@ -94,10 +99,24 @@ namespace Topmass.Recruiter.Bussiness
                 };
                 await _infoRepository.AddOrUPdate(recruiterInfo);
             }
-            result.Level = recruiterInfo.LevelAuthen;
+            var resultLevel = recruiterInfo.LevelAuthen;
+            if (documentBussinessInfo != null && resultLevel < 2)
+            {
+
+                if (documentBussinessInfo.DocumentStatusCode == 3)
+                {
+                    resultLevel = 2;
+                }
+
+                if (documentBussinessInfo.DocumentStatusCode == 5)
+                {
+                    resultLevel = 3;
+                }
+            }
+            result.Level = resultLevel;
+            //result.Level = recruiterInfo.LevelAuthen;
             result.Phone = GetValueString(recruiterItem.Phone);
             result.AvatarLink = GetFullLink(recruiterInfo.AvatarLink);
-
             var tempGenger = 0;
             if (recruiterInfo.Gender == true)
             {
