@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\tomass2\\topmass\\topmass\\topmass\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{59E316CB-5C8F-42BA-9209-A848005F62F4}|topmass.csproj|c:\\tomass2\\topmass\\topmass\\topmass\\controllers\\authencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59E316CB-5C8F-42BA-9209-A848005F62F4}|topmass.csproj|solutionrelative:controllers\\authencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59E316CB-5C8F-42BA-9209-A848005F62F4}|topmass.csproj|c:\\tomass2\\topmass\\topmass\\topmass\\controllers\\jobwebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59E316CB-5C8F-42BA-9209-A848005F62F4}|topmass.csproj|solutionrelative:controllers\\jobwebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{861D33D2-6A0C-43C1-B0ED-1C8DBD7BFE0D}|..\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj|c:\\tomass2\\topmass\\topmass\\recruiter\\topmass.recruiter\\controllers\\authencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{861D33D2-6A0C-43C1-B0ED-1C8DBD7BFE0D}|..\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj|c:\\tomass2\\topmass\\topmass\\recruiter\\topmass.recruiter\\topmass.recruiter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,27 +26,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthenController.cs",
-              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\topmass\\Controllers\\AuthenController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthenController.cs",
-              "ToolTip": "C:\\tomass2\\topmass\\topmass\\topmass\\Controllers\\AuthenController.cs",
-              "RelativeToolTip": "Controllers\\AuthenController.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAgwCYAAAA5AAAA",
+              "Title": "JobWebController.cs",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\topmass\\Controllers\\JobWebController.cs",
+              "RelativeDocumentMoniker": "Controllers\\JobWebController.cs",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\topmass\\Controllers\\JobWebController.cs",
+              "RelativeToolTip": "Controllers\\JobWebController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwB0AAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T10:24:50.729Z",
+              "WhenOpened": "2025-02-20T08:37:39.38Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AuthenController.cs",
-              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\Controllers\\AuthenController.cs",
-              "RelativeDocumentMoniker": "..\\recruiter\\Topmass.Recruiter\\Controllers\\AuthenController.cs",
-              "ToolTip": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\Controllers\\AuthenController.cs",
-              "RelativeToolTip": "..\\recruiter\\Topmass.Recruiter\\Controllers\\AuthenController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAgAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T06:43:08.627Z"
+              "Title": "Topmass.Recruiter.csproj",
+              "DocumentMoniker": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
+              "RelativeDocumentMoniker": "..\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
+              "ToolTip": "C:\\tomass2\\topmass\\topmass\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
+              "RelativeToolTip": "..\\recruiter\\Topmass.Recruiter\\Topmass.Recruiter.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-14T08:23:49.611Z"
             },
             {
               "$type": "Bookmark",

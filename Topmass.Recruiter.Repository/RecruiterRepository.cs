@@ -23,9 +23,5 @@ namespace Topmass.Recruiter.Repository
             return result;
 
         }
-
-
-
-
     }
 }

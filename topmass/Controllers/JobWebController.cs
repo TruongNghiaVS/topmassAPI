@@ -21,8 +21,6 @@ namespace topmass.Model
             ) : base(logger)
         {
             _logger = logger;
-
-
             _jobBusiness = jobBusiness;
             _regionalbussiness = regionalBusiness;
         }
@@ -90,6 +88,7 @@ namespace topmass.Model
             reponse.Data = result;
             return StatusCode(reponse.StatusCode, reponse);
         }
+
 
         [HttpGet]
         [AllowAnonymous]

@@ -33,7 +33,7 @@
         {
             get
             {
-                if (Rulestatus == 2)
+                if (Rulestatus == 1)
                 {
                     return "Đã xác thực";
                 }

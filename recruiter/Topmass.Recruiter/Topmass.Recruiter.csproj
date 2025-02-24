@@ -1,16 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.32" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\Topmass.Business.History\Topmass.Business.History.csproj" />
     <ProjectReference Include="..\..\Topmass.Business.Regional\Topmass.Business.Regional.csproj" />
@@ -24,5 +21,4 @@
     <ProjectReference Include="..\..\TopMass.Web.Business\TopMass.Web.Business.csproj" />
     <ProjectReference Include="..\Topmass.Recruiter.Bussiness\Topmass.Recruiter.Bussiness.csproj" />
   </ItemGroup>
-
 </Project>
